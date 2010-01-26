@@ -1,0 +1,9 @@
+=link_to 'New', new_ingredient_path
+
+%table
+  %tr
+    %th Ingredient
+
+  - @ingredients.each do |ingredient|
+    %tr
+      %td= link_to ingredient.name, edit_ingredient_path(ingredient)
