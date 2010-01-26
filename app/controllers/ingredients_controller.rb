@@ -15,7 +15,6 @@ class IngredientsController < ApplicationController
       flash[:notice] = 'Ingredient was successfully created.'
       redirect_to ingredients_url
     else
-      flash[:error] = 'Ingredients have to be named'
       render :action => :new
     end
 
@@ -31,6 +30,8 @@ class IngredientsController < ApplicationController
     if @ingredient.update_attributes(params[:ingredient])
       flash[:notice] = 'Ingredient was successfully updated.'
       redirect_to ingredients_url
+    else
+      render :action => :edit
     end
 
   end

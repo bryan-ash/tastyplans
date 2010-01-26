@@ -1,5 +1,6 @@
 - form_for @ingredient do |form|
   = form.label :name, 'Name'
   = form.text_field :name
+  = error_message_on :ingredient, :name
 
   = form.submit 'Submit'

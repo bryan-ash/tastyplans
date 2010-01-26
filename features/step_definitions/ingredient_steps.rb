@@ -9,3 +9,12 @@ When /^I create an ingredient named "(.*)"$/ do |name|
   When  'I fill in "Name" with "' + name + '"'
   And   'I press "Submit"'
 end
+
+When /^I rename "(.+)" to "(.+)"$/ do |old, new|
+  Given 'an ingredient named "' + old + '"'
+  When  'I go to the ingredients page'
+  And   'I follow "' + old + '"'
+  Then  'I should see "Editing Ingredient"'
+  When  'I fill in "Name" with "' + new + '"'
+  And   'I press "Submit"'
+end
