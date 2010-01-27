@@ -1,5 +1,7 @@
 =link_to 'New', new_ingredient_path
 
+- if @ingredients.empty? then
+  No ingredients available yet.
 %table
   %tr
     %th Ingredient

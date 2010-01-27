@@ -1,5 +1,9 @@
 Feature: Ingredients
 
+  Scenario: Empty Listing
+    When I go to the ingredients page
+    Then I should see "No ingredients available yet"
+
   Scenario: Listing
     Given an ingredient named "Sugar"
     And   an ingredient named "Spice"
