@@ -2,10 +2,11 @@
 
 - if @ingredients.empty? then
   No ingredients available yet.
-%table
-  %tr
-    %th Ingredient
-
-  - @ingredients.each do |ingredient|
+- else
+  %table
     %tr
-      %td= link_to ingredient.name, edit_ingredient_path(ingredient)
+      %th Ingredient
+   
+    - @ingredients.each do |ingredient|
+      %tr
+        %td= link_to ingredient.name, edit_ingredient_path(ingredient)

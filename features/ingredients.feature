@@ -3,6 +3,7 @@ Feature: Ingredients
   Scenario: Empty Listing
     When I go to the ingredients page
     Then I should see "No ingredients available yet"
+    And  I should not see "Ingredient"
 
   Scenario: Listing
     Given an ingredient named "Sugar"
