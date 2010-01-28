@@ -8,8 +8,6 @@ The Blue Ridge JavaScript Testing Rails Plugin adds support for command-line and
 * `Smoke` - a JavaScript mocking & stubbing library similar to Mocha
 * `env.js` - a DOM implementation written entirely in JavaScript
 
-Please join our [mailing list](http://groups.google.com/group/blueridgejs) if you're interested in Blue Ridge!  Also, check out if our build is broken (it'd better NOT be!) on [RunCodeRun](http://runcoderun.com/relevance/blue-ridge).
-
 Installing and Running
 ----------------------
 
@@ -34,6 +32,27 @@ To generate and run a spec for a JavaScript file called "public/javascripts/grap
     rake test:javascripts TEST=graphics
 
 To run your spec inside a web browser, load the `HTML fixture` associated with the spec. (See below for more information on HTML fixtures and in-browser testing).
+
+Fixtures rendered from Rails templates
+======================================
+
+If you have a template at path app/views/xxx/yyy.html.erb, then you can have your
+test fixture HTML file rendered automatically from that template. 
+
+Using the generator:
+    script/generate javascript_spec xxx_yyy xxx/yyy.html.erb
+    spec spec/javascripts/xxx_yyy_spec.rb
+  
+The latter command will do two things:
+i) generate the spec/javascripts/fixtures/xxx_yyy.html based on the template
+ii) run the spec/javascripts/xxx_yyy_spec.js tests in headless mode
+
+To update the database + stub out template methods (like current_user), 
+modify the block in spec/javascripts/xxx_yyy_spec.rb.
+
+If you are not using rspec, or don't pass the xxx/yyy.html.erb argument
+to the javascript_spec generator, a blank fixture file will be generated
+as described earlier.
 
 Directory Layout: Specs and Fixtures
 -------------------------------------
@@ -208,8 +227,6 @@ Links
 -------------
 * [Blue Ridge JavaScript Testing Rails Plugin](http://github.com/relevance/blue-ridge)
 * [Blue Ridge Sample App](http://github.com/relevance/blue-ridge-sample-app)
-* [Mailing List](http://groups.google.com/group/blueridgejs)
-* [Blue Ridge Build Status on RunCodeRun](http://runcoderun.com/relevance/blue-ridge)
 * [Justin Gehtland's "Fully Headless JSSpec" Blog Post](http://blog.thinkrelevance.com/2008/7/31/fully-headless-jsspec)
 * [Screw.Unit](http://github.com/nkallen/screw-unit)
 * [Screw.Unit Mailing List](http://groups.google.com/group/screw-unit)
@@ -218,6 +235,17 @@ Links
 * [env.js Mailing List](http://groups.google.com/group/envjs)
 * [Mozilla Rhino](http://www.mozilla.org/rhino/)
 * [W3C DOM Specifications](http://www.w3.org/DOM/DOMTR)
+
+Contributors
+------------
+* Justin Gehtland
+* Geof Dagley
+* Larry Karnowski
+* Chris Thatcher (for numerous env.js bug fixes!)
+* Raimonds Simanovskis
+* Jason Rudolph
+* Jonas Nicklas (original fixture rendering code http://gist.github.com/148947)
+* Dr Nic Williams
 
 Copyrights
 ------------

@@ -3,16 +3,24 @@
 
 <head>
   <title>Ingredients | JavaScript Testing Results</title>
-  <link rel="stylesheet" href="screw.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="screw.css" type="text/css" charset="utf-8" /> 
   <script type="text/javascript" src="../../../vendor/plugins/blue-ridge/lib/blue-ridge.js"></script>
 </head>
 
 <body>
-<h1>Editing Ingredient</h1>
-<form action="/ingredients/2" class="edit_ingredient" id="edit_ingredient_2" method="post"><div style="margin: 0pt; padding: 0pt; display: inline;"><input name="_method" value="put" type="hidden"><input name="authenticity_token" value="xWmRvaa3tOt02zxBs1OaU9yf9G2og1Z4XXhFrF2Kd3A=" type="hidden"></div>
-<label for="ingredient_name">Name</label>
-<input id="ingredient_name" name="ingredient[name]" size="30" value="" type="text">
-<input id="ingredient_submit" name="commit" value="Submit" type="submit">
+  <!-- Put any HTML fixture elements here. -->
+  <h1>New Ingredient</h1>
+<form action="/ingredients" class="new_ingredient" id="new_ingredient" method="post">
+  <label for="ingredient_name">Name</label>
+  <input id="ingredient_name" name="ingredient[name]" size="30" type="text" />
+
+  <input id="ingredient_submit" name="commit" type="submit" value="Submit" />
 </form>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#ingredient_name').focus();
+    });
+  </script>
+
 </body>
 </html>

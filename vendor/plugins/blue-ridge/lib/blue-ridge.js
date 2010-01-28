@@ -1,85 +1,73 @@
-var BlueRidge = BlueRidge || {};
+var BLUE_RIDGE_LIB_PREFIX = BLUE_RIDGE_LIB_PREFIX || "../../vendor/plugins/blue-ridge/lib/";
 
-BlueRidge.Browser = {
+var BlueRidge = {
   require: function(url, options){
-    options = options || {};
-
-    var system   = options["system"] || false;
-    var callback = options["onload"] || null;
-
-    url = (system) ? this.treatUrlAsRelativeToCurrentFile(url) : this.treatUrlAsRelativeToSpecFile(url);
-    this.createScriptTag(url, callback);
-  },
-
-  //TODO: holy crap this needs refactoring
-  treatUrlAsRelativeToSpecFile: function(url){
-    var depth = this.calculateDepth();
-
-    //remove any extra "../" from the start of the URL
-    var prefix = "^";
-    for(var i=0; i < (depth-1); i++) { prefix += "\.\.\/" }
-    url = url.replace(new RegExp(prefix), ""); 
-    
-    return this.urlCorrection(depth) + url;
-  },
+    // add a '../' prefix to all JavaScript paths because we expect to be ran from one of:
+    // * test/javascript/fixtures
+    // * specs/javascripts/fixtures
+    // * examples/javascripts/fixtures
+    url = "../" + url;
   
-  treatUrlAsRelativeToCurrentFile: function(url){
-    return this.urlCorrection(this.calculateDepth()) + url;
-  },
-  
-  createScriptTag: function(url, onload){
     var head = document.getElementsByTagName("head")[0];
     var script = document.createElement("script");
-
     script.src = url;
-    if(onload) { script.onload = script.onreadystatechange = onload; }
-
+  
+    options = options || {};
+  
+    if(options['onload']) {
+      // Attach handlers for all browsers
+      script.onload = script.onreadystatechange = options['onload'];
+    }
+  
     head.appendChild(script);
   },
   
-  urlCorrection: function(depth){
-    var correction = "";
-    for(var i=0; i < depth; i++) { correction += "../" }
-    return correction;
+  css: function(url, options) {
+    // add a '../' prefix to all JavaScript paths because we expect to be ran from one of:
+    // * test/javascript/fixtures
+    // * specs/javascripts/fixtures
+    // * examples/javascripts/fixtures
+    url = "../" + url;
+  
+    var head = document.getElementsByTagName("head")[0];
+    var link = document.createElement("link");
+    link.href = url;
+    link.rel  = "stylesheet";
+  
+    options = options || {};
+  
+    if(options['onload']) {
+      // Attach handlers for all browsers
+      link.onload = link.onreadystatechange = options['onload'];
+    }
+  
+    head.appendChild(link);
   },
   
-  debug: function(message){
+  debug: function(message, options){
     document.writeln(message + " <br/>");
-  },
-
-  currentFile: function(){
-    return window.location.toString();
   },
   
   deriveSpecNameFromCurrentFile: function(){
-    return this.currentFile().match(/^.*fixtures\/(.*?)\.html/)[1] + "_spec.js";
-  },
-  
-  calculateDepth: function(){
-    var subDirs = this.currentFile().match(/^.*fixtures\/((.*?\/)*)(.*?)\.html/)[1];
-    return subDirs.split("/").length;
+    var file_prefix = new String(window.location).match(/.*\/(.*?)\.html/)[1];
+    return file_prefix + "_spec.js";
   }
 };
 
-if(BlueRidge.loaded != true) {
-  var require = function(url, options){ return BlueRidge.Browser.require(url, options) };
-  var debug   = function(message)     { return BlueRidge.Browser.debug(message) };
+var require = require || BlueRidge.require;
+var css = css || BlueRidge.css;
+var debug   = debug   || BlueRidge.debug;
 
-  var BLUE_RIDGE_PREFIX = BLUE_RIDGE_PREFIX || "../../vendor/plugins/blue-ridge/";
-  var BLUE_RIDGE_VENDOR_PREFIX = BLUE_RIDGE_PREFIX + "/vendor/";
+require(BLUE_RIDGE_LIB_PREFIX + "jquery-1.3.2.js");
+require(BLUE_RIDGE_LIB_PREFIX + "jquery.fn.js");
+require(BLUE_RIDGE_LIB_PREFIX + "jquery.print.js");
+require(BLUE_RIDGE_LIB_PREFIX + "screw.builder.js");
+require(BLUE_RIDGE_LIB_PREFIX + "screw.matchers.js");
+require(BLUE_RIDGE_LIB_PREFIX + "screw.events.js");
+require(BLUE_RIDGE_LIB_PREFIX + "screw.behaviors.js");
+require(BLUE_RIDGE_LIB_PREFIX + "smoke.core.js");
+require(BLUE_RIDGE_LIB_PREFIX + "smoke.mock.js");
+require(BLUE_RIDGE_LIB_PREFIX + "smoke.stub.js");
+require(BLUE_RIDGE_LIB_PREFIX + "screw.mocking.js");
 
-  require(BLUE_RIDGE_VENDOR_PREFIX + "jquery-1.3.2.js",    {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "jquery.fn.js",       {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "jquery.print.js",    {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "screw.builder.js",   {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "screw.matchers.js",  {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "screw.events.js",    {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "screw.behaviors.js", {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "smoke.core.js",      {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "smoke.mock.js",      {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "smoke.stub.js",      {system: true});
-  require(BLUE_RIDGE_VENDOR_PREFIX + "screw.mocking.js",   {system: true});
-
-  BlueRidge.loaded = true;
-  require(BlueRidge.Browser.deriveSpecNameFromCurrentFile());
-}
+require(BlueRidge.deriveSpecNameFromCurrentFile());
