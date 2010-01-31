@@ -4,3 +4,7 @@ Then /^(.+) should be listed before (.+) on the (.+) page$/ do |first, second, p
   second_position = (response.body =~ /#{second}/)
   first_position.should < second_position  
 end
+
+Then /^I should see "(.+)" once$/ do |text|
+  response.body.scan(text).length.should == 1
+end

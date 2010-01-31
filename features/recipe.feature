@@ -13,7 +13,7 @@ Feature: Recipe
       Put the bacon between the buttered bread.
       """
 
-    When  show the "Bacon Butty" recipe
+    When  I show the "Bacon Butty" recipe
 
     Then  I should see "Bacon Butty"
     And   I should see "2 slice bread"

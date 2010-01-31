@@ -12,6 +12,6 @@ Given /^a "([^\"]*)" recipe has directions:$/ do |recipe_name, directions|
   recipe.update_attributes! :directions => directions
 end
 
-When /^show the "([^\"]*)" recipe$/ do |recipe|
+When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
