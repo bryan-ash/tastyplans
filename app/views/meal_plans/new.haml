@@ -1,6 +1,7 @@
-%h1= "Plan for #{@meal_plan.name}"
-
 .meal_plan
-  -@meal_plan.planned_meals.each do |planned_meal|
-    %h2= planned_meal.day
-    #monday= planned_meal.recipe.name
+  %h1= "Plan for #{@meal_plan.name}"
+
+  - @meal_plan.planned_meals.each do |planned_meal|
+    .planned_meal{ :id => "#{planned_meal.day}" }
+      %h2= planned_meal.day
+      .recipe= planned_meal.recipe.name

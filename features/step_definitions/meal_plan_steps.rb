@@ -15,9 +15,12 @@ Then /^the plan should be named with next week\'s date$/ do
   Then "I should see \"#{MealPlan.default_name}\""
 end
 
-Then /^I should see a suggested recipe$/ do
-  within('#monday') do |content|
-    recipe_name = content.dom.children.text
-    Recipe.find_by_name(recipe_name).should_not be_nil
+Then /^I should see a suggested recipe for (.+)$/ do |day|
+  Then "I should see \"#{day}\""
+  within("\##{day}") do |content|
+    within('.recipe') do |content|
+      recipe_name = content.dom.children.text
+      Recipe.find_by_name(recipe_name).should_not be_nil
+    end
   end
 end
