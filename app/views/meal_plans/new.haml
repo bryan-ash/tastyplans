@@ -1,0 +1,6 @@
+%h1= "Plan for #{@meal_plan.name}"
+
+.meal_plan
+  -@meal_plan.planned_meals.each do |planned_meal|
+    %h2= planned_meal.day
+    #monday= planned_meal.recipe.name

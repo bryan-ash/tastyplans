@@ -1,3 +1,7 @@
+Given /^a recipe exists$/ do
+  Factory :recipe
+end
+
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|
   recipe = Recipe.find_or_create_by_name :name => recipe_name
   ingredient_amounts.hashes.each do |ingredient_amount|

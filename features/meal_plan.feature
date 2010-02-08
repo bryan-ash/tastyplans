@@ -1,5 +1,6 @@
 Feature: Meal Plan
 
+@wip
   Scenario: Show a meal plan
     Given the meal plan named "Next Week" includes the following meals:
       | day       | recipe          |
@@ -18,3 +19,10 @@ Feature: Meal Plan
     And   I should see "Chip Butty"
     And   I should see "PB & J"
     And   I should see "Chips and Gravy"
+
+  Scenario: Creating
+    Given a recipe exists
+    When I go to the new meal plan page
+    Then the plan should be named with next week's date
+    And  I should see "Monday"
+    And  I should see a suggested recipe

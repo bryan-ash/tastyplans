@@ -14,6 +14,9 @@ module NavigationHelpers
     when /^the ingredients page/
       '/ingredients'
 
+    when /^the new meal plan page/
+      new_meal_plan_path
+      
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
         "Now, go and add a mapping in #{__FILE__}"
