@@ -1,6 +1,5 @@
 Feature: Meal Plan
 
-@wip
   Scenario: Show a meal plan
     Given the meal plan named "Next Week" includes the following meals:
       | day       | recipe          |
