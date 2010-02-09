@@ -6,5 +6,5 @@ Then /^(.+) should be listed before (.+) on the (.+) page$/ do |first, second, p
 end
 
 Then /^I should see "(.+)" once$/ do |text|
-  response.body.scan(text).length.should == 1
+  current_dom.content.scan(text).length.should == 1
 end

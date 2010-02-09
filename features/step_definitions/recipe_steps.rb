@@ -1,5 +1,5 @@
-Given /^a recipe exists$/ do
-  Factory :recipe
+Given /^(\d) recipes? exists?$/ do |count|
+  count.to_i.times { recipe = Factory.create(:recipe) }
 end
 
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|

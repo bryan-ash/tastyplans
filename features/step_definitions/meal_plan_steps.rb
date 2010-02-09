@@ -11,16 +11,27 @@ When /^I show the "([^\"]*)" meal plan$/ do |meal_plan|
   visit meal_plan_path(MealPlan.find_by_name(meal_plan))
 end
 
+When /^I ask for a new suggestion for (.+)$/ do |day|
+  click_link_within("\##{day}", 'Suggest Another')
+end
+
 Then /^the plan should be named with next week\'s date$/ do
   Then "I should see \"#{MealPlan.default_name}\""
 end
 
-Then /^I should see a suggested recipe for (.+)$/ do |day|
-  Then "I should see \"#{day}\""
+def recipe_name(day)
   within("\##{day}") do |content|
     within('.recipe') do |content|
-      recipe_name = content.dom.children.text
-      Recipe.find_by_name(recipe_name).should_not be_nil
+      content.dom.children.first.text.gsub(/[\n ]/, '')
     end
   end
+end
+
+Then /^I should see a suggested recipe for (.+)$/ do |day|
+  Then "I should see \"#{day}\""
+  Recipe.find_by_name(recipe_name(day)).should_not be_nil
+end
+
+Then /^I should see a new suggestion for (.+)$/ do |day|
+  Recipe.find_by_name(recipe_name(day)).should_not == Recipe.first
 end

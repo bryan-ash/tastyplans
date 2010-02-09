@@ -19,8 +19,8 @@ Feature: Meal Plan
     And   I should see "PB & J"
     And   I should see "Chips and Gravy"
 
-  Scenario: Creating
-    Given a recipe exists
+  Scenario: Starting a new plan
+    Given 1 recipe exists
     When  I go to the new meal plan page
     Then  the plan should be named with next week's date
     And   I should see a suggested recipe for Monday
@@ -30,3 +30,9 @@ Feature: Meal Plan
     And   I should see a suggested recipe for Friday
     And   I should see a suggested recipe for Saturday
     And   I should see a suggested recipe for Sunday
+
+  Scenario: Getting a new suggestion
+    Given 2 recipes exists
+    When  I go to the new meal plan page
+    And   I ask for a new suggestion for Monday
+    Then  I should see a new suggestion for Monday

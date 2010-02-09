@@ -1,5 +1,5 @@
 Factory.define :recipe do |recipe|
-  recipe.name 'Recipe'
+  recipe.sequence(:name) { |n| "Recipe#{n}" }
 end
 
 Factory.define :meal_plan do |meal_plan|

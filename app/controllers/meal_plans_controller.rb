@@ -2,6 +2,8 @@ class MealPlansController < ApplicationController
 
   def new
     @meal_plan = MealPlan.new
+    @meal_plan.save
+    redirect_to meal_plan_path(@meal_plan)
   end
 
   def show
