@@ -1,9 +1,11 @@
-Given /^the meal plan named "([^\"]*)" includes the following meals:$/ do |name, table|
+Given /^the meal plan named "([^\"]*)" includes the following meals:$/ do |name, meal_table|
   meal_plan = Factory(:meal_plan, :name => name)
   meal_plan.planned_meals.clear
-  table.hashes.each do |hash|
-    recipe = Factory(:recipe, :name => hash[:recipe])
-    meal_plan.planned_meals << Factory(:planned_meal, :day => hash[:day], :recipe => recipe)
+  meal_table.hashes.each do |meal|
+    recipe = Factory(:recipe, :name => meal[:recipe])
+    planned_meal = Factory(:planned_meal, :day => meal[:day])
+    planned_meal.recipe = recipe
+    meal_plan.planned_meals << planned_meal
   end
 end
 

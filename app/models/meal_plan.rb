@@ -14,8 +14,7 @@ class MealPlan < ActiveRecord::Base
 
   def formulate_a_plan
     ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'].each do |day|
-      planned_meals.create(:day    => day,
-                           :recipe => Recipe.first)
+      planned_meals.create(:day => day)
     end
   end
 
