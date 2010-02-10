@@ -9,19 +9,18 @@
 
 <body>
   <!-- Put any HTML fixture elements here. -->
-    <h1>New Ingredient</h1>
+  <h1>New Ingredient</h1>
+<form action="/ingredients" class="new_ingredient" id="new_ingredient" method="post">
+  <label for="ingredient_name">Enter the name of the ingredient</label>
+  <input id="name" name="ingredient[name]" size="30" type="text" />
 
-    <form action="/ingredients" class="new_ingredient" id="new_ingredient" method="post"><div style="margin:0;padding:0;display:inline"><input name="authenticity_token" type="hidden" value="naGsejFhzAkaFOOvVMpq/QWHlvSzHCFqLjfsgynrGdo=" /></div>
-      <label for="ingredient_name">Enter the name of the ingredient</label>
-      <input id="ingredient_name" name="ingredient[name]" size="30" type="text" />
-    
-      <input id="ingredient_submit" name="commit" type="submit" value="Submit" />
-    </form>
-          <script type="text/javascript">
-            $(document).ready(function () {
-              $('#ingredient_name').focus();
-            });
-          </script>
+  <input id="ingredient_submit" name="commit" type="submit" value="Submit" />
+</form>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#ingredient_name').focus();
+    });
+  </script>
 
 </body>
 </html>
