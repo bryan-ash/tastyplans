@@ -6,7 +6,7 @@ Screw.Unit(function(){
   describe("Ingredients", function(){
     describe("form", function(){
       it("gives name field focus when loaded", function(){
-        expect($.focused()).to(equal, $("#ingredient_name")[0]);
+        expect($.focused()).to(equal, $("#name")[0]);
       });
     });
   });
