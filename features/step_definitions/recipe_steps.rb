@@ -2,6 +2,19 @@ Given /^(\d) recipes? exists?$/ do |count|
   count.to_i.times { recipe = Factory.create(:recipe) }
 end
 
+Given /^a "Bacon Butty" recipe exists$/ do
+  recipe = Recipe.find_or_create_by_name :name => 'Bacon Butty'
+  recipe.ingredient_amounts.create(:amount     => '2',
+                                   :unit       => 'slice',
+                                   :ingredient => Ingredient.create!(:name => 'bread'))
+  recipe.ingredient_amounts.create(:amount     => '1/8',
+                                   :unit       => 'stick',
+                                   :ingredient => Ingredient.create!(:name => 'butter'))
+  recipe.ingredient_amounts.create(:amount     => '4',
+                                   :unit       => 'slice',
+                                   :ingredient => Ingredient.create!(:name => 'bacon'))
+end
+
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|
   recipe = Recipe.find_or_create_by_name :name => recipe_name
   ingredient_amounts.hashes.each do |ingredient_amount|

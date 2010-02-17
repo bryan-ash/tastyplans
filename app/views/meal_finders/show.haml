@@ -1,0 +1,19 @@
+%h1 What ingredients do you have?
+- form_for @meal_finder do |form|
+  = form.text_field :ingredient, :id => :ingredient
+  = form.submit "Try This"
+
+%ul
+  - @meal_finder.ingredients.each do |ingredient|
+    %li= ingredient.name
+
+%h2 Suggestions:
+
+- if @meal_finder.recipes
+  %ul
+    - @meal_finder.recipes.each do |recipe|
+      %li= recipe.name
+- else
+  %h3 Without ingredients, there's not much you can make!
+
+= set_focus_to_id :ingredient

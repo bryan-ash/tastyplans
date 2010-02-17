@@ -16,6 +16,9 @@ module NavigationHelpers
 
     when /^the new meal plan page/
       new_meal_plan_path
+
+    when /^the meal finder page/
+      new_meal_finder_path
       
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
