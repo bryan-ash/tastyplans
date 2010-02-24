@@ -1,10 +1,5 @@
 module NavigationHelpers
-  # Maps a name to a path. Used by the
-  #
-  #   When /^I go to (.+)$/ do |page_name|
-  #
-  # step definition in web_steps.rb
-  #
+
   def path_to(page_name)
     case page_name
     
@@ -12,13 +7,16 @@ module NavigationHelpers
       '/'
     
     when /^the ingredients page/
-      '/ingredients'
+      ingredients_path
 
     when /^the new meal plan page/
       new_meal_plan_path
 
     when /^the meal finder page/
       new_meal_finder_path
+
+    when /^the recipes page/
+      recipes_path
       
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +

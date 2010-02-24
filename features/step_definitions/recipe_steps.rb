@@ -2,6 +2,10 @@ Given /^(\d) recipes? exists?$/ do |count|
   count.to_i.times { recipe = Factory.create(:recipe) }
 end
 
+Given /^recipe "(.+)" exists$/ do |name|
+  Factory.create(:recipe, :name => name)
+end
+
 Given /^a "Bacon Butty" recipe exists$/ do
   recipe = Recipe.find_or_create_by_name :name => 'Bacon Butty'
   recipe.ingredient_amounts.create(:amount     => '2',

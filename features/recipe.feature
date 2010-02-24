@@ -20,3 +20,8 @@ Feature: Recipe
     And   I should see "1/8 stick butter"
     And   I should see "4 slice bacon"
     And   I should see "Fry the bacon"
+
+  Scenario: List all recipes
+    Given recipe "Recipe2" exists
+    And   recipe "Recipe1" exists
+    Then  Recipe1 should be listed before Recipe2 on the recipes page
