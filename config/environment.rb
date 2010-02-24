@@ -6,7 +6,6 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 
   config.gem 'haml'
-  config.gem 'pauldix-feedzirra', :lib => 'feedzirra', :source => 'http://gems.github.com'
   
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
