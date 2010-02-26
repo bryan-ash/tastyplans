@@ -1,7 +1,6 @@
 class MealFinder < ActiveRecord::Base
 
-  has_many :finder_ingredients
-  has_many :ingredients, :through => :finder_ingredients
+  has_many :ingredients, :class_name => 'FinderIngredient'
 
   has_many :finder_recipes
   has_many :recipes, :through => :finder_recipes
@@ -9,12 +8,11 @@ class MealFinder < ActiveRecord::Base
   attr_reader :ingredient
   
   def add_ingredient(ingredient_name)
-    found = Ingredient.named_like(ingredient_name).first
-    self.ingredients << found unless self.ingredients.exists?(found) if found
+    ingredients.create(:name => ingredient_name)
   end
 
   def find_recipes
-    self.recipes = Recipe.with_ingredients(self.ingredients)
+    self.recipes = Recipe.ingredients_name_like_all(ingredients.map(&:name)).all
   end
 
 end

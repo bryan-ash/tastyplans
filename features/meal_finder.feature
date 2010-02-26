@@ -7,3 +7,16 @@ Feature: Meal Finder
     When  I press "Try This"
     Then  I should see "bacon"
     Then  I should see "Bacon Butty"
+
+  Scenario: Finding using part of the ingredeint name
+    Given a "Chocolate Surprise!" recipe has ingredients:
+      | amount | unit   | ingredient        |
+      | 2      | pounds | chocolate buttons |
+    And a "Chocolate Delight!" recipe has ingredients:
+      | amount | unit   | ingredient        |
+      | 4      | bars   | plain chocolate   |
+    And   I am on the meal finder page
+    And   I fill in "ingredient" with "chocolate"
+    When  I press "Try This"
+    Then  I should see "Chocolate Surprise!"
+    And   I should see "Chocolate Delight!"

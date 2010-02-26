@@ -6,6 +6,7 @@ require File.join(File.dirname(__FILE__), 'boot')
 Rails::Initializer.run do |config|
 
   config.gem 'haml'
+  config.gem 'searchlogic'
   
   # config.plugins = [ :exception_notification, :ssl_requirement, :all ]
 
