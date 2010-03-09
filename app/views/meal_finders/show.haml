@@ -12,7 +12,7 @@
 - if @meal_finder.recipes
   %ul
     - @meal_finder.recipes.each do |recipe|
-      %li= recipe.name
+      %li= link_to recipe.name, recipe_path(recipe)
 - else
   %h3 Without ingredients, there's not much you can make!
 

@@ -7,6 +7,8 @@ Feature: Meal Finder
     When  I press "Try This"
     Then  I should see "bacon"
     Then  I should see "Bacon Butty"
+    When  I follow "Bacon Butty"
+    Then  I should see "bread"
 
   Scenario: Finding using part of the ingredeint name
     Given a "Chocolate Surprise!" recipe has ingredients:
