@@ -1,23 +1,15 @@
-# Edit this Gemfile to bundle your application's dependencies.
-source 'http://gemcutter.org'
+source :gemcutter
 
+gem 'rails', '3.0.0.beta'
+gem 'haml'
+gem 'pg'
+gem 'searchlogic'
 
-gem "rails", "3.0.0.beta"
-
-## Bundle edge rails:
-# gem "rails", :git => "git://github.com/rails/rails.git"
-
-gem "haml"
-gem "pg"
-
-## Bundle the gems you use:
-# gem "bj"
-# gem "hpricot", "0.6"
-# gem "sqlite3-ruby", :require => "sqlite3"
-# gem "aws-s3", :require => "aws/s3"
+# thin is required until bundler 0.10 is fixed
+gem 'thin'
 
 ## Bundle gems used only in certain environments:
-# gem "rspec", :group => :test
+# gem 'rspec', :group => :test
 # group :test do
-#   gem "webrat"
+#   gem 'webrat'
 # end
