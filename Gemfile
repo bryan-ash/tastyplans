@@ -1,6 +1,6 @@
 source :gemcutter
 
-gem 'rails', '3.0.0.beta'
+gem 'rails', '3.0.0.beta1'
 gem 'haml'
 gem 'pg'
 gem 'searchlogic'
