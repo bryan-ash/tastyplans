@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def set_focus_to_id(id)
-    <<-EMBED_SCRIPT
+    raw <<-EMBED_SCRIPT
       <script type="text/javascript">
         $(document).ready(function () {
           $('\##{id}').focus();

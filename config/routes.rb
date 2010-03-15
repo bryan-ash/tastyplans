@@ -1,15 +1,19 @@
-ActionController::Routing::Routes.draw do |map|
+Mabel::Application.routes.draw do |map|
 
-  map.resources :meal_finders
+  resources :meal_finders
   
-  map.resources :meal_plans do |meal_plans|
-    meal_plans.resources :planned_meals, :member => { :suggest => :get }
+  resources :meal_plans do
+    resources :planned_meals do
+      member do
+        get :suggest
+      end
+    end
   end
 
-  map.resources :ingredients
+  resources :ingredients
 
-  map.resources :ingredient_amounts
+  resources :ingredient_amounts
 
-  map.resources :recipes
+  resources :recipes
 
 end

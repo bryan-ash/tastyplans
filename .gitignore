@@ -2,12 +2,12 @@
 **/*~
 config/database.yml
 coverage
+.bundle
 db/*.sqlite3
 db/schema.rb
 doc
 log/*.log
-public/cache/**/*
 rerun.txt
-tmp/*
+tmp/**/*
 vendor/plugins/doc/**/*
 semantic.cache
