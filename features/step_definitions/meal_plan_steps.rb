@@ -14,7 +14,9 @@ When /^I show the "([^\"]*)" meal plan$/ do |meal_plan|
 end
 
 When /^I ask for a new suggestion for (.+)$/ do |day|
-  click_link_within("\##{day}", 'Suggest Another')
+  within("\##{day}") do
+    click_link('Suggest Another')
+  end
 end
 
 Then /^the plan should be named with next week\'s date$/ do
@@ -22,10 +24,8 @@ Then /^the plan should be named with next week\'s date$/ do
 end
 
 def recipe_name(day)
-  within("\##{day}") do |content|
-    within('.recipe') do |content|
-      content.dom.children.first.text.gsub(/[\n ]/, '')
-    end
+  within("\##{day}") do
+    find(:css, '.recipe').text.split.first
   end
 end
 
