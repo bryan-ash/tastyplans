@@ -5,8 +5,8 @@ class Recipe < ActiveRecord::Base
 
   default_scope :order => 'name ASC'
   
-#   named_scope :with_ingredients, lambda { |ingredients|
-#     { :joins => :ingredients, :conditions => { :ingredient_amounts => { :ingredient_id => ingredients } } } }
+  scope :with_ingredients, lambda { |ingredients|
+    where(ingredients.include? :ingredient_amounts) }
 
   def self.suggestion(current = nil)
     first unless current

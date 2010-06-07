@@ -10,6 +10,7 @@ Feature: Meal Finder
     When  I follow "Bacon Butty"
     Then  I should see "bread"
 
+@wip
   Scenario: Finding using part of the ingredeint name
     Given a "Chocolate Surprise!" recipe has ingredients:
       | amount | unit   | ingredient        |

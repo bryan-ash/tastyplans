@@ -12,7 +12,7 @@ class MealFinder < ActiveRecord::Base
   end
 
   def find_recipes
-    self.recipes = Recipe.ingredients_name_like_all(ingredients.map(&:name))
+    self.recipes = Recipe.with_ingredients(ingredients.map(&:name))
   end
 
 end
