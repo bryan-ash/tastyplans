@@ -11,7 +11,7 @@ gem 'thin'
 gem 'mechanize'
 
 group :test do
-  gem 'capybara'
+  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'cucumber'
   gem 'cucumber-rails'
   gem 'database_cleaner'
