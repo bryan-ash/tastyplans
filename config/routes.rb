@@ -1,7 +1,5 @@
-Mabel::Application.routes.draw do |map|
+Mabel::Application.routes.draw do
 
-  resources :meal_finders
-  
   resources :meal_plans do
     resources :planned_meals do
       member do
@@ -10,10 +8,6 @@ Mabel::Application.routes.draw do |map|
     end
   end
 
-  resources :ingredients
-
-  resources :ingredient_amounts
-
-  resources :recipes
+  resources :ingredients, :ingredient_amounts, :meal_finders, :recipes
 
 end
