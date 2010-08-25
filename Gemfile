@@ -8,6 +8,7 @@ gem 'pg'
 # thin is required for Heroku until further notice
 gem 'thin'
 
+gem 'heroku'
 gem 'mechanize'
 
 group :test do
