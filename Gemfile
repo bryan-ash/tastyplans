@@ -19,6 +19,6 @@ group :test do
   gem 'rspec'
   gem 'rspec-rails', '>= 2.0.0.beta.1'
   gem 'spork'
-  gem 'test-unit'
+  gem 'test-unit', '= 1.2.3'
   gem 'webrat'
 end
