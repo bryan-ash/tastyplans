@@ -1,4 +1,4 @@
-class MealFinder < ActiveRecord::Base
+class RecipeFinder < ActiveRecord::Base
 
   has_many :ingredients, :class_name => 'FinderIngredient'
 

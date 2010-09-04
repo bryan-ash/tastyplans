@@ -8,6 +8,6 @@ Mabel::Application.routes.draw do
     end
   end
 
-  resources :ingredients, :ingredient_amounts, :meal_finders, :recipes
+  resources :ingredients, :ingredient_amounts, :recipes, :recipe_finders
 
 end
