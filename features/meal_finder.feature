@@ -6,7 +6,7 @@ Feature: Meal Finder
     And   I am on the meal finder page
     And   I fill in "ingredient" with "bacon"
 
-    When  I press "Try This"
+    When  I press "Find recipes"
 
     Then  I should see "bacon"
     And   I should see "Bacon Butty"
@@ -25,7 +25,7 @@ Feature: Meal Finder
     And   I am on the meal finder page
     And   I fill in "ingredient" with "chocolate"
 
-    When  I press "Try This"
+    When  I press "Find recipes"
 
     Then  I should see "Chocolate Surprise!"
     And   I should see "Chocolate Delight!"

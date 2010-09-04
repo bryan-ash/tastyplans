@@ -2,6 +2,7 @@ class MealFindersController < ApplicationController
 
   def new
     @meal_finder = MealFinder.create
+    redirect_to meal_finder_url(@meal_finder)
   end
 
   def show
