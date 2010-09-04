@@ -6,17 +6,17 @@ Given /^recipe "(.+)" exists$/ do |name|
   Factory.create(:recipe, :name => name)
 end
 
-Given /^a "Bacon Butty" recipe exists$/ do
+Given /^a "(.*) Butty" recipe exists$/ do |filler|
   recipe = Recipe.find_or_create_by_name :name => 'Bacon Butty'
   recipe.ingredient_amounts.create(:amount     => '2',
                                    :unit       => 'slice',
-                                   :ingredient => Ingredient.create!(:name => 'bread'))
+                                   :ingredient => Ingredient.find_or_create_by_name(:name => 'bread'))
   recipe.ingredient_amounts.create(:amount     => '1/8',
                                    :unit       => 'stick',
-                                   :ingredient => Ingredient.create!(:name => 'butter'))
+                                   :ingredient => Ingredient.find_or_create_by_name(:name => 'butter'))
   recipe.ingredient_amounts.create(:amount     => '4',
                                    :unit       => 'slice',
-                                   :ingredient => Ingredient.create!(:name => 'bacon'))
+                                   :ingredient => Ingredient.find_or_create_by_name(:name => filler))
 end
 
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|

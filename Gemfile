@@ -1,7 +1,7 @@
 source :gemcutter
 
-gem 'arel',  :git => 'git://github.com/rails/arel.git'
-gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'arel'
+gem 'rails'
 gem 'haml'
 gem 'pg'
 
@@ -10,6 +10,7 @@ gem 'thin'
 
 gem 'heroku'
 gem 'mechanize'
+gem 'meta_where', :git => 'git://github.com/ernie/meta_where.git'
 
 group :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
