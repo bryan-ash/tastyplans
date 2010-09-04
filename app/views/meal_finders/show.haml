@@ -4,10 +4,10 @@
   = form.submit "Try This"
 
 %ul
-  - @meal_finder.ingredients.each do |ingredient|
-    %li= ingredient.name
+  - @meal_finder.ingredient_names.each do |ingredient_name|
+    %li= ingredient_name
 
-%h2 Suggestions:
+%h2 With those ingredients you could make:
 
 - if @meal_finder.recipes
   %ul
