@@ -1,9 +1,9 @@
-Feature: Meal Finder
+Feature: Recipe Finder
 
   Scenario: One ingredient found in one recipe
     Given a "Bacon Butty" recipe exists
     And   a "Chip Butty" recipe exists
-    And   I am on the meal finder page
+    And   I am on the recipe finder page
     And   I fill in "ingredient" with "bacon"
 
     When  I press "Find recipes"
@@ -22,7 +22,8 @@ Feature: Meal Finder
     And a "Chocolate Delight!" recipe has ingredients:
       | amount | unit   | ingredient        |
       | 4      | bars   | plain chocolate   |
-    And   I am on the meal finder page
+    And   I am on the recipe finder page
+    Then show me the page
     And   I fill in "ingredient" with "chocolate"
 
     When  I press "Find recipes"
