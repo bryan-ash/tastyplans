@@ -23,7 +23,6 @@ Feature: Recipe Finder
       | amount | unit   | ingredient        |
       | 4      | bars   | plain chocolate   |
     And   I am on the recipe finder page
-    Then show me the page
     And   I fill in "ingredient" with "chocolate"
 
     When  I press "Find recipes"
