@@ -23,5 +23,3 @@
     %ul
       - @recipe_finder.recipes.each do |recipe|
         %li= link_to recipe.name, recipe_path(recipe)
-
-= set_focus_to_id :ingredient

@@ -1,10 +1,10 @@
 module ApplicationHelper
 
-  def set_focus_to_id(id)
+  def set_focus_to_first_field
     raw <<-EMBED_SCRIPT
       <script type="text/javascript">
         $(document).ready(function () {
-          $('\##{id}').focus();
+          $("input:visible:enabled:first").focus();
         });
       </script>
     EMBED_SCRIPT
