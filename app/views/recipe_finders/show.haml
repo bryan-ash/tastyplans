@@ -9,9 +9,12 @@
 - else
   %h2 With these ingredients:
   %ul
-    - @recipe_finder.ingredient_names.each do |ingredient_name|
-      %li= ingredient_name
-   
+    - @recipe_finder.ingredients.each do |ingredient|
+      .finder_ingredient
+        %li
+          =ingredient.name
+          =button_to 'remove', recipe_finder_finder_ingredient_path(@recipe_finder, ingredient), :method => :delete, :title => 'remove'
+ 
   - if @recipe_finder.recipes.blank?
     %h3 unfortunately we don't have any suggestions for you
 

@@ -29,3 +29,12 @@ Feature: Recipe Finder
 
     Then  I should see "Chocolate Surprise!"
     And   I should see "Chocolate Delight!"
+
+  Scenario: Removing ingredients
+    Given recipe finder 42 has the following ingredients:
+      | bacon |
+    And   I am on the recipe finder 42 page
+
+    When  I press "remove"
+
+    Then I should not see "bacon"
