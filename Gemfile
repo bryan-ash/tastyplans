@@ -10,7 +10,6 @@ gem 'devise'
 gem 'thin'
 
 gem 'heroku'
-gem 'mechanize'
 gem 'meta_where', :git => 'git://github.com/ernie/meta_where.git'
 
 group :test do
@@ -24,4 +23,10 @@ group :test do
   gem 'spork'
   gem 'test-unit', '= 1.2.3'
   gem 'webrat'
+
+  gem 'mechanize'
+
+  # These are needed for devise generators:
+  gem 'hpricot'
+  gem 'ruby_parser'
 end
