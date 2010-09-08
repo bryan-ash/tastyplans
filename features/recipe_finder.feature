@@ -1,5 +1,8 @@
 Feature: Recipe Finder
 
+  Background:
+    Given I am a new, authenticated user
+
   Scenario: One ingredient found in one recipe
     Given a "Bacon Butty" recipe exists
     And   a "Chip Butty" recipe exists

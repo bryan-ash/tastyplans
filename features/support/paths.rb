@@ -5,7 +5,10 @@ module NavigationHelpers
     
     when /the home\s?page/
       '/'
-    
+
+    when /login/
+      new_user_session_path
+      
     when /^the ingredients page/
       ingredients_path
 
