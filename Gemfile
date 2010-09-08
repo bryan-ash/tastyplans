@@ -4,6 +4,7 @@ gem 'arel'
 gem 'rails'
 gem 'haml'
 gem 'pg'
+gem 'devise'
 
 # thin is required for Heroku until further notice
 gem 'thin'

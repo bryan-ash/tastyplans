@@ -1,5 +1,6 @@
 class RecipeFindersController < ApplicationController
-
+  before_filter :authenticate_user!
+  
   def new
     @recipe_finder = RecipeFinder.create
     redirect_to recipe_finder_url(@recipe_finder)

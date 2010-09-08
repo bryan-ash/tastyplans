@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/ernie/meta_where.git
-  revision: 2763666
+  revision: 2763666e9b2b1e1d39e6038e2b377d7e214d70a6
   specs:
     meta_where (0.9.2)
       activerecord (~> 3.0.0.rc2)
@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/jnicklas/capybara.git
-  revision: a4ed172
+  revision: 7065a66503b6aea909f5bea91eb61cacd3a4aa7c
   specs:
     capybara (0.3.9)
       celerity (>= 0.7.9)
@@ -53,6 +53,7 @@ GEM
     activesupport (3.0.0)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    bcrypt-ruby (2.1.2)
     builder (2.1.2)
     celerity (0.8.1)
     configuration (1.1.0)
@@ -67,6 +68,9 @@ GEM
     culerity (0.2.12)
     daemons (1.1.0)
     database_cleaner (0.5.2)
+    devise (1.1.2)
+      bcrypt-ruby (~> 2.1.2)
+      warden (~> 0.10.7)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -80,7 +84,7 @@ GEM
     gherkin (2.1.5)
       trollop (~> 1.16.2)
     haml (3.0.18)
-    heroku (1.9.14)
+    heroku (1.10.0)
       json_pure (>= 1.2.0, < 1.5.0)
       launchy (~> 0.3.2)
       rest-client (~> 1.4.0)
@@ -153,6 +157,8 @@ GEM
       polyglot (>= 0.3.1)
     trollop (1.16.2)
     tzinfo (0.3.23)
+    warden (0.10.7)
+      rack (>= 1.0.0)
     webrat (0.7.1)
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
@@ -168,6 +174,7 @@ DEPENDENCIES
   cucumber
   cucumber-rails
   database_cleaner
+  devise
   factory_girl_rails
   haml
   heroku

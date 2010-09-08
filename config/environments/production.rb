@@ -31,4 +31,9 @@ Mabel::Application.configure do
   # config.threadsafe!
 
   config.active_support.deprecation = :log
+
+  config.action_mailer.default_url_options = {
+    :host     => 'mabel.heroku.com',
+    :protocol => 'https'
+  }
 end
