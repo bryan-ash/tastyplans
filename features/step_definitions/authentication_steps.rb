@@ -2,7 +2,7 @@ Given /^I am not authenticated$/ do
   visit('/users/sign_out')
 end
 
-Given /^I have one\s+user "([^\"]*)" with password "([^\"]*)" and login "([^\"]*)"$/ do |email, password, login|
+Given /^a user with email "([^\"]*)", password "([^\"]*)" and login "([^\"]*)"$/ do |email, password, login|
   User.new(:email => email,
            :login => login,
            :password => password,
@@ -14,7 +14,7 @@ Given /^I am a new, authenticated user$/ do
   login = 'Testing man'
   password = 'secretpass'
 
-  Given %{I have one user "#{email}" with password "#{password}" and login "#{login}"}
+  Given %{a user with email "#{email}", password "#{password}" and login "#{login}"}
   And %{I go to login}
   And %{I fill in "user_email" with "#{email}"}
   And %{I fill in "user_password" with "#{password}"}
