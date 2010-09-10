@@ -1,4 +1,5 @@
-user name
+usernames must be unique (validates_uniqueness_of)
+
 navigation
 styling
 charging

@@ -9,6 +9,9 @@ module NavigationHelpers
     when /sign up/
       new_user_registration_path
       
+    when /sign in/
+      new_user_session_path
+      
     when /login/
       new_user_session_path
       

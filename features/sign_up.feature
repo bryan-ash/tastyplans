@@ -19,7 +19,7 @@ Feature: Authentication
     Then I should see "Email is invalid"
 
   Scenario: Each user must have a different email
-    Given a user with email "john@doe.com", password "secret" and login "John"
+    Given I am a user with email "john@doe.com"
     And   I am on the sign up page
 
     When I fill in "Email" with "john@doe.com"
