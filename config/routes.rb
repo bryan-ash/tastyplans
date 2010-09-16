@@ -2,8 +2,6 @@ Mabel::Application.routes.draw do
 
   devise_for :users
 
-  root :to => "home#index"
-  
   resources :meal_plans do
     resources :planned_meals do
       member do
@@ -18,4 +16,6 @@ Mabel::Application.routes.draw do
   
   resources :ingredients, :ingredient_amounts, :recipes
 
+  root :to => "home#index"
+  
 end
