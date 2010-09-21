@@ -1,7 +1,6 @@
-usernames must be unique (validates_uniqueness_of)
-
 navigation
 styling
 charging
 
 Ryan Bates "title"?  Episode 30
+Better error messages

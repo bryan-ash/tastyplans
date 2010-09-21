@@ -8,18 +8,57 @@
     = csrf_meta_tag
 
   %body
-    .user_nav
-      - if user_signed_in?
-        = "Signed in as #{current_user.username}.  Not you?"
-        = link_to "Sign out", destroy_user_session_path
-      - else
-        = link_to "Sign up", new_user_registration_path
-        or
-        = link_to "Sign in", new_user_session_path
+    .content
+      .rside
+        .topmenu
+          - if user_signed_in?
+            = "Signed in as #{current_user.username}. "
+            = link_to "Sign out", destroy_user_session_path
+          - else
+            = link_to "Sign up", new_user_registration_path
+            or
+            = link_to "Sign in", new_user_session_path
 
-    - flash.each do |name, msg|
-      = content_tag :div, msg, :id => "flash_#{name}"
+        .topmain Main Menu
+        .menu
+          %h2 Categories
+          .nav
+            %ul
+              %li= link_to 'Home'
+              %li= link_to 'Recipe Finder', new_recipe_finder_path
+              %li= link_to 'About'
+              %li= link_to 'Contact'
+   
+      .lside
+        .topmenu
+          = link_to 'About'
+          | 
+          = link_to 'Contact'
+        .header
+          .padding
+            .citation
+              - flash.each do |name, msg|
+                = content_tag :div, msg, :id => "flash_#{name}"
+            %h1 Mabel
+            we understand the pain conjuring daily meals
 
-    = yield
+        .main
+          = yield
+
+        /
+          .infobox
+            .r_sd
+              %h2 Newest Users
+              %img{ :src => '../images/arrow.gif', :alt => '' } User1
+              %br
+              %img{ :src => '../images/arrow.gif', :alt => '' } User2
+            .l_sd
+              %h2 Newest Recipes
+              %img{ :src => '../images/arrow.gif', :alt => '' } Recipe1
+              %br
+              %img{ :src => '../images/arrow.gif', :alt => '' } Recipe2
+            
+      .footer
+        Copyright &copy; 2010 Bryan Ash
 
     = set_focus_to_first_field
