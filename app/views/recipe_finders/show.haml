@@ -1,4 +1,4 @@
-%h1 What ingredients do you have?
+%h2 What ingredients do you have?
 = form_for @recipe_finder do |form|
   = form.text_field :ingredient, :id => :ingredient
   = form.submit "Find recipes"
@@ -7,7 +7,7 @@
   %h3 Without ingredients, there's not much you can make!
 
 - else
-  %h2 With these ingredients:
+  %h3 With these ingredients:
   %ul
     - @recipe_finder.ingredients.each do |ingredient|
       .finder_ingredient

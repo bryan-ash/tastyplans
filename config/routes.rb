@@ -16,6 +16,11 @@ Mabel::Application.routes.draw do
   
   resources :ingredients, :ingredient_amounts, :recipes
 
+  match "about",   :to => "home#about"
+  match "contact", :to => "contact#new"
+  
   root :to => "home#index"
+
+  match "*path" => redirect("/")
   
 end

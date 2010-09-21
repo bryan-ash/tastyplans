@@ -24,16 +24,16 @@
           %h2 Categories
           .nav
             %ul
-              %li= link_to 'Home'
+              %li= link_to 'Home', root_path
               %li= link_to 'Recipe Finder', new_recipe_finder_path
-              %li= link_to 'About'
-              %li= link_to 'Contact'
+              %li= link_to 'About', about_path
+              %li= link_to 'Contact', contact_path
    
       .lside
         .topmenu
-          = link_to 'About'
+          = link_to 'About', about_path
           | 
-          = link_to 'Contact'
+          = link_to 'Contact', contact_path
         .header
           .padding
             .citation
