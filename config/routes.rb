@@ -14,7 +14,7 @@ Mabel::Application.routes.draw do
     resources :finder_ingredients
   end
   
-  resources :ingredients, :ingredient_amounts, :recipes
+  resources :ingredients, :recipes
 
   match "about",   :to => "home#about"
   match "contact", :to => "contact#new"

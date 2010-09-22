@@ -1,9 +1,9 @@
 .meal_plan
-  %h1= @meal_plan.name
+  %h2= @meal_plan.name
 
   - @meal_plan.planned_meals.group_by(&:day).each do |day, planned_meals|
     .planned_day{ :id => "#{day}" }
-      %h2= day
+      %h3= day
       %ul
         - planned_meals.each do |planned_meal|
           %li.recipe
