@@ -2,7 +2,7 @@
 !!!
 %html{:xmlns => 'http://www.w3.org/1999/xhtml'}
   %head
-    %title Mabel's Meals
+    %title OhMabel!
     = stylesheet_link_tag 'style'
     = google_jquery
     = csrf_meta_tag
@@ -39,8 +39,8 @@
             .citation
               - flash.each do |name, msg|
                 = content_tag :div, msg, :id => "flash_#{name}"
-            %h1 Mabel's Meals
-            easing the pain of conjuring daily meals
+            %h1 OhMabel!
+            .tagline ease the pain of conjuring daily meals
 
         .main
           = yield

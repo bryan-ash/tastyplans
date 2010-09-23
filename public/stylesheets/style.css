@@ -1,7 +1,6 @@
 body {
     margin: 5px 0;
     padding: 0;
-    font: 74% Arial, Sans-Serif;
     color: #FFF;
     line-height: 1.4em;
     background: #6B073B;
@@ -40,8 +39,12 @@ body {
 }
 
 .lside .header .padding {
-    padding: 20px 0 0 25px;
+    padding: 20px 0px 0px 25px;
     color: #FFF;
+}
+
+.lside .header .tagline {
+    padding: 2px 0px 0px 7px;
 }
 
 .lside .header .citation {
@@ -218,11 +221,14 @@ a:hover {
 }
 
 h1 {
-    padding: 0;
+    padding: 10px 0 10px 0;
     margin: 0;
     color: #FFF;
     background: inherit;
-    font: bold 4em Georgia, Serif;
+    font-weight: bold;
+    font-size: 4em;
+    font-style: italic;
+    font-family: "Trebuchet MS", sans-serif;
     letter-spacing: -1px;
 }
 
