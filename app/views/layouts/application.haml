@@ -1,7 +1,8 @@
 !!! XML
 !!!
-%html{:xmlns => 'http://www.w3.org/1999/xhtml'}
+%html
   %head
+    %meta{ :charset => "utf-8" }
     %title OhMabel!
     = stylesheet_link_tag 'style'
     = google_jquery
@@ -36,11 +37,11 @@
           = link_to 'Contact', contact_path
         .header
           .padding
+            %h1 OhMabel!
+            .tagline ease the pain of conjuring daily meals
             .citation
               - flash.each do |name, msg|
                 = content_tag :div, msg, :id => "flash_#{name}"
-            %h1 OhMabel!
-            .tagline ease the pain of conjuring daily meals
 
         .main
           = yield

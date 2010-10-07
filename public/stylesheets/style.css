@@ -4,6 +4,7 @@ body {
     color: #FFF;
     line-height: 1.4em;
     background: #6B073B;
+    font-size: 100%;
 }
 
 .content {
@@ -27,8 +28,16 @@ body {
     color: #FFF;
     width: 575px;
     height: 15px;
-    padding: 5px 0px 5px 5px;
+    padding: 2px 0px 8px 5px;
     font-size: 90%;
+}
+
+.rside .topmenu {
+    background: #546078;
+    height: 15px;
+    color: #888;
+    text-align: right;
+    padding: 2px 5px 8px 0px;
 }
 
 .lside .header {
@@ -50,7 +59,7 @@ body {
 .lside .header .citation {
     color: #EEE;
     font-size: 90%;
-    padding: 80px 20px 15px 0;
+    padding: 30px 20px 15px 0;
     float: right;
     text-align: right;
 }
@@ -95,14 +104,6 @@ body {
     width: 180px;
     float: right;
     clear: both;
-}
-
-.rside .topmenu {
-    background: #546078;
-    height: 15px;
-    color: #888;
-    text-align: right;
-    padding: 5px 5px 5px 0px;
 }
 
 .rside .loginbox {
@@ -390,4 +391,10 @@ input.button {
 .success h2 {
     color: #546078;
     background: inherit;
+}
+
+/* Ensure HTML5 elements render correctly in browsers that don't support */
+article, aside, details, figcaption, figure, footer, header,
+hgroup, menu, nav, section {
+    display: block; 
 }
