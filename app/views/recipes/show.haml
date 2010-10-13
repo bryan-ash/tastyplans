@@ -1,12 +1,12 @@
 .recipe
-  %h1= @recipe.name
+  %h2= @recipe.name
 
   .ingredients
-    %h2 Ingredients
+    %h3 Ingredients
     %ul
       - @recipe.ingredient_amounts.each do |ingredient_amount|
         %li= "#{ingredient_amount.amount} #{ingredient_amount.unit} #{ingredient_amount.ingredient.name}"
         
   .directions
-    %h2 Directions
+    %h3 Directions
     %p= @recipe.directions
