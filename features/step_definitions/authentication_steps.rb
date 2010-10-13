@@ -1,4 +1,4 @@
-Given /^I am not authenticated$/ do
+Given /^I am signed out$/ do
   visit('/users/sign_out')
 end
 

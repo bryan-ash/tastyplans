@@ -20,7 +20,6 @@
             or
             = link_to "Sign in", new_user_session_path
 
-        .topmain Main Menu
         .menu
           %h2 General
           .nav
@@ -28,11 +27,12 @@
               %li= link_to 'Home', root_path
               %li= link_to 'About', about_path
               %li= link_to 'Contact', contact_path
-          %h2 My Features
-          .nav
-            %ul
-              %li= link_to 'Recipe Book', recipes_path
-              %li= link_to 'Recipe Finder', new_recipe_finder_path
+          - if user_signed_in?
+            %h2 My Features
+            .nav
+              %ul
+                %li= link_to 'Recipe Book', recipes_path
+                %li= link_to 'Recipe Finder', new_recipe_finder_path
    
       .lside
         .topmenu
