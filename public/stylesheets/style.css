@@ -204,6 +204,7 @@ p {
     padding: 0;
     color: #888;
     background: inherit;
+    float: left;
 }
 
 hr {
@@ -257,6 +258,10 @@ h2 a {
 h2 a:hover {
     color: #EE8300;
     text-decoration: none;
+}
+
+h3 {
+    clear: both;
 }
 
 ul {
@@ -345,6 +350,10 @@ input.searchbutton {
 
 .date a {
     color: #546078;
+}
+
+li.finder_ingredient {
+    clear: both;
 }
 
 input.button {
