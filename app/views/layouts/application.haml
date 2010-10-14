@@ -13,7 +13,6 @@
       .rside
         .topmenu
           - if user_signed_in?
-            = "Signed in as #{current_user.username}. "
             = link_to "Sign out", destroy_user_session_path
           - else
             = link_to "Sign up", new_user_registration_path
@@ -39,6 +38,9 @@
           = link_to 'About', about_path
           | 
           = link_to 'Contact', contact_path
+          - if user_signed_in?
+            .current_user
+              = "Signed in as #{current_user.username}. "
         .header
           .padding
             %h1 OhMabel!

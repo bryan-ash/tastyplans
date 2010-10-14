@@ -15,7 +15,6 @@ body {
     background: #FAFAFA;
 }
 
-/*LEFT SIDE */
 .lside {
     background: #FFF;
     color: #000;
@@ -26,18 +25,15 @@ body {
 .lside .topmenu {
     background: #3A4354;
     color: #FFF;
-    width: 575px;
+    width: 570px;
     height: 15px;
-    padding: 2px 0px 8px 5px;
+    padding: 2px 5px 8px 5px;
     font-size: 90%;
 }
 
-.rside .topmenu {
-    background: #546078;
-    height: 15px;
-    color: #888;
-    text-align: right;
-    padding: 2px 5px 8px 0px;
+.lside .topmenu .current_user {
+    float: right;
+    color: #CCC;
 }
 
 .lside .header {
@@ -104,6 +100,13 @@ body {
     width: 180px;
     float: right;
     clear: both;
+}
+
+.rside .topmenu {
+    background: #546078;
+    height: 15px;
+    color: #888;
+    padding: 2px 5px 8px 5px;
 }
 
 .rside .loginbox {
