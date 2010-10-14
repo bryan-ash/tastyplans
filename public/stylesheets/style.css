@@ -199,12 +199,19 @@ body {
     color: #eee;
 }
 
+li.finder_ingredient {
+    clear: both;
+}
+
+li p, li form {
+    float: left;
+}
+
 p {
     margin: 0 0 5px 0;
     padding: 0;
     color: #888;
     background: inherit;
-    float: left;
 }
 
 hr {
@@ -350,10 +357,6 @@ input.searchbutton {
 
 .date a {
     color: #546078;
-}
-
-li.finder_ingredient {
-    clear: both;
 }
 
 input.button {
