@@ -1,6 +1,5 @@
 source :gemcutter
 
-gem 'arel'
 gem 'rails'
 gem 'haml'
 gem 'pg'

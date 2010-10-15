@@ -180,7 +180,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  arel
   capybara!
   cucumber
   cucumber-rails
