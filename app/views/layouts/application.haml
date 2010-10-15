@@ -45,9 +45,9 @@
           .padding
             %h1 OhMabel!
             .tagline ease the pain of conjuring daily meals
-            .citation
+            .flash
               - flash.each do |name, msg|
-                = content_tag :div, msg, :id => "flash_#{name}"
+                = content_tag :div, msg, :id => "flash_#{name}", :class => "message"
 
         .main
           = yield

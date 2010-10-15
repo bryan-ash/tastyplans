@@ -52,19 +52,28 @@ body {
     padding: 2px 0px 0px 7px;
 }
 
-.lside .header .citation {
-    color: #EEE;
-    font-size: 90%;
-    padding: 30px 20px 15px 0;
+.flash {
+    color: #505050;
+    font-size: 100%;
+    padding: 17px 7px 15px 0;
     float: right;
     text-align: right;
 }
 
+.message {
+    border: solid 1px;
+    padding: 5px 8px;
+    margin-bottom: 10px;
+}
+
 #flash_notice {
+    background-color: #CFC;
+    border-color: #6C6;
 }
 
 #flash_alert {
-    color: red
+    background-color: #FCC;
+    border-color: #C66;
 }
 
 .lside .main {
