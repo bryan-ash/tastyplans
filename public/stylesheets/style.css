@@ -98,7 +98,11 @@ body {
     padding: 10px 20px 5px 20px;
 }
 
-.lside .infobox a {
+.lside .topmenu a {
+    color: #FFF;
+}
+
+.lside a {
     color: #3A4354;
 }
 

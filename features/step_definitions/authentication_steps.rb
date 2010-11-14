@@ -34,3 +34,26 @@ When /^I sign in with "([^\"]+)"$/ do |login|
   fill_in "user_password", :with => "password"
   click_button "Sign in"
 end
+
+When /^I request a password reset with Email "([^\"]+)"$/ do |email|
+  visit "users/sign_in"
+  click_link "Forgot your password?"
+  fill_in "user_email", :with => email
+  click_button "Send me reset password instructions"
+end
+
+When /^I provide a new password$/ do
+  When 'I fill in "Password" with "Secret"'
+  And  'I fill in "Password confirmation" with "Secret"'
+  And  'I press "Update my password and sign me in"'
+end
+
+Then /^I should receive a password reset email at "([^\"]+)"$/ do |email|
+  Given %{"#{email}" should have 1 email}
+  When  %{I open the email}
+  Then  %{I should see "Reset password instructions" in the email subject}
+end
+
+Then /^I should know that I\'m logged in$/ do
+  Then 'I should see "My Features"'
+end

@@ -3,6 +3,7 @@ Populate About page
 Put Sign In and Sign Up on the same page
 Add Recipe
 Edit Own Recipe
+acts_as_recommendable for suggesting recipes
 Show My Account link in top right
 Formatting in Directions (markdown maybe)
 Add recipe to meal plan
@@ -13,4 +14,5 @@ charging (paypal, credit card)
 HTML5?
 
 Ryan Bates "title"?  Episode 30
+checkout has_scope gem for limiting lists
 Better error messages
