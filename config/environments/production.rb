@@ -34,6 +34,6 @@ Mabel::Application.configure do
 
   config.action_mailer.default_url_options = {
     :host     => 'ohmabel.heroku.com',
-    :protocol => 'https'
+    :protocol => 'http'
   }
 end
