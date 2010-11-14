@@ -36,4 +36,15 @@ Mabel::Application.configure do
     :host     => 'ohmabel.heroku.com',
     :protocol => 'http'
   }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address              => "smtp.gmail.com",
+    :port                 => 587,
+    :domain               => 'ohmabel.heroku.com',
+    :user_name            => 'fester.mailer@gmail.com',
+    :password             => 'festerfaster',
+    :authentication       => 'plain',
+    :enable_starttls_auto => true
+  }
 end
