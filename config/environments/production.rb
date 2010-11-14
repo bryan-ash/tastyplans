@@ -42,8 +42,8 @@ Mabel::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     :domain               => 'ohmabel.heroku.com',
-    :user_name            => 'fester.mailer@gmail.com',
-    :password             => 'festerfaster',
+    :user_name            => 'ohmabel@gmail.com',
+    :password             => 'ablemabel',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
