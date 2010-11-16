@@ -36,3 +36,14 @@ end
 When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
+
+When /^I change the name to "([^\"]*)"$/ do |name|
+  fill_in :recipe_name, :with => name
+  click_button "Save edits"
+end
+
+When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
+  When %{I go to the recipe page for "#{old_name}"}
+  And  %{I follow "Edit this recipe"}
+  And  %{I change the name to "#{new_name}"}
+end

@@ -52,6 +52,10 @@ body {
     padding: 2px 0px 0px 7px;
 }
 
+.actions {
+    float: right;
+}
+
 .flash {
     color: #505050;
     font-size: 100%;

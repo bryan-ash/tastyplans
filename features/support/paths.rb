@@ -29,6 +29,10 @@ module NavigationHelpers
 
     when /^the recipes page/
       recipes_path
+
+    when /^the recipe page for "([^\"]+)"$/
+      recipe = Recipe.find_by_name $1
+      recipe_path(recipe)
       
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
