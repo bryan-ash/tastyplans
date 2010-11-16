@@ -1,6 +1,10 @@
-= form_for @recipe do |form|
-  = form.label :name, 'Enter the name of the recipe'
-  = form.text_field :name
+.actions= link_to 'Discard edits', recipe_path(@recipe)
 
-  = form.submit 'Save edits'
-  = link_to 'Discard edits', recipe_path(@recipe)
+= form_for @recipe do |form|
+  %p
+    = form.label :name, 'Enter the name of the recipe'
+    %br
+    = form.text_field :name
+
+  %p
+    = form.submit 'Save edits'
