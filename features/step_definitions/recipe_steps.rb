@@ -33,6 +33,12 @@ Given /^a "([^\"]*)" recipe has directions:$/ do |recipe_name, directions|
   recipe.update_attributes! :directions => directions
 end
 
+Given /^I am editing recipe "([^\"]+)"$/ do |name|
+  Given %{recipe "#{name}" exists}
+  When  %{I go to the recipe page for "#{name}"}
+  And   %{I follow "Edit this recipe"}
+end
+
 When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
