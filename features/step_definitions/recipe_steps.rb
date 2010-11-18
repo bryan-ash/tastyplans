@@ -44,7 +44,12 @@ When /^I show the "([^\"]*)" recipe$/ do |recipe|
 end
 
 When /^I change the name to "([^\"]*)"$/ do |name|
-  fill_in :recipe_name, :with => name
+  fill_in 'recipe_name', :with => name
+  click_button "Save edits"
+end
+
+When /^I change the directions to:$/ do |directions|
+  fill_in 'recipe_directions', :with => directions
   click_button "Save edits"
 end
 

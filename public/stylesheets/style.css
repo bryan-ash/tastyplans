@@ -36,19 +36,19 @@ body {
     color: #CCC;
 }
 
-.lside .header {
+.lside header {
     background: #546078 url(../images/header.jpg) no-repeat;
     width: 580px;
     height: 145px;
     color: #FF8D00;
 }
 
-.lside .header .padding {
+.lside header .padding {
     padding: 20px 0px 0px 25px;
     color: #FFF;
 }
 
-.lside .header .tagline {
+.lside header .tagline {
     padding: 2px 0px 0px 7px;
 }
 
@@ -201,7 +201,7 @@ body {
 }
 
 /* FOOTER */
-.footer {
+footer {
     clear: both;
     width: 760px;
     padding-top: 3px;
@@ -212,7 +212,7 @@ body {
     text-align: center;
 }
 
-.footer a {
+footer a {
     color: #eee;
 }
 
@@ -311,6 +311,11 @@ li a:hover {
 
 fieldset {
     border: 1px solid #eee;
+}
+
+textarea {
+    height: 150px;
+    width: 100%;
 }
 
 textarea.text {

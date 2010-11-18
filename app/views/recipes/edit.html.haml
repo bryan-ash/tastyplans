@@ -7,4 +7,9 @@
     = form.text_field :name
 
   %p
+    = form.label :directions, 'Enter the directions'
+    %br
+    = form.text_area :directions
+
+  %p
     = form.submit 'Save edits'

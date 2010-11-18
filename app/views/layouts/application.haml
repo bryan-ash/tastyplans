@@ -41,7 +41,7 @@
           - if user_signed_in?
             .current_user
               = "Signed in as #{current_user.username}. "
-        .header
+        %header
           .padding
             %h1 OhMabel!
             .tagline ease the pain of conjuring daily meals
@@ -52,7 +52,8 @@
         .main
           = yield
 
-        /
+        / 
+          infobox would appear at bottom of page if uncommented
           .infobox
             .r_sd
               %h2 Newest Users
@@ -65,7 +66,7 @@
               %br
               %img{ :src => '../images/arrow.gif', :alt => '' } Recipe2
             
-      .footer
+      %footer
         Copyright &copy; 2010 Bryan Ash
 
     = set_focus_to_first_field
