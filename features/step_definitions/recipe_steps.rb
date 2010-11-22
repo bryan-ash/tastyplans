@@ -7,7 +7,7 @@ Given /^recipe "(.+)" exists$/ do |name|
 end
 
 Given /^a "(.*) Butty" recipe exists$/ do |filler|
-  recipe = Recipe.find_or_create_by_name :name => 'Bacon Butty'
+  recipe = Recipe.find_or_create_by_name :name => "#{filler} Butty"
   recipe.ingredient_amounts.create(:amount     => '2',
                                    :unit       => 'slice',
                                    :ingredient => Ingredient.find_or_create_by_name(:name => 'bread'))
@@ -43,8 +43,13 @@ When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
 
-When /^I change the name to "([^\"]*)"$/ do |name|
+When /^I change the recipe name to "([^\"]*)"$/ do |name|
   fill_in 'recipe_name', :with => name
+  click_button "Save edits"
+end
+
+When /^I change the (\d)(st|nd|rd|th) ingredient name to "([^\"]+)"$/ do |number, code, name|
+  fill_in "recipe_ingredient_amounts_attributes_#{number.to_i - 1}_ingredient_attributes_name", :with => name
   click_button "Save edits"
 end
 
@@ -56,5 +61,5 @@ end
 When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
   When %{I go to the recipe page for "#{old_name}"}
   And  %{I follow "Edit this recipe"}
-  And  %{I change the name to "#{new_name}"}
+  And  %{I change the recipe name to "#{new_name}"}
 end

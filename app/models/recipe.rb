@@ -3,6 +3,9 @@ class Recipe < ActiveRecord::Base
   has_many :ingredient_amounts
   has_many :ingredients, :through => :ingredient_amounts
 
+  accepts_nested_attributes_for :ingredient_amounts
+  accepts_nested_attributes_for :ingredients
+  
   default_scope :order => 'name ASC'
 
   scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where({:ingredients => {:name.matches => "%#{ingredient}%"}}) }

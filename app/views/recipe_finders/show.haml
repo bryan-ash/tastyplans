@@ -18,7 +18,10 @@
     %h3 unfortunately we don't have any suggestions for you
 
   - else
-    %h3 you could make:
+    %h3
+      you could make
+      = @recipe_finder.recipes.count
+      recipes:
     %ul
       - @recipe_finder.recipes.each do |recipe|
         %li= link_to recipe.name, recipe_path(recipe)

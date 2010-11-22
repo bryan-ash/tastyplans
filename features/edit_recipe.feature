@@ -6,7 +6,7 @@ Feature: Editing recipes
     Then I should see "Your edits were saved"
     And I should see "Recipe2"
 
-  Scenario: Edit disrections
+  Scenario: Edit directions
     Given recipe "Fried Bacon" exists
     And   a "Fried Bacon" recipe has directions:
       """
@@ -18,6 +18,16 @@ Feature: Editing recipes
       Fry the bacon.
       """
     Then I should see "Fry the bacon"
+
+  Scenario: Edit ingredients
+    Given a "Bacon Butty" recipe has ingredients:
+      | amount | unit  | ingredient |
+      | 2      | slice | bread      |
+      | 1/8    | stick | butter     |
+      | 4      | slice | bacon      |
+    And I am editing recipe "Bacon Butty"
+    When I change the 2nd ingredient name to "Lard"
+    Then I should see "Lard"
 
   Scenario: Discard edits
     Given I am editing recipe "Recipe1"

@@ -310,7 +310,7 @@ li a:hover {
 }
 
 fieldset {
-    border: 1px solid #eee;
+    border: 0px solid #eee;
 }
 
 textarea {
@@ -351,6 +351,22 @@ input.text {
     border: 1px solid #546078;
     background: #FFF;
     color: #808080;
+}
+
+.ingredients th {
+    text-align: left;
+}
+
+.amount input {
+    width: 50px;;
+}
+
+.unit input {
+    width: 70px;
+}
+
+.name input {
+    width: 390px;;
 }
 
 input.text:hover {
