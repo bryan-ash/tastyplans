@@ -5,12 +5,4 @@ class IngredientAmount < ActiveRecord::Base
 
   accepts_nested_attributes_for :ingredient
   
-#   def ingredient_name
-#     ingredient.name
-#   end
-
-#   def ingredient_name=(name)
-#     self.ingredient.name = name
-#   end
-
 end

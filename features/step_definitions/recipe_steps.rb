@@ -39,27 +39,48 @@ Given /^I am editing recipe "([^\"]+)"$/ do |name|
   And   %{I follow "Edit this recipe"}
 end
 
+When /^I create a new recipe$/ do 
+  Given %{I am on the recipes page}
+  When  %{I follow "Add a new recipe"}
+  Then  %{I should be on the new recipe page}
+
+  When %{I fill in "recipe_name" with "Black magic"}
+  And  %{I fill in "recipe_ingredient_amounts_attributes_0_ingredient_attributes_name" with "Chocolate"}
+  And  %{I fill in "recipe_directions" with "Nothing to do here."}
+  And  %{I press "Save new recipe"}
+end
+
 When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
 
+save_edits = "Save your edits"
+
 When /^I change the recipe name to "([^\"]*)"$/ do |name|
   fill_in 'recipe_name', :with => name
-  click_button "Save edits"
+  click_button save_edits
 end
 
 When /^I change the (\d)(st|nd|rd|th) ingredient name to "([^\"]+)"$/ do |number, code, name|
   fill_in "recipe_ingredient_amounts_attributes_#{number.to_i - 1}_ingredient_attributes_name", :with => name
-  click_button "Save edits"
+  click_button save_edits
 end
 
 When /^I change the directions to:$/ do |directions|
   fill_in 'recipe_directions', :with => directions
-  click_button "Save edits"
+  click_button save_edits
 end
 
 When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
   When %{I go to the recipe page for "#{old_name}"}
   And  %{I follow "Edit this recipe"}
   And  %{I change the recipe name to "#{new_name}"}
+end
+
+Then /^the new recipe should be shown$/ do
+  Then %{I should be on the recipe page for "Black magic"}
+  And  %{I should see "Black magic"}
+  And  %{I should see "Chocolate"}
+  And  %{I should see "Nothing to do here"}
+  And  %{I should see "Thank you for adding that new recipe"}
 end

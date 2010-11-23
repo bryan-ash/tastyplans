@@ -3,7 +3,7 @@ Feature: Editing recipes
   Scenario: Change the name
     Given recipe "Recipe1" exists
     When I rename recipe "Recipe1" to "Recipe2"
-    Then I should see "Your edits were saved"
+    Then I should see "Thank you for editing that recipe"
     And I should see "Recipe2"
 
   Scenario: Edit directions

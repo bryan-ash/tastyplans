@@ -9,10 +9,7 @@ module NavigationHelpers
     when /sign up/
       new_user_registration_path
       
-    when /sign in/
-      new_user_session_path
-      
-    when /login/
+    when /(sign in|login)/
       new_user_session_path
       
     when /^the ingredients page/
@@ -29,6 +26,9 @@ module NavigationHelpers
 
     when /^the recipes page/
       recipes_path
+
+    when /the new recipe page/
+      new_recipe_path
 
     when /^the recipe page for "([^\"]+)"$/
       recipe = Recipe.find_by_name $1
