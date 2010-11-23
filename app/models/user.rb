@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   def self.find_for_database_authentication(conditions)
     value = conditions[authentication_keys.first]
-    where(["username = :value OR email = :value", { :value => value }]).first
+    where(["username ILIKE :value OR email ILIKE :value", { :value => value }]).first
   end
 
 end
