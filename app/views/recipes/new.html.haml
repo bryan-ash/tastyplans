@@ -1,0 +1,27 @@
+= form_for @recipe do |form|
+  %p
+    %h3= form.label :name, 'Enter the name of the recipe'
+    = form.text_field :name
+
+  %h3 Ingredients
+  .ingredients
+    %table
+      %tr
+        %th Amount
+        %th Unit
+        %th Name
+      = form.fields_for :ingredient_amounts do |ingredient_amount_form|
+        %tr
+          %td.amount
+            = ingredient_amount_form.text_field :amount
+          %td.unit
+            = ingredient_amount_form.text_field :unit
+          = ingredient_amount_form.fields_for :ingredient do |ingredient_form|
+            %td.name
+              = ingredient_form.text_field :name
+  %p
+    %h3= form.label :directions, 'Enter the directions'
+    = form.text_area :directions
+
+  %p
+    = form.submit 'Save new recipe'
