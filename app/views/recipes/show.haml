@@ -1,7 +1,6 @@
-.recipe
-  .actions
-    =link_to 'Edit this recipe', edit_recipe_path(@recipe)
+- define_actions 'Edit this recipe' => edit_recipe_path(@recipe)
 
+.recipe
   %h2= @recipe.name
 
   .ingredients
