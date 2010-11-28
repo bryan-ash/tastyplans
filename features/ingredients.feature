@@ -24,13 +24,3 @@ Feature: Ingredients
   Scenario: Name cannot be blank
     When I create an ingredient named ""
     Then I should see "can't be blank"
-
-  Scenario: Names must be unique
-    Given an ingredient named "Chocolate"
-    When  I create an ingredient named "Chocolate"
-    Then  I should see "has already been taken"
-
-  Scenario: Name uniqueness is checked when editing
-    Given an ingredient named "Chocolate"
-    When  I rename "Pudding" to "Chocolate"
-    Then  I should see "has already been taken"

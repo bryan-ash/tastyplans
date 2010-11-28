@@ -1,10 +1,13 @@
 class Recipe < ActiveRecord::Base
 
-  has_many :ingredient_amounts
+  has_many :ingredient_amounts, :dependent => :destroy
   has_many :ingredients, :through => :ingredient_amounts
 
-  accepts_nested_attributes_for :ingredient_amounts
-  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :ingredient_amounts,
+  :reject_if => lambda { |a| a[:ingredient_attributes][:name].blank? },
+  :allow_destroy => true
+
+  validates_presence_of :name, :directions
   
   default_scope :order => 'name ASC'
 

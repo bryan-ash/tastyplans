@@ -75,7 +75,7 @@ body {
     border-color: #6C6;
 }
 
-#flash_alert {
+#flash_error {
     background-color: #FCC;
     border-color: #C66;
 }
@@ -366,7 +366,7 @@ input.text {
 }
 
 .name input {
-    width: 390px;;
+    width: 350px;;
 }
 
 input.text:hover {
@@ -416,6 +416,37 @@ input.button {
     margin: 0 0 10px 0;
     background: #f4f4f4;
     color: #000;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 14px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 14px;
+  list-style: square;
 }
 
 .error {

@@ -7,7 +7,7 @@ Given /^recipe "(.+)" exists$/ do |name|
 end
 
 Given /^a "(.*) Butty" recipe exists$/ do |filler|
-  recipe = Recipe.find_or_create_by_name :name => "#{filler} Butty"
+  recipe = Recipe.find_or_create_by_name(:name => "#{filler} Butty", :directions => "whip it")
   recipe.ingredient_amounts.create(:amount     => '2',
                                    :unit       => 'slice',
                                    :ingredient => Ingredient.find_or_create_by_name(:name => 'bread'))
@@ -20,7 +20,7 @@ Given /^a "(.*) Butty" recipe exists$/ do |filler|
 end
 
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|
-  recipe = Recipe.find_or_create_by_name :name => recipe_name
+  recipe = Recipe.find_or_create_by_name(:name => recipe_name, :directions => "whip it")
   ingredient_amounts.hashes.each do |ingredient_amount|
     recipe.ingredient_amounts.create(:amount     => ingredient_amount['amount'],
                                      :unit       => ingredient_amount['unit'],
@@ -33,6 +33,15 @@ Given /^a "([^\"]*)" recipe has directions:$/ do |recipe_name, directions|
   recipe.update_attributes! :directions => directions
 end
 
+Given /^I am creating a recipe with ingredients:$/ do |ingredient_amounts|
+  visit new_recipe_path
+  fill_in "recipe_name", :with => "name"
+  fill_in "recipe_directions", :with => "directions"
+  ingredient_amounts.hashes.each_with_index do |ingredient_amount, n|
+    fill_in "recipe_ingredient_amounts_attributes_#{n}_ingredient_attributes_name", :with => ingredient_amount[:name]
+  end
+end
+
 Given /^I am editing recipe "([^\"]+)"$/ do |name|
   Given %{recipe "#{name}" exists}
   When  %{I go to the recipe page for "#{name}"}
@@ -43,21 +52,33 @@ When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
 
-save_edits = "Save your edits"
+def save_the_recipe
+  click_button "Save your edits"
+end
+
+When /^I save the recipe$/ do
+  click_button "Save new recipe"
+end
 
 When /^I change the recipe name to "([^\"]*)"$/ do |name|
   fill_in 'recipe_name', :with => name
-  click_button save_edits
+  save_the_recipe
 end
 
-When /^I change the (\d)(st|nd|rd|th) ingredient name to "([^\"]+)"$/ do |number, code, name|
-  fill_in "recipe_ingredient_amounts_attributes_#{number.to_i - 1}_ingredient_attributes_name", :with => name
-  click_button save_edits
+When /^I change the (\d)(st|nd|rd|th) ingredient name to "([^\"]+)"$/ do |ordinal, indicator, name|
+  fill_in "recipe_ingredient_amounts_attributes_#{ordinal.to_i - 1}_ingredient_attributes_name", :with => name
+  save_the_recipe
+end
+
+When /^I delete the (\d)(st|nd|rd|th) ingredient$/ do |ordinal, indicator|
+  within("tr:nth-of-type(3)") do
+    click_link "remove"
+  end
 end
 
 When /^I change the directions to:$/ do |directions|
   fill_in 'recipe_directions', :with => directions
-  click_button save_edits
+  save_the_recipe
 end
 
 When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
@@ -66,25 +87,25 @@ When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
   And  %{I change the recipe name to "#{new_name}"}
 end
 
-When /^I create a new recipe$/ do 
+When /^I create a new recipe with (\d) ingredients$/ do |count|
   Given %{I am on the recipes page}
   When  %{I follow "Add a new recipe"}
   Then  %{I should be on the new recipe page}
 
   When %{I fill in "recipe_name" with "Black magic"}
-  And  %{I fill in "recipe_ingredient_amounts_attributes_0_ingredient_attributes_name" with "Chocolate spread"}
-  And  %{I fill in "recipe_ingredient_amounts_attributes_1_ingredient_attributes_name" with "Chocolate chips"}
-  And  %{I fill in "recipe_ingredient_amounts_attributes_2_ingredient_attributes_name" with "Chocolate syrup"}
+  (0...count.to_i).each do |n|
+    And  %{I fill in "recipe_ingredient_amounts_attributes_#{n}_ingredient_attributes_name" with "ingredient#{n}"}
+  end
   And  %{I fill in "recipe_directions" with "Nothing to do here."}
   And  %{I press "Save new recipe"}
 end
 
-Then /^the new recipe should be shown$/ do
+Then /^the (\d) ingredient recipe should be shown$/ do |count|
   Then %{I should be on the recipe page for "Black magic"}
   And  %{I should see "Black magic"}
-  And  %{I should see "Chocolate spread"}
-  And  %{I should see "Chocolate chips"}
-  And  %{I should see "Chocolate syrup"}
+  (0...count.to_i).each do |n|
+    And  %{I should see "ingredient#{n}"}
+  end
   And  %{I should see "Nothing to do here"}
   And  %{I should see "Thank you for adding that new recipe"}
 end
