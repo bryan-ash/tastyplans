@@ -6,5 +6,9 @@ class IngredientAmount < ActiveRecord::Base
   accepts_nested_attributes_for :ingredient,
   :reject_if => lambda { |a| a[:name].blank? },
   :allow_destroy => true
+
+  def after_initialize
+    self.ingredient ||= Ingredient.new
+  end
   
 end

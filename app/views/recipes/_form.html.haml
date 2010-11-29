@@ -13,20 +13,11 @@
         %th Unit
         %th Name
       = form.fields_for :ingredient_amounts do |ingredient_amount_form|
-        %tr.ingredient
-          %td.amount
-            = ingredient_amount_form.text_field :amount
-          %td.unit
-            = ingredient_amount_form.text_field :unit
-          = ingredient_amount_form.fields_for :ingredient do |ingredient_form|
-            %td.name
-              = ingredient_form.text_field :name
-          %td
-            = ingredient_amount_form.hidden_field :_destroy
-            = link_to_function "remove", "remove_fields(this)"
-  %p
-    %h3= form.label :directions, "Enter the directions"
-    = form.text_area :directions
+        = render "ingredient_amount_fields", :builder => ingredient_amount_form
+    = link_to_add_fields "Add an ingredient", form, :ingredient_amounts
+
+  %h3= form.label :directions, "Enter the directions"
+  = form.text_area :directions
 
   %p
     = form.submit submit_text

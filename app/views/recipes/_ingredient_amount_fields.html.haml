@@ -1,0 +1,10 @@
+%tr.ingredient
+  %td.amount
+    = builder.text_field :amount
+  %td.unit
+    = builder.text_field :unit
+  %td.name
+    = builder.fields_for :ingredient do |ingredient_form|
+      = ingredient_form.text_field :name
+  %td
+    = link_to_remove_fields "remove", builder
