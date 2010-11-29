@@ -7,7 +7,9 @@ class IngredientAmount < ActiveRecord::Base
   :reject_if => lambda { |a| a[:name].blank? },
   :allow_destroy => true
 
-  def after_initialize
+  after_initialize :create_ingredient
+  
+  def create_ingredient
     self.ingredient ||= Ingredient.new
   end
   
