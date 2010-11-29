@@ -33,6 +33,19 @@ Feature: Recipe Finder
     Then  I should see "Chocolate Surprise!"
     And   I should see "Chocolate Delight!"
 
+  Scenario: A recipe with multiple ingredients that match is only shown once
+    Given a "Chocolate Surprise!" recipe has ingredients:
+      | amount | unit   | ingredient        |
+      | 2      | pounds | chocolate buttons |
+      | 4      | bars   | plain chocolate   |
+    And   I am on the recipe finder page
+    And   I fill in "ingredient" with "chocolate"
+
+    When  I press "Find recipes"
+
+    Then  I should see "Chocolate Surprise!"
+    And   I should see "1 recipe"
+
   Scenario: Removing ingredients
     Given recipe finder 42 has the following ingredients:
       | bacon |

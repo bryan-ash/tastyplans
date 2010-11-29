@@ -15,7 +15,7 @@ class Recipe < ActiveRecord::Base
                                                     
   def self.with_ingredients(ingredients)
     recipe_collections = ingredients.map { |ingredient| with_ingredient(ingredient).all }
-    recipe_collections.inject { |recipes, next_set| recipes & next_set }
+    recipe_collections.inject { |recipes, next_set| recipes & next_set }.uniq
   end
 
   def self.suggestion(current = nil)
