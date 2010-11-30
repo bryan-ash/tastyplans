@@ -1,15 +1,16 @@
 source :gemcutter
 
-gem 'rails'
-gem 'haml'
-gem 'pg'
 gem 'devise'
+gem 'haml'
+gem 'meta_where', :git => 'git://github.com/ernie/meta_where.git'
+gem 'pg'
+gem 'rails'
+gem 'rdiscount'
 
 # thin is required for Heroku until further notice
 gem 'thin'
 
 gem 'heroku'
-gem 'meta_where', :git => 'git://github.com/ernie/meta_where.git'
 
 group :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'

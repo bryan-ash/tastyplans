@@ -1,0 +1,204 @@
+!!!
+%html
+  %head
+    %meta{ :charset => "utf-8" }
+    %title Markdown Editing Help
+    :css
+      .hi {
+        background-color: #ccc;
+      }
+      .spaces {
+      background-color: #FFFFCC;
+          }
+        body
+        {
+            margin: 10px;
+            margin-top: 50px;
+            text-align: left;
+            width: 600px;
+            font-size: 100%;
+            line-height: 140%;
+        }
+        h2
+        {
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+        p
+        {
+            margin-bottom: 14px;
+        }
+        pre
+        {
+            margin-left: 0px;
+            padding-left: 5px;
+            border: none;
+            background-color: #eee;
+            line-height: 115%;
+            overflow: hidden;
+        }
+        p code
+        {
+            padding: 0px;
+            background-color: #fff;
+        }
+  %body
+    #notify-container
+      %div
+        %a href="http://daringfireball.net/projects/markdown/" target="_blank" title="learn more about Markdown" style="border: medium none;"Markdown turns plain text formatting into fancy HTML
+        formatting
+      %h2
+        Linebreaks
+      %p
+        End a line with two spaces to add a %code&lt;br/&gt;
+      %pre 
+        How do I love thee?%span class="spaces"&nbsp;&nbsp;
+        Let me count the ways
+      %h2
+        Italics and Bold
+      %pre%span class="hi"*.
+%span class="hi"**.
+Use %span class="hi"***
+    %h2
+      Headers
+    %p
+      Underline text to make the two %code&lt;h1&gt; top-level
+      headers :
+    %preHeader 1
+%span class="hi"========
+
+Header 2
+%span class="hi"--------
+
+    %p
+      The number of = or - signs doesn't matter; one will work. But using enough to underline
+      the text makes your titles look better in plain text.
+    %p
+      Use hash marks for several levels of headers:
+    %pre%span class="hi"#
+%span class="hi"##
+%span class="hi"###
+
+    %p
+      The closing # characters are optional.
+    %h2
+      Horizontal Rules
+    %p
+      Insert a horizontal rule %code&lt;hr/&gt; by putting three or more hyphens,
+      asterisks, or underscores on a line by themselves:
+    %preRule #1
+
+%span class="hi"---
+
+Rule #2
+
+%span class="hi"*******
+
+Rule #3
+
+%span class="hi"___
+
+
+    %p
+      Using spaces between the characters also works:
+    %preRule #4    
+
+%span class="hi"- - - -
+
+
+    %h2
+      Simple lists
+    %p
+      A bulleted %code&lt;ul&gt;
+    %pre%span class="hi"-Use a minus sign for a bullet
+%span class="hi"+Or plus sign
+%span class="hi"*Or an asterisk
+
+    %p
+      A numbered %code&lt;ol&gt;
+    %pre%span class="hi"1.Numbered lists are easy
+%span class="hi"2.Markdown keeps track of the numbers for you
+%span class="hi"7.So this will be item 3.
+
+    %p
+      A double-spaced list:
+    %pre%span class="hi"-This list gets wrapped in &lt;p&gt; tags
+%span class="spaces"&nbsp;
+%span class="hi"-So there will be extra space between items
+
+    %h2
+      Advanced lists: Nesting
+    %p
+      To put other Markdown blocks in a list; just indent four spaces for each nesting
+      level:
+    %pre%span class="hi"1.Lists in a list item:
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;Indented four spaces.
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;indented eight spaces.
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;Four spaces again.
+%span class="hi"2.Multiple paragraphs in a list items:
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;It's best to indent the paragraphs four spaces
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;You can get away with three, but it can get
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;confusing when you nest other things.
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;Stick to four.
+%span class="spaces"&nbsp;
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;We indented the first line an extra space to align
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;it with these paragraphs.  In real use, we might do
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;that to the entire list so that all items line up.
+%span class="spaces"&nbsp;
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;This paragraph is still part of the list item, but it looks messy to humans.  So it's a good idea to wrap your nested paragraphs manually, as we did with the first two.
+%span class="spaces"&nbsp;
+%span class="hi"3.Blockquotes in a list item:
+%span class="spaces" 
+%span class="spaces" Skip a line and
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp; indent the &gt;'s four spaces.
+%span class="spaces"&nbsp;
+%span class="hi"4.Preformatted text in a list item:
+%span class="spaces"&nbsp;
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Skip a line and indent eight spaces.
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;That's four spaces for the list
+%span class="spaces"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;and four to trigger the code block.
+
+    %h2
+      Simple Blockquotes
+    %p
+      Add a %code&gt;
+    %pre%span class="hi"&gt; The syntax is based on the way email programs
+%span class="hi"&gt; usually do quotations. You don't need to hard-wrap
+%span class="hi"&gt; the paragraphs in your blockquotes, but it looks much nicer if you do.  Depends how lazy you feel.
+
+    %h2
+      Advanced blockquotes: Nesting
+    %p
+      To put other Markdown blocks in a %code&lt;blockquote&gt;
+        &gt;
+    %pre%span class="hi"&gt; The &gt; on the blank lines is optional.
+%span class="hi"&gt; Include it or don't; Markdown doesn't care.
+%span class="hi"&gt;
+%span class="hi"&gt; But your plain text looks better to
+%span class="hi"&gt; humans if you include the extra `&gt;`
+%span class="hi"&gt; between paragraphs.
+
+    %p
+      Blockquotes within a blockquote:
+    %pre%span class="hi"&gt; A standard blockquote is indented
+%span class="hi"&gt; A nested blockquote is indented more
+%span class="hi"&gt; You can nest to any depth.
+
+    %p
+      Lists in a blockquote:
+    %pre%span class="hi"&gt; A list in a blockquote
+%span class="hi"&gt; With a &gt; and space in front of it
+%span class="hi"&gt; A sublist
+
+    %p
+      Preformatted text in a blockquote:
+    %pre%span class="hi"&gt;Indent five spaces total.  The first
+%span class="hi"&gt;one is part of the blockquote designator.
+
+    %h2
+      Need More Detail?
+    %p
+      Visit the %a href="http://daringfireball.net/projects/markdown/syntax" target="_blank"
+        official Markdown syntax reference page
+  
+

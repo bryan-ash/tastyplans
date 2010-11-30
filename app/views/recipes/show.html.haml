@@ -11,4 +11,5 @@
         
   .directions
     %h3 Directions
-    %p= @recipe.directions
+    :markdown
+      #{@recipe.directions}

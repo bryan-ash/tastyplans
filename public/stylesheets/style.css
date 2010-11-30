@@ -106,7 +106,6 @@ body {
     color: #3A4354;
 }
 
-/* RIGHT SIDE */
 .rside {
     background: #000;
     color: #000;
@@ -171,7 +170,6 @@ body {
     padding-left: 10px;
 }
 
-/* NAVIGATION */
 .nav {
     clear: both;
     text-align: left;
@@ -196,7 +194,6 @@ body {
     text-decoration: none;
 }
 
-/* FOOTER */
 footer {
     clear: both;
     width: 760px;
@@ -290,7 +287,7 @@ ul {
     list-style: none;
 }
 
-li {
+ul li {
     list-style-type: none;
     color: #F29900;
     margin: 0 0 0px 0;
@@ -303,6 +300,11 @@ li a {
 
 li a:hover {
     color: #F29900;
+}
+
+.directions,.wmd-preview ol li {
+    list-style-type: decimal;
+    color: #555;
 }
 
 fieldset {
