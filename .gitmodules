@@ -1,3 +1,0 @@
-[submodule "vendor/plugins/wmd_on_rails"]
-	path = vendor/plugins/wmd_on_rails
-	url = git@github.com:bryan-ash/wmd_on_rails.git
