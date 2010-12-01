@@ -19,5 +19,4 @@ Mabel::Application.routes.draw do
   root :to => "home#index"
 
   match "*path" => redirect("/")
-  
 end

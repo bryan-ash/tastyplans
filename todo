@@ -1,18 +1,12 @@
-Populate Welcome page
-Populate About page
 Put Sign In and Sign Up on the same page
-Add Recipe
-Edit Own Recipe
 acts_as_recommendable for suggesting recipes
 Show My Account link in top right
-Formatting in Directions (markdown maybe)
 Add recipe to meal plan
 Ingredient list for meal plan
 Shopping list for meal plan
 Add to shopping list (item not in a recipe)(shopping list is something separate from meal plan)(maybe separate app?)
 charging (paypal, credit card)
-HTML5?
+HTML5?: set focus to first field
 
-Ryan Bates "title"?  Episode 30
 checkout has_scope gem for limiting lists
 Better error messages

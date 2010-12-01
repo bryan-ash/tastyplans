@@ -11,6 +11,7 @@ gem 'rdiscount'
 gem 'thin'
 
 gem 'heroku'
+gem 'deadweight'
 
 group :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'

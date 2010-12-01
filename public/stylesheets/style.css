@@ -1,69 +1,93 @@
 body {
-    margin: 5px 0;
-    padding: 0;
+    background: #6B073B;
     color: #FFF;
     line-height: 1.4em;
-    background: #6B073B;
     font-size: 100%;
-}
-
-.content {
-    color: #505050;
-    margin: 0 auto;
+    margin: 5px 0;
     padding: 0;
-    width: 760px;
+}
+
+article {
     background: #FAFAFA;
+    color: #505050;
+    width: 70em;
+    min-width: 750px;
+    margin: auto;
+    padding: 0;
 }
 
-.lside {
-    background: #FFF;
-    color: #000;
-    width: 580px;
-    float: left;
-}
-
-.lside .topmenu {
-    background: #3A4354;
-    color: #FFF;
-    width: 570px;
-    height: 15px;
-    padding: 2px 5px 8px 5px;
+header {
+    background: #415166;
+    width: 100%;
+    height: 145px;
+    color: #FF8D00;
     font-size: 90%;
 }
 
-.lside .topmenu .current_user {
+#left {
+    margin-right: 180px;
+}
+
+#topmenu {
+    background: #3A4354;
+    color: #FFF;
+    height: 15px;
+    padding: 2px 0px 8px 15px;
+}
+
+#topmenu a {
+    color: #FFF;
+}
+
+#current_user {
     float: right;
     color: #CCC;
+    padding: 2px 5px 8px 5px;
 }
 
-.lside header {
-    background: #546078 url(../images/header.jpg) no-repeat;
-    width: 580px;
-    height: 145px;
-    color: #FF8D00;
+#authentication {
+    float: right;
+    background: #546078;
+    width: 180px;
+    height: 15px;
+    color: #888;
+    padding: 2px 5px 8px 5px;
 }
 
-.lside header .padding {
+.padding {
     padding: 20px 0px 0px 25px;
     color: #FFF;
 }
 
-.lside header .tagline {
-    padding: 2px 0px 0px 7px;
+#title {
+    float: left;
+    margin-left: 15px;
+}
+
+#title h1 {
+    margin-bottom: 15px;
+    padding: 20px 0px 0px 25px;
+}
+
+#title h6 {
+    color: #FFF;
+    font-size: 100%;
+    margin: 0;
+    padding: 0px 0px 0px 30px;
 }
 
 .flash {
+    clear: both;
+    float: right;
     color: #505050;
     font-size: 100%;
-    padding: 17px 7px 15px 0;
-    float: right;
     text-align: right;
+    padding: 0 15px 15px 0;
 }
 
 .message {
     border: solid 1px;
     padding: 5px 8px;
-    margin-bottom: 10px;
 }
 
 #flash_notice {
@@ -76,133 +100,84 @@ body {
     border-color: #C66;
 }
 
-.lside .main {
+#main {
     background: #FFF;
     color: #505050;
+    margin-left: 180px;
     padding: 15px 20px 15px 20px;
 }
 
-.lside .infobox {
-    background: #FFF url(../images/info.jpg) no-repeat;
-    color: #222;
-    height: 160px;
-}
-
-.lside .infobox .r_sd {
-    width: 270px;
-    float: right;
-    padding: 10px 0px 5px 20px;
-}
-
-.lside .infobox .l_sd {
-    padding: 10px 20px 5px 20px;
-}
-
-.lside .topmenu a {
-    color: #FFF;
-}
-
-.lside a {
+#main a {
     color: #3A4354;
 }
 
-.rside {
-    background: #000;
-    color: #000;
+menu {
+    float: left;
     width: 180px;
-    float: right;
-    clear: both;
-}
-
-.rside .topmenu {
-    background: #546078;
-    height: 15px;
-    color: #888;
-    padding: 2px 5px 8px 5px;
-}
-
-.rside .loginbox {
-    background: #E6E9EE;
-    height: 145px;
-    color: #000;
     margin: 0;
-    padding: 0px;
+    padding: 0;
 }
 
-.rside .loginbox .padding {
-    padding: 0px 10px 0px 10px;
-    line-height: 1.9em;
-    margin: 0;
-}
-
-.rside .topmain {
-    background: #FF8D00;
-    height: 15px;
-    color: #FFF;
-    padding: 5px;
-}
-
-.rside .menu {
+nav {
     background: #FAFAFA;
-    padding: 5px;
-    color: #333;
+    padding: 15px 5px 5px 5px;
 }
 
-.rside .menu h2 {
+nav h2 {
     color: #FF8D00;
     padding-left: 10px;
 }
 
-.rside .menu .ads {
-    padding: 0 10px 0 10px;
-}
-
-.rside .menu .links {
-    font-size: 90%;
-    padding-left: 10px;
-}
-
-.rside .menu .links a {
-    color: #546078;
-}
-
-.rside .search {
-    padding-left: 10px;
-}
-
-.nav {
+nav ul {
     clear: both;
     text-align: left;
     color:    #7D8085;
+    margin: 5px 15px 20px 15px;
     padding: 5px 0 0 0;
 }
 
-.nav li {
+nav li {
     font-weight: bold;
     margin: 0 0 8px 0;
     padding: 0 0 0 5px;
     border-bottom: 1px solid #ccc;
 }
 
-.nav li a {
+nav li a {
     color: #546078;
     text-decoration: none;
 }
 
-.nav li a:hover {
+nav li a:hover {
     color: #F29900;
     text-decoration: none;
 }
 
+#info {
+    background: #FFF url(../images/info.jpg) no-repeat;
+    color: #222;
+    height: 160px;
+}
+
+#info #right {
+    width: 270px;
+    float: right;
+    padding: 10px 0px 5px 20px;
+}
+
+#info #left {
+    padding: 10px 20px 5px 20px;
+}
+
 footer {
     clear: both;
-    width: 760px;
-    padding-top: 3px;
-    height: 25px;
-    color: #FFF;
-    font-size: 90%;
     background: #546078;
+    color: #FFF;
+    width: 100%;
+    height: 25px;
+    font-size: 90%;
     text-align: center;
+    padding-top: 3px;
 }
 
 footer a {
@@ -211,10 +186,6 @@ footer a {
 
 li.finder_ingredient {
     clear: both;
-}
-
-li p, li form {
-    float: left;
 }
 
 p {
@@ -243,8 +214,6 @@ a:hover {
 }
 
 h1 {
-    padding: 10px 0 10px 0;
-    margin: 0;
     color: #FFF;
     background: inherit;
     font-weight: bold;
@@ -252,6 +221,8 @@ h1 {
     font-style: italic;
     font-family: "Trebuchet MS", sans-serif;
     letter-spacing: -1px;
+    margin: 0;
+    padding: 10px 0 10px 0;
 }
 
 h1 a {
@@ -302,7 +273,7 @@ li a:hover {
     color: #F29900;
 }
 
-.directions,.wmd-preview ol li {
+.directions, .wmd-preview ol li {
     list-style-type: decimal;
     color: #555;
 }
@@ -368,78 +339,40 @@ input.text {
 }
 
 input.text:hover {
-    border: 1px solid #3a4354;
-}
-
-input.searchbutton {
-    margin: 0;
-    font-size: 100%;
-    font-family: Arial, Sans-serif;
-    border: none;
-    background: #FFFFFF;
-    color: #808080;
-    padding: 1px;
-    font-weight: bold;
-}
-
-.date {
-    color: #505050;
-    background: #FFF;
-    text-align: right;
-    margin: 4px 0 5px 0;
-    padding: 0.4em 0 0 0;
-    border-top: 1px solid #ddd;
-}
-
-.date a {
-    color: #546078;
+    border: 1px solid #3A4354;
 }
 
 input.button {
     background: #FFFFF4;
     color: #808080;
-    border-right: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-}
-
-.comments {
-    padding: 10px 10px 8px 10px;
-    margin: 0 0 7px 0;
-    background: #3f3f3f;
-    color: #000;
-}
-
-.commentsbox {
-    padding: 8px 0 10px 10px;
-    margin: 0 0 10px 0;
-    background: #f4f4f4;
-    color: #000;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
 }
 
 .field_with_errors {
-  padding: 2px;
   background-color: red;
   display: table;
+  padding: 2px;
 }
 
 #error_explanation {
-  width: 400px;
+  background-color: #F0F0F0;
   border: 2px solid red;
+  width: 400px;
+  margin-bottom: 20px;
   padding: 7px;
   padding-bottom: 0;
-  margin-bottom: 20px;
-  background-color: #f0f0f0;
 }
 
 #error_explanation h2 {
+  background-color: #c00;
+  color: #fff;
   text-align: left;
   font-weight: bold;
-  padding: 5px 5px 5px 15px;
   font-size: 14px;
   margin: -7px;
   margin-bottom: 0px;
-  background-color: #c00;
-  color: #fff;
+  padding: 5px 5px 5px 15px;
 }
 
 #error_explanation ul li {
@@ -448,12 +381,12 @@ input.button {
 }
 
 .error {
-    color: #990000;
     background-color: #FFF0F0;
-    padding: 7px;
+    color: #990000;
+    border: 1px dashed #990000;
     margin-top: 5px;
     margin-bottom: 10px;
-    border: 1px dashed #990000;
+    padding: 7px;
 }
 
 .error h2 {

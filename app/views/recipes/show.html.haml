@@ -1,15 +1,15 @@
 - define_actions 'Edit this recipe' => edit_recipe_path(@recipe)
 
-.recipe
+#recipe
   %h2= @recipe.name
 
-  .ingredients
+  #ingredients
     %h3 Ingredients
     %ul
       - @recipe.ingredient_amounts.each do |ingredient_amount|
         %li= "#{ingredient_amount.amount} #{ingredient_amount.unit} #{ingredient_amount.ingredient.name}"
         
-  .directions
+  %section#directions
     %h3 Directions
     :markdown
       #{@recipe.directions}
