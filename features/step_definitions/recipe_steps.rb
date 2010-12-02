@@ -35,10 +35,10 @@ end
 
 Given /^I am creating a recipe with ingredients:$/ do |ingredient_amounts|
   visit new_recipe_path
-  fill_in "recipe_name", :with => "name"
-  fill_in "recipe_directions", :with => "directions"
+  fill_in "recipe[name]", :with => "name"
+  fill_in "recipe[directions]", :with => "directions"
   ingredient_amounts.hashes.each_with_index do |ingredient_amount, n|
-    fill_in "recipe_ingredient_amounts_attributes_#{n}_ingredient_attributes_name", :with => ingredient_amount[:name]
+    fill_in "recipe[ingredient_amounts_attributes][#{n}][ingredient_attributes][name]", :with => ingredient_amount[:name]
   end
 end
 
@@ -61,12 +61,12 @@ When /^I save the recipe$/ do
 end
 
 When /^I change the recipe name to "([^\"]*)"$/ do |name|
-  fill_in 'recipe_name', :with => name
+  fill_in 'recipe[name]', :with => name
   save_the_recipe
 end
 
 When /^I change the (\d)(st|nd|rd|th) ingredient name to "([^\"]+)"$/ do |ordinal, indicator, name|
-  fill_in "recipe_ingredient_amounts_attributes_#{ordinal.to_i - 1}_ingredient_attributes_name", :with => name
+  fill_in "recipe[ingredient_amounts_attributes][#{ordinal.to_i - 1}][ingredient_attributes][name]", :with => name
   save_the_recipe
 end
 
@@ -77,7 +77,7 @@ When /^I delete the (\d)(st|nd|rd|th) ingredient$/ do |ordinal, indicator|
 end
 
 When /^I change the directions to:$/ do |directions|
-  fill_in 'recipe_directions', :with => directions
+  fill_in 'recipe[directions]', :with => directions
   save_the_recipe
 end
 
@@ -94,9 +94,9 @@ When /^I create a new recipe with (\d) ingredients$/ do |count|
 
   When %{I fill in "recipe_name" with "Black magic"}
   (0...count.to_i).each do |n|
-    And  %{I fill in "recipe_ingredient_amounts_attributes_#{n}_ingredient_attributes_name" with "ingredient#{n}"}
+    And  %{I fill in "recipe[ingredient_amounts_attributes][#{n}][ingredient_attributes][name]" with "ingredient#{n}"}
   end
-  And  %{I fill in "recipe_directions" with "Nothing to do here."}
+  And  %{I fill in "recipe[directions]" with "Nothing to do here."}
   And  %{I press "Save new recipe"}
 end
 

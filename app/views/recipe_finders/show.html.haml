@@ -11,8 +11,9 @@
   %ul 
     - @recipe_finder.ingredients.each do |ingredient|
       %li.finder_ingredient
-        %p=ingredient.name
-        =button_to 'remove', recipe_finder_finder_ingredient_path(@recipe_finder, ingredient), :method => :delete, :title => 'remove'
+        %p
+          =ingredient.name
+          %span=button_to 'remove', recipe_finder_finder_ingredient_path(@recipe_finder, ingredient), :method => :delete, :title => 'remove'
  
   - if @recipe_finder.recipes.blank?
     %h3 unfortunately we don't have any suggestions for you

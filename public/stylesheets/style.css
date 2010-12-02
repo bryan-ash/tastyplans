@@ -1,4 +1,4 @@
-body {
+html {
     background: #6B073B;
     color: #FFF;
     line-height: 1.4em;
@@ -7,7 +7,7 @@ body {
     padding: 0;
 }
 
-article {
+body {
     background: #FAFAFA;
     color: #505050;
     width: 70em;
@@ -24,28 +24,7 @@ header {
     font-size: 90%;
 }
 
-#left {
-    margin-right: 180px;
-}
-
-#topmenu {
-    background: #3A4354;
-    color: #FFF;
-    height: 15px;
-    padding: 2px 0px 8px 15px;
-}
-
-#topmenu a {
-    color: #FFF;
-}
-
-#current_user {
-    float: right;
-    color: #CCC;
-    padding: 2px 5px 8px 5px;
-}
-
-#authentication {
+header nav {
     float: right;
     background: #546078;
     width: 180px;
@@ -54,22 +33,45 @@ header {
     padding: 2px 5px 8px 5px;
 }
 
+header > section {
+    margin-right: 180px;
+}
+
+header > section nav {
+    float: none;
+    background: #3A4354;
+    color: #FFF;
+    width: 100%;
+    height: 15px;
+    padding: 2px 0px 8px 15px;
+}
+
+header section nav a {
+    color: #FFF;
+}
+
+header section section {
+    float: right;
+    color: #CCC;
+    padding: 2px 5px 8px 5px;
+}
+
 .padding {
     padding: 20px 0px 0px 25px;
     color: #FFF;
 }
 
-#title {
+hgroup {
     float: left;
     margin-left: 15px;
 }
 
-#title h1 {
+hgroup h1 {
     margin-bottom: 15px;
     padding: 20px 0px 0px 25px;
 }
 
-#title h6 {
+hgroup h6 {
     color: #FFF;
     font-size: 100%;
     margin: 0;
@@ -100,14 +102,14 @@ header {
     border-color: #C66;
 }
 
-#main {
+article {
     background: #FFF;
     color: #505050;
     margin-left: 180px;
     padding: 15px 20px 15px 20px;
 }
 
-#main a {
+article a {
     color: #3A4354;
 }
 
@@ -189,17 +191,17 @@ li.finder_ingredient {
 }
 
 p {
-    margin: 0 0 5px 0;
-    padding: 0;
-    color: #888;
     background: inherit;
+    color: #888;
+    margin: 0 0 5px 15px;
+    padding: 0;
 }
 
 hr {
+    background-color: #eee;
+    color: #eee;
     border: 0;
     height: 1px;
-    color: #eee;
-    background-color: #eee;
 }
 
 a {
@@ -235,7 +237,7 @@ h2 {
     color: #FF8D00;
     font-size: 140%;
     font-weight: bold;
-    margin: 10px 0 10px 0;
+    margin: 10px 0;
     padding: 0;
 }
 
@@ -249,7 +251,7 @@ h2 a:hover {
 }
 
 h3 {
-    clear: both;
+    margin: 10px 0;
 }
 
 ul {
@@ -261,8 +263,8 @@ ul {
 ul li {
     list-style-type: none;
     color: #F29900;
-    margin: 0 0 0px 0;
-    padding: 0 0 0 0px;
+    margin: 0;
+    padding: 0;
 }
 
 li a {
@@ -273,9 +275,13 @@ li a:hover {
     color: #F29900;
 }
 
-.directions, .wmd-preview ol li {
+p, ol li {
     list-style-type: decimal;
     color: #555;
+}
+
+ul li div,form {
+    display: inline;
 }
 
 fieldset {
@@ -283,47 +289,51 @@ fieldset {
 }
 
 textarea {
-    height: 150px;
     width: 100%;
+    height: 150px;
 }
 
 textarea.text {
-    height: 150px;
-    width: 90%;
-    border: 1px solid #ccc;
     background: #fff;
     color: #000;
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 150px;
 }
 
 textarea.text:hover {
-    border: 1px solid #eee;
     background: #FFFFF4;
     color: #000;
+    border: 1px solid #eee;
 }
 
 input.field {
-    border: 1px solid #ccc;
     background-color: #3C3C3C;
-    width: 100px;
     color: #000;
+    border: 1px solid #ccc;
+    width: 100px;
 }
 
 input.field:hover {
-    border: 1px solid #eee;
     background: #ccc;
     color: #000;
+    border: 1px solid #eee;
 }
 
 input.text {
-    margin: 0;
-    width: 110px;
-    border: 1px solid #546078;
     background: #FFF;
     color: #808080;
+    border: 1px solid #546078;
+    width: 110px;
+    margin: 0;
 }
 
-.ingredients th {
+th {
     text-align: left;
+}
+
+input[type=text] {
+    width: 500px;;
 }
 
 .amount input {
@@ -332,10 +342,6 @@ input.text {
 
 .unit input {
     width: 70px;
-}
-
-.name input {
-    width: 350px;;
 }
 
 input.text:hover {
@@ -391,20 +397,6 @@ input.button {
 
 .error h2 {
     color: #990000;
-    background: inherit;
-}
-
-.success {
-    color: #000000;
-    background: #FAFAFA;
-    padding: 7px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border: 1px dashed #546078;
-}
-
-.success h2 {
-    color: #546078;
     background: inherit;
 }
 

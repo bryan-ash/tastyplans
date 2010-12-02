@@ -1,9 +1,9 @@
 - define_actions 'Edit this recipe' => edit_recipe_path(@recipe)
 
-#recipe
+%section#recipe
   %h2= @recipe.name
 
-  #ingredients
+  %section#ingredients
     %h3 Ingredients
     %ul
       - @recipe.ingredient_amounts.each do |ingredient_amount|

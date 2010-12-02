@@ -8,65 +8,64 @@
     = csrf_meta_tag
 
   %body
-    %article
-      %header
-        %section#authentication
-          - if user_signed_in?
-            = link_to "Sign out", destroy_user_session_path
-          - else
-            = link_to "Sign in", new_user_session_path
+    %header
+      %nav
+        - if user_signed_in?
+          = link_to "Sign out", destroy_user_session_path
+        - else
+          = link_to "Sign in", new_user_session_path
+          / 
             or
             = link_to "Sign up", new_user_registration_path
-        %section#left
-          - if user_signed_in?
-            %section#current_user
-              = "Signed in as #{current_user.username}."
-          %section#topmenu
-            = link_to 'Home', root_path
-            | 
-            = link_to 'Contact', 'http://ohmabel.uservoice.com/forums/81175', :class => 'contact_us'
-
-        %hgroup#title
-          %h1 OhMabel!
-          %h6 ease the pain of conjuring daily meals
-
-        .flash
-          - flash.each do |name, msg|
-            = content_tag :div, msg, :id => "flash_#{name}", :class => "message"
-
-      %menu
+      %section
+        - if user_signed_in?
+          %section
+            = "Signed in as #{current_user.username}."
         %nav
-          - if user_signed_in?
-            %h2 My Features
-            %ul
-              %li= link_to 'Recipe Book', recipes_path
-              %li= link_to 'Recipe Finder', new_recipe_finder_path
-          - if actions.any?
-            %h2 Actions
-            %ul
-              - actions.each_pair do |label, path|
-                %li= link_to label, path
-   
-      %section#main
-        = yield
+          = link_to 'Home', root_path
+          | 
+          = link_to 'Contact', 'http://ohmabel.uservoice.com/forums/81175', :class => 'contact_us'
 
-      / 
-        infobox would appear at bottom of page if uncommented
-        %section#info
-          %section#right
-            %h2 Newest Users
-            %img{ :src => '../images/arrow.gif', :alt => '' } User1
-            %br
-            %img{ :src => '../images/arrow.gif', :alt => '' } User2
-          %section#left
-            %h2 Newest Recipes
-            %img{ :src => '../images/arrow.gif', :alt => '' } Recipe1
-            %br
-            %img{ :src => '../images/arrow.gif', :alt => '' } Recipe2
-            
-      %footer
-        Copyright &copy; 2010 Bryan Ash
+      %hgroup
+        %h1 OhMabel!
+        %h6 ease the pain of conjuring daily meals
 
-    = set_focus_to_first_field
-    = add_uservoice_form
-    = javascript_include_tag "active_form.js", "analytics.js"
+      .flash
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}", :class => "message"
+
+    %menu
+      %nav
+        %h2 My Tools
+        %ul
+          %li= link_to 'Recipe Book', recipes_path
+          %li= link_to 'Recipe Finder', new_recipe_finder_path
+        - if actions.any?
+          %h2 Actions
+          %ul
+            - actions.each_pair do |label, path|
+              %li= link_to label, path
+ 
+    %article
+      = yield
+
+    / 
+      infobox would appear at bottom of page if uncommented
+      %section#info
+        %section#right
+          %h2 Newest Users
+          %img{ :src => '../images/arrow.gif', :alt => '' } User1
+          %br
+          %img{ :src => '../images/arrow.gif', :alt => '' } User2
+        %section#left
+          %h2 Newest Recipes
+          %img{ :src => '../images/arrow.gif', :alt => '' } Recipe1
+          %br
+          %img{ :src => '../images/arrow.gif', :alt => '' } Recipe2
+          
+    %footer
+      Copyright &copy; 2010 Bryan Ash
+
+  = set_focus_to_first_field
+  = add_uservoice_form
+  = javascript_include_tag "active_form.js", "analytics.js"
