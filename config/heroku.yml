@@ -1,0 +1,7 @@
+apps:
+  # shorthand: heroku app
+  production: ohmabel
+  staging: ohmabel-staging
+
+config:
+  BUNDLE_WITHOUT: "development:test"

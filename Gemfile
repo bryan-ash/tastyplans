@@ -11,7 +11,7 @@ gem 'rdiscount'
 gem 'thin'
 
 group :development do
-  gem 'heroku'
+  gem 'heroku_san'
   gem 'deadweight'
 
   # These are needed for devise generators:
