@@ -1,12 +1,13 @@
 Feature: Recipe
 
   Scenario: Show a recipe
-    Given a "Bacon Butty" recipe has ingredients:
+    Given I am a new, authenticated user
+    And a "Bacon Butty" recipe has ingredients:
       | amount | unit  | ingredient |
       | 2      | slice | bread      |
       | 1/8    | stick | butter     |
       | 4      | slice | bacon      |
-    And   a "Bacon Butty" recipe has directions:
+    And a "Bacon Butty" recipe has directions:
       """
       Fry the bacon.
       Butter the bread.
@@ -21,7 +22,7 @@ Feature: Recipe
     And   I should see "4 slice bacon"
     And   I should see "Fry the bacon"
 
-  Scenario: List all recipes
+  Scenario: List all recipes in alphanumeric order
     Given recipe "Recipe2" exists
     And   recipe "Recipe1" exists
     Then  Recipe1 should be listed before Recipe2 on the recipes page

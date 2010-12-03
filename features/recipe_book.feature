@@ -7,6 +7,7 @@ Feature: Recipe Book
     When I follow "Recipe Book"
     Then I should see "Recipes"
 
-  Scenario: Not accessible unless signed in
+  Scenario: Always available but requires sign in
     Given I am signed out
-    Then I should not see "Recipe Book"
+    When I follow "Recipe Book"
+    Then I should be on the sign in page

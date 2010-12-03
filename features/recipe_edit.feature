@@ -1,5 +1,8 @@
 Feature: Editing recipes
 
+  Background:
+    Given I am a new, authenticated user
+  
   Scenario: Change the name
     Given recipe "Recipe1" exists
     When I rename recipe "Recipe1" to "Recipe2"

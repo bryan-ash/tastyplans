@@ -55,5 +55,5 @@ Then /^I should receive a password reset email at "([^\"]+)"$/ do |email|
 end
 
 Then /^I should know that I\'m logged in$/ do
-  Then 'I should see "My Features"'
+  Then 'I should see "My Tools"'
 end
