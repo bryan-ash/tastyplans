@@ -16,12 +16,173 @@ body {
     padding: 0;
 }
 
+p {
+    background: inherit;
+    color: #888;
+    margin: 0 0 5px 15px;
+    padding: 0;
+}
+
+hr {
+    background-color: #eee;
+    color: #eee;
+    border: 0;
+    height: 1px;
+}
+
+a {
+    color: #FFF;
+    background: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    background: inherit;
+    text-decoration: underline;
+}
+
+h1 {
+    color: #FFF;
+    background: inherit;
+    font-weight: bold;
+    font-size: 4em;
+    font-style: italic;
+    font-family: "Trebuchet MS", sans-serif;
+    letter-spacing: -1px;
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+h1 a {
+    color: #FFF;
+    background: inherit;
+}
+
+h2 {
+    background-color: inherit;
+    color: #FF8D00;
+    font-size: 140%;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 0;
+}
+
+h2 a {
+    color: #FF8D00;
+}
+
+h2 a:hover {
+    color: #EE8300;
+    text-decoration: none;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+ul {
+    margin: 5px 0 20px 15px;
+    padding: 0;
+    list-style: none;
+}
+
+ul li {
+    list-style-type: none;
+    color: #F29900;
+    margin: 0;
+    padding: 0;
+}
+
+li a {
+    color: #546078;
+}
+
+li a:hover {
+    color: #F29900;
+}
+
+p, ol li {
+    list-style-type: decimal;
+    color: #555;
+}
+
+ul li div,form {
+    display: inline;
+}
+
+fieldset {
+    border: 0px solid #eee;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+}
+
+textarea.text {
+    background: #fff;
+    color: #000;
+    border: 1px solid #ccc;
+    width: 90%;
+    height: 150px;
+}
+
+textarea.text:hover {
+    background: #FFFFF4;
+    color: #000;
+    border: 1px solid #eee;
+}
+
+input.field {
+    background-color: #3C3C3C;
+    color: #000;
+    border: 1px solid #ccc;
+    width: 100px;
+}
+
+input.field:hover {
+    background: #ccc;
+    color: #000;
+    border: 1px solid #eee;
+}
+
+input.text {
+    background: #FFF;
+    color: #808080;
+    border: 1px solid #546078;
+    width: 110px;
+    margin: 0;
+}
+
+input.text:hover {
+    border: 1px solid #3A4354;
+}
+
+input.button {
+    background: #FFFFF4;
+    color: #808080;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
+}
+
+th {
+    text-align: left;
+}
+
+input[type=text] {
+    width: 500px;;
+}
+
 header {
     background: #415166;
     width: 100%;
     height: 145px;
     color: #FF8D00;
     font-size: 90%;
+}
+
+header a:hover {
+    text-decoration: none;
 }
 
 header nav {
@@ -190,169 +351,12 @@ li.finder_ingredient {
     clear: both;
 }
 
-p {
-    background: inherit;
-    color: #888;
-    margin: 0 0 5px 15px;
-    padding: 0;
-}
-
-hr {
-    background-color: #eee;
-    color: #eee;
-    border: 0;
-    height: 1px;
-}
-
-a {
-    color: #FFF;
-    background: inherit;
-    text-decoration: none;
-}
-
-a:hover {
-    background: inherit;
-    text-decoration: underline;
-}
-
-h1 {
-    color: #FFF;
-    background: inherit;
-    font-weight: bold;
-    font-size: 4em;
-    font-style: italic;
-    font-family: "Trebuchet MS", sans-serif;
-    letter-spacing: -1px;
-    margin: 0;
-    padding: 10px 0 10px 0;
-}
-
-h1 a {
-    color: #FFF;
-    background: inherit;
-}
-
-h2 {
-    background-color: inherit;
-    color: #FF8D00;
-    font-size: 140%;
-    font-weight: bold;
-    margin: 10px 0;
-    padding: 0;
-}
-
-h2 a {
-    color: #FF8D00;
-}
-
-h2 a:hover {
-    color: #EE8300;
-    text-decoration: none;
-}
-
-h3 {
-    margin: 10px 0;
-}
-
-ul {
-    margin: 5px 0 20px 15px;
-    padding: 0;
-    list-style: none;
-}
-
-ul li {
-    list-style-type: none;
-    color: #F29900;
-    margin: 0;
-    padding: 0;
-}
-
-li a {
-    color: #546078;
-}
-
-li a:hover {
-    color: #F29900;
-}
-
-p, ol li {
-    list-style-type: decimal;
-    color: #555;
-}
-
-ul li div,form {
-    display: inline;
-}
-
-fieldset {
-    border: 0px solid #eee;
-}
-
-textarea {
-    width: 100%;
-    height: 150px;
-}
-
-textarea.text {
-    background: #fff;
-    color: #000;
-    border: 1px solid #ccc;
-    width: 90%;
-    height: 150px;
-}
-
-textarea.text:hover {
-    background: #FFFFF4;
-    color: #000;
-    border: 1px solid #eee;
-}
-
-input.field {
-    background-color: #3C3C3C;
-    color: #000;
-    border: 1px solid #ccc;
-    width: 100px;
-}
-
-input.field:hover {
-    background: #ccc;
-    color: #000;
-    border: 1px solid #eee;
-}
-
-input.text {
-    background: #FFF;
-    color: #808080;
-    border: 1px solid #546078;
-    width: 110px;
-    margin: 0;
-}
-
-th {
-    text-align: left;
-}
-
-input[type=text] {
-    width: 500px;;
-}
-
 .amount input {
     width: 50px;;
 }
 
 .unit input {
     width: 70px;
-}
-
-input.text:hover {
-    border: 1px solid #3A4354;
-}
-
-input.button {
-    background: #FFFFF4;
-    color: #808080;
-    border-right: 1px solid #CCC;
-    border-bottom: 1px solid #CCC;
 }
 
 .field_with_errors {

@@ -27,8 +27,8 @@
           = link_to 'Contact', 'http://ohmabel.uservoice.com/forums/81175', :class => 'contact_us'
 
       %hgroup
-        %h1 OhMabel!
-        %h6 ease the pain of conjuring daily meals
+        %h1= link_to "OhMabel!", root_path
+        %h6= link_to "ease the pain of conjuring daily meals", root_path
 
       .flash
         - flash.each do |name, msg|
