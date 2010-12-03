@@ -81,9 +81,9 @@ h3 {
 }
 
 ul {
+    list-style: none;
     margin: 5px 0 20px 15px;
     padding: 0;
-    list-style: none;
 }
 
 ul li {
@@ -237,6 +237,12 @@ hgroup h6 {
     font-size: 100%;
     margin: 0;
     padding: 0px 0px 0px 30px;
+}
+
+article ul li {
+    list-style-type: disc;
+    color: #555;
+    margin-left: 20px;
 }
 
 .flash {
