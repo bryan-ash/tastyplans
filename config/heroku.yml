@@ -1,7 +1,14 @@
-apps:
-  # shorthand: heroku app
-  production: ohmabel
-  staging: ohmabel-staging
+production:
+  app: ohmabel
+  config:
+    BUNDLE_WITHOUT: "development:test"
+    GOOGLE_ANALYTICS: "UA-19856824-1"
 
-config:
-  BUNDLE_WITHOUT: "development:test"
+staging:
+  app: ohmabel-staging
+  config: &default
+    BUNDLE_WITHOUT: "development:test"
+
+demo:
+  app: ohmabel-demo
+
