@@ -10,8 +10,16 @@ gem 'rdiscount'
 # thin is required for Heroku until further notice
 gem 'thin'
 
-gem 'heroku'
-gem 'deadweight'
+group :development do
+  gem 'heroku'
+  gem 'deadweight'
+
+  # These are needed for devise generators:
+  gem 'hpricot'
+  gem 'ruby_parser'
+
+  gem 'mechanize'
+end
 
 group :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
@@ -30,10 +38,4 @@ group :test do
   gem 'spork'
   gem 'test-unit', '= 1.2.3'
   gem 'webrat'
-
-  gem 'mechanize'
-
-  # These are needed for devise generators:
-  gem 'hpricot'
-  gem 'ruby_parser'
 end
