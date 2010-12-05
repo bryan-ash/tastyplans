@@ -26,3 +26,12 @@ Feature: Recipe
     Given recipe "Recipe2" exists
     And   recipe "Recipe1" exists
     Then  Recipe1 should be listed before Recipe2 on the recipes page
+
+  Scenario: Markdown directions filter out HTML
+    Given I am a new, authenticated user
+    And a "dangerous" recipe has directions:
+      """
+      <script>alert('hello')</script>
+      """
+    When I show the "dangerous" recipe
+    Then I should see "<script>"

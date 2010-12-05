@@ -11,5 +11,7 @@
         
   %section#directions
     %h3 Directions
-    :markdown
-      #{@recipe.directions}
+    != RDiscount.new(@recipe.directions, :filter_html).to_html
+    /
+      :markdown
+        #{@recipe.directions}
