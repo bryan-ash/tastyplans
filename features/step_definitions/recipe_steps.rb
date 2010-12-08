@@ -28,6 +28,11 @@ Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amoun
   end
 end
 
+Given /^a "([^\"]*)" recipe has description:$/ do |recipe_name, description|
+  recipe = Recipe.find_or_create_by_name :name => recipe_name
+  recipe.update_attributes! :description => description
+end
+
 Given /^a "([^\"]*)" recipe has directions:$/ do |recipe_name, directions|
   recipe = Recipe.find_or_create_by_name :name => recipe_name
   recipe.update_attributes! :directions => directions
@@ -62,6 +67,11 @@ end
 
 When /^I change the recipe name to "([^\"]*)"$/ do |name|
   fill_in 'recipe[name]', :with => name
+  save_the_recipe
+end
+
+When /^I change the description to:$/ do |description|
+  fill_in 'recipe[description]', :with => description
   save_the_recipe
 end
 

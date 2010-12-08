@@ -8,6 +8,10 @@
     = form.text_field :name
 
   %section
+    %h3= form.label :description, "How would you describe this recipe? Maybe there's a story behind it?"
+    = form.text_area :description
+
+  %section
     %h3 Ingredients
     %table
       %tr

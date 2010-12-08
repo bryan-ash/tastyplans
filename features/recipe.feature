@@ -34,6 +34,19 @@ Feature: Recipe
     Then I should see "Thank you for editing that recipe"
     And I should see "Recipe2"
 
+  Scenario: Edit description
+    Given recipe "Lumps of Lard" exists
+    And   a "Lumps of Lard" recipe has description:
+      """
+      Seriously, who doesn't love Lard!
+      """
+    And I am editing recipe "Lumps of Lard"
+    When I change the description to:
+      """
+      An old family recipe.
+      """
+    Then I should see "An old family recipe"
+
   Scenario: Edit directions
     Given recipe "Fried Bacon" exists
     And   a "Fried Bacon" recipe has directions:
