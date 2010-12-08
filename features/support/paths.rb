@@ -24,7 +24,7 @@ module NavigationHelpers
     when /^the recipe finder (.*) page/
       recipe_finder_path($1)
 
-    when /^the recipes page/
+    when /^the Recipe Book page/
       recipes_path
 
     when /the new recipe page/

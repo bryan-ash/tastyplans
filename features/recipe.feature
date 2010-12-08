@@ -1,8 +1,10 @@
 Feature: Recipe
 
-  Scenario: Show a recipe
+  Background:
     Given I am a new, authenticated user
-    And a "Bacon Butty" recipe has ingredients:
+  
+  Scenario: Show a recipe
+    Given a "Bacon Butty" recipe has ingredients:
       | amount | unit  | ingredient |
       | 2      | slice | bread      |
       | 1/8    | stick | butter     |
@@ -22,14 +24,47 @@ Feature: Recipe
     And   I should see "4 slice bacon"
     And   I should see "Fry the bacon"
 
-  Scenario: List all recipes in alphanumeric order
-    Given recipe "Recipe2" exists
-    And   recipe "Recipe1" exists
-    Then  Recipe1 should be listed before Recipe2 on the recipes page
+  Scenario: Creating a simple recipe
+    When I create a new recipe with 3 ingredients
+    Then the 3 ingredient recipe should be shown
+
+  Scenario: Change the name
+    Given recipe "Recipe1" exists
+    When I rename recipe "Recipe1" to "Recipe2"
+    Then I should see "Thank you for editing that recipe"
+    And I should see "Recipe2"
+
+  Scenario: Edit directions
+    Given recipe "Fried Bacon" exists
+    And   a "Fried Bacon" recipe has directions:
+      """
+      Fry the sausage.
+      """
+    And I am editing recipe "Fried Bacon"
+    When I change the directions to:
+      """
+      Fry the bacon.
+      """
+    Then I should see "Fry the bacon"
+
+  Scenario: Edit ingredients
+    Given a "Bacon Butty" recipe has ingredients:
+      | amount | unit  | ingredient |
+      | 2      | slice | bread      |
+      | 1/8    | stick | butter     |
+      | 4      | slice | bacon      |
+    And I am editing recipe "Bacon Butty"
+    When I change the 2nd ingredient name to "Lard"
+    Then I should see "Lard"
+
+  Scenario: Discard edits
+    Given I am editing recipe "Recipe1"
+    And  I fill in "name" with "Recipe2"
+    When I follow "Discard edits"
+    Then I should see "Recipe1"
 
   Scenario: Markdown directions filter out HTML
-    Given I am a new, authenticated user
-    And a "dangerous" recipe has directions:
+    Given a "dangerous" recipe has directions:
       """
       <script>alert('hello')</script>
       """

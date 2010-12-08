@@ -88,7 +88,7 @@ When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
 end
 
 When /^I create a new recipe with (\d) ingredients$/ do |count|
-  Given %{I am on the recipes page}
+  Given %{I am on the Recipe Book page}
   When  %{I follow "Add a new recipe"}
   Then  %{I should be on the new recipe page}
 
