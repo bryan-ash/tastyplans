@@ -1,4 +1,7 @@
-require 'mechanize'
+begin
+  require 'mechanize'
+rescue LoadError
+end
 
 desc 'Fetch RSS feed with recipes'
 task :fetch_feeds => :environment do
