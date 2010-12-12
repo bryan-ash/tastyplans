@@ -36,15 +36,16 @@
 
     %menu
       %nav
-        %h2 My Tools
+        %h2 Recipes
         %ul
-          %li= link_to 'Recipe Book', recipes_path
-          %li= link_to 'Recipe Finder', new_recipe_finder_path
-        %h2 Actions
-        %ul
+          %li= link_to 'List all recipes', recipes_path
+          %li= link_to 'Find by ingredient', new_recipe_finder_path
           %li= link_to 'Add a new recipe', new_recipe_path
-          - actions.each_pair do |label, path|
-            %li= link_to label, path
+        - unless actions.empty?
+          %h2 Actions
+          %ul
+            - actions.each_pair do |label, path|
+              %li= link_to label, path
  
     %article
       = yield
