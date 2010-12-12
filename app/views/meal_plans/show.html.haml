@@ -7,5 +7,7 @@
       %ul
         - planned_meals.each do |planned_meal|
           %li.recipe
-            = planned_meal.recipe.name
-            = link_to 'Suggest Another', suggest_meal_plan_planned_meal_path(@meal_plan, planned_meal)
+            - if planned_meal.recipe
+              = planned_meal.recipe.name
+            - else
+              Nothing planned for the day yet

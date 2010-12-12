@@ -14,13 +14,8 @@ class Recipe < ActiveRecord::Base
   scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where({:ingredients => {:name.matches => "%#{ingredient}%"}}) }
                                                     
   def self.with_ingredients(ingredients)
-    recipe_collections = ingredients.map { |ingredient| with_ingredient(ingredient).all }
+    recipe_collections = ingredients.map { |ingredient| self.with_ingredient(ingredient).all }
     recipe_collections.inject { |recipes, next_set| recipes & next_set }.uniq
-  end
-
-  def self.suggestion(current = nil)
-    first unless current
-    last
   end
 
 end
