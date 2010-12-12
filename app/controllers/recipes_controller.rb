@@ -15,7 +15,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to @recipe, :notice => "Thank you for adding that new recipe"
     else
-      flash.now[:error] = "Sorry, we could not save your recipe"
+      flash.now[:alert] = "Sorry, we could not save your recipe"
       render :action => "new"
     end
   end
