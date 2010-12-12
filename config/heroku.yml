@@ -8,7 +8,3 @@ staging:
   app: ohmabel-staging
   config: &default
     BUNDLE_WITHOUT: "development:test"
-
-demo:
-  app: ohmabel-demo
-
