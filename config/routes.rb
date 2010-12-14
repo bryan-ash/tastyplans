@@ -8,7 +8,7 @@ Mabel::Application.routes.draw do
 
   resources :recipe_finders do
     resources :finder_ingredients
-    get :autocomplete_for_finder_ingredient_name, :on => :collection
+    get :autocomplete_for_ingredient_name, :on => :collection
   end
   
   resources :ingredients, :recipes
