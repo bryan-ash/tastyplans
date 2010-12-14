@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!
+  autocomplete_for :ingredient, :name
   
   def index
     @recipes = Recipe.all

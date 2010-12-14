@@ -5,6 +5,6 @@
     = builder.text_field :unit
   %td.name
     = builder.fields_for :ingredient do |ingredient_form|
-      = ingredient_form.text_field :name
+      = ingredient_form.text_field :name, :class => 'autocomplete', 'data-autocomplete-url' => autocomplete_for_ingredient_name_recipes_path
   %td
     = link_to_remove_fields "remove", builder
