@@ -328,25 +328,28 @@ nav li a:hover {
     height: 160px;
 }
 
-#info #right {
-    width: 270px;
-    float: right;
-    padding: 10px 0px 5px 20px;
-}
-
-#info #left {
-    padding: 10px 20px 5px 20px;
-}
-
 footer {
     clear: both;
     background: #546078;
     color: #FFF;
     width: 100%;
-    height: 25px;
+    height: 180px;
     font-size: 90%;
-    text-align: center;
     padding-top: 3px;
+}
+
+footer section {
+    float: left;
+    padding: 10px 20px 10px 20px;
+}
+
+footer > section:first-child {
+    margin: 0 0 0 180px;
+}
+
+footer > section:last-child {
+    float: right;
+    padding: 155px 10px 10px 10px;
 }
 
 footer a {

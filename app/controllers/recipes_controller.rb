@@ -3,7 +3,7 @@ class RecipesController < ApplicationController
   autocomplete_for :ingredient, :name
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.order('name ASC')
   end
 
   def new

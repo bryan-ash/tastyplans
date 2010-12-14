@@ -7,13 +7,13 @@ Feature: Recipe Finder
     Given a "Bacon Butty" recipe exists
     And   a "Chip Butty" recipe exists
     And   I am on the recipe finder page
-    And   I fill in "ingredient" with "bacon"
+    And   I fill in "recipe_finder_ingredient" with "bacon"
 
     When  I press "Find recipes"
 
     Then  I should see "bacon"
     And   I should see "Bacon Butty"
-    And   I should not see "Chip Butty"
+    And   I should not see "Chip Butty" within "article"
 
     When  I follow "Bacon Butty"
     Then  I should see "bread"
@@ -26,7 +26,7 @@ Feature: Recipe Finder
       | amount | unit   | ingredient        |
       | 4      | bars   | plain chocolate   |
     And   I am on the recipe finder page
-    And   I fill in "ingredient" with "chocolate"
+    And   I fill in "recipe_finder_ingredient" with "chocolate"
 
     When  I press "Find recipes"
 
@@ -39,7 +39,7 @@ Feature: Recipe Finder
       | 2      | pounds | chocolate buttons |
       | 4      | bars   | plain chocolate   |
     And   I am on the recipe finder page
-    And   I fill in "ingredient" with "chocolate"
+    And   I fill in "recipe_finder_ingredient" with "chocolate"
 
     When  I press "Find recipes"
 

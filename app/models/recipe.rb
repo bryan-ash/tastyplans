@@ -9,8 +9,9 @@ class Recipe < ActiveRecord::Base
 
   validates_presence_of :name, :directions
   
-  default_scope :order => 'name ASC'
-
+  scope :recently_added,  order('recipes.created_at DESC').limit(5)
+  scope :recently_edited, order('recipes.updated_at DESC').limit(5)
+  
   scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where({:ingredients => {:name.matches => "%#{ingredient}%"}}) }
                                                     
   def self.with_ingredients(ingredients)
