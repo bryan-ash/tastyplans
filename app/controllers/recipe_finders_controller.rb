@@ -1,5 +1,6 @@
 class RecipeFindersController < ApplicationController
   before_filter :authenticate_user!
+  autocomplete_for :finder_ingredient, :name
   
   def new
     @recipe_finder = RecipeFinder.create

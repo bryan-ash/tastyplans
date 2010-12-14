@@ -3,8 +3,7 @@
   %head
     %meta{ :charset => "utf-8" }
     %title OhMabel!
-    = stylesheet_link_tag 'style', 'wmd'
-    = google_jquery
+    = stylesheet_link_tag 'style', 'wmd', 'jquery.autocomplete'
     = csrf_meta_tag
 
   %body
@@ -67,6 +66,7 @@
     %footer
       Copyright &copy; 2010 Bryan Ash
 
-  = set_focus_to_first_field
+  = google_jquery
   = add_uservoice_form
-  = javascript_include_tag "active_form.js", "analytics.js"
+  = javascript_include_tag "active_form.js", "analytics.js", "jquery.autocomplete.js", "autocomplete-hook.js"
+  = set_focus_to_first_field
