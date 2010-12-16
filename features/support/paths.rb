@@ -30,7 +30,10 @@ module NavigationHelpers
     when /the new recipe page/
       new_recipe_path
 
-    when /^the recipe page for "([^\"]+)"$/
+    when
+      /^the recipe page for "([^\"]+)"$/,
+      /^the "([^\"]+)" recipe page$/
+      
       recipe = Recipe.find_by_name $1
       recipe_path(recipe)
       

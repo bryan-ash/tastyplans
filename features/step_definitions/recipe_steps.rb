@@ -22,7 +22,8 @@ end
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|
   recipe = Recipe.find_or_create_by_name(:name => recipe_name, :directions => "whip it")
   ingredient_amounts.hashes.each do |ingredient_amount|
-    recipe.ingredient_amounts.create(:amount     => ingredient_amount['amount'],
+    recipe.ingredient_amounts.create(:number     => ingredient_amount['number'],
+                                     :amount     => ingredient_amount['amount'],
                                      :unit       => ingredient_amount['unit'],
                                      :ingredient => Ingredient.create!(:name => ingredient_amount['ingredient']))
   end
@@ -72,6 +73,11 @@ end
 
 When /^I change the description to:$/ do |description|
   fill_in 'recipe[description]', :with => description
+  save_the_recipe
+end
+
+When /^I change the (\d)(st|nd|rd|th) ingredient number to "([^\"]+)"$/ do |ordinal, indicator, number|
+  fill_in "recipe[ingredient_amounts_attributes][#{ordinal.to_i - 1}][number]", :with => number
   save_the_recipe
 end
 

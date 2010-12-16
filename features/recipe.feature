@@ -15,7 +15,7 @@ Feature: Recipe
   Scenario: List all recipes in alphanumeric order
     Given recipe "Recipe2" exists
     And   recipe "Recipe1" exists
-    Then  Recipe1 should be listed before Recipe2 on the Recipe Book page
+    Then  "Recipe1" should be listed before "Recipe2" on the Recipe Book page
 
   Scenario: Show a recipe
     Given a "Bacon Butty" recipe has ingredients:
@@ -97,3 +97,28 @@ Feature: Recipe
       """
     When I show the "dangerous" recipe
     Then I should see "<script>"
+
+  Scenario: Ingredient are shown in the order specified
+    Given a "Sequential" recipe has ingredients:
+      | number | ingredient |
+      |   1    | one        |
+      |   3    | three      |
+      |   2    | two        |
+
+    When I show the "Sequential" recipe
+    
+    Then "two" should be listed before "three" on the "Sequential" recipe page
+
+  Scenario: Ingredient order can be specified
+    Given a "Sequential" recipe has ingredients:
+      | number | ingredient |
+      |   1    | one        |
+      |   2    | three      |
+      |   3    | two        |
+
+    When I go to the recipe page for "Sequential"
+    And  I follow "Edit this recipe"
+    And  I change the 3rd ingredient number to "2"
+
+    Then "two" should be listed before "three" on the "Sequential" recipe page
+

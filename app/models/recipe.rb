@@ -13,10 +13,20 @@ class Recipe < ActiveRecord::Base
   scope :recently_edited, order('recipes.updated_at DESC').limit(5)
   
   scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where({:ingredients => {:name.matches => "%#{ingredient}%"}}) }
-                                                    
+
+  before_save :sequence_ingredient_amounts
+  
   def self.with_ingredients(ingredients)
     recipe_collections = ingredients.map { |ingredient| self.with_ingredient(ingredient).all }
     recipe_collections.inject { |recipes, next_set| recipes & next_set }.uniq
+  end
+
+  def sequence_ingredient_amounts
+    ingredient_amounts.sort{|f,s|f.number <=> s.number}.each_with_index do |ingredient_amount, index|
+      puts "Updating: [#{index + 1}] #{ingredient_amount.ingredient.name}"
+      ingredient_amount.update_attributes(:number => index + 1)
+    end
+
   end
 
 end

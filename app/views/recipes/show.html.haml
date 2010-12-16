@@ -7,7 +7,7 @@
   %section#ingredients
     %h3 Ingredients
     %ul
-      - @recipe.ingredient_amounts.each do |ingredient_amount|
+      - @recipe.ingredient_amounts.sequential.each do |ingredient_amount|
         %li= "#{ingredient_amount.amount} #{ingredient_amount.unit} #{ingredient_amount.ingredient.name}"
         
   %section#directions

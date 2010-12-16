@@ -9,7 +9,7 @@ Feature: Ingredients
     Given an ingredient named "Sugar"
     And   an ingredient named "Spice"
     When  I go to the ingredients page
-    Then  Spice should be listed before Sugar on the ingredients page
+    Then  "Spice" should be listed before "Sugar" on the ingredients page
 
   Scenario: Creating a new ingredient
     When I create an ingredient named "Sausage"

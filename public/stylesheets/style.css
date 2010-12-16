@@ -360,6 +360,10 @@ li.finder_ingredient {
     clear: both;
 }
 
+.number input {
+    width: 20px;;
+}
+
 .amount input {
     width: 50px;;
 }

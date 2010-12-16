@@ -1,4 +1,4 @@
-Then /^(.+) should be listed before (.+) on (.+)$/ do |first, second, page_name|
+Then /^"([^\"]+)" should be listed before "([^\"]+)" on (.+)$/ do |first, second, page_name|
   visit path_to(page_name)
   
   first_position  = (body =~ /#{first}/)

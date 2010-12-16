@@ -15,10 +15,11 @@
     %h3 Ingredients
     %table
       %tr
+        %th #
         %th Amount
         %th Unit
         %th Name
-      = form.fields_for :ingredient_amounts do |ingredient_amount_form|
+      = form.fields_for :ingredient_amounts, @recipe.ingredient_amounts.sequential do |ingredient_amount_form|
         = render "ingredient_amount_fields", :builder => ingredient_amount_form
     = link_to_add_fields "Add an ingredient", form, :ingredient_amounts
 
