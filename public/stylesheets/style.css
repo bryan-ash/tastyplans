@@ -340,7 +340,12 @@ footer {
 
 footer section {
     float: left;
-    padding: 10px 20px 10px 20px;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;    /* Opera 9-10 */
+    text-overflow:    ellipsis;    /* IE, WebKit (Safari, Chrome), Opera 11 */
+    white-space: nowrap;
+    width: 270px;
+    padding: 10px 30px 10px 20px;
 }
 
 footer > section:first-child {
@@ -349,6 +354,7 @@ footer > section:first-child {
 
 footer > section:last-child {
     float: right;
+    text-align: right;
     padding: 155px 10px 10px 10px;
 }
 
