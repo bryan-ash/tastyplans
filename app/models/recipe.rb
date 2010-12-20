@@ -22,11 +22,9 @@ class Recipe < ActiveRecord::Base
   end
 
   def sequence_ingredient_amounts
-    ingredient_amounts.sort{|f,s|f.number <=> s.number}.each_with_index do |ingredient_amount, index|
-      puts "Updating: [#{index + 1}] #{ingredient_amount.ingredient.name}"
-      ingredient_amount.update_attributes(:number => index + 1)
+    ingredient_amounts.each_with_index do |ingredient_amount, index|
+      ingredient_amount.insert_at(ingredient_amount.position || index + 1)
     end
-
   end
 
 end

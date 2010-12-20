@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!
+
   autocomplete_for :ingredient, :name
   
   def index
@@ -37,5 +38,4 @@ class RecipesController < ApplicationController
       render :action => 'edit'
     end
   end
-
 end

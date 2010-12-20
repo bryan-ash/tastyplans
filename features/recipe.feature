@@ -100,21 +100,20 @@ Feature: Recipe
 
   Scenario: Ingredient are shown in the order specified
     Given a "Sequential" recipe has ingredients:
-      | number | ingredient |
-      |   1    | one        |
-      |   3    | three      |
-      |   2    | two        |
+      | # | ingredient |
+      | 1 | one        |
+      | 3 | three      |
+      | 2 | two        |
 
     When I show the "Sequential" recipe
-    
     Then "two" should be listed before "three" on the "Sequential" recipe page
 
   Scenario: Ingredient order can be specified
     Given a "Sequential" recipe has ingredients:
-      | number | ingredient |
-      |   1    | one        |
-      |   2    | three      |
-      |   3    | two        |
+      | # | ingredient |
+      | 1 | one        |
+      | 2 | three      |
+      | 3 | two        |
 
     When I go to the recipe page for "Sequential"
     And  I follow "Edit this recipe"
