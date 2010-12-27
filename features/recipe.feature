@@ -110,14 +110,14 @@ Feature: Recipe
 
   Scenario: Ingredient order can be specified
     Given a "Sequential" recipe has ingredients:
-      | # | ingredient |
-      | 1 | one        |
-      | 2 | three      |
-      | 3 | two        |
+      | ingredient |
+      | one        |
+      | three      |
+      | two        |
 
     When I go to the recipe page for "Sequential"
     And  I follow "Edit this recipe"
-    And  I change the 3rd ingredient number to "2"
+    And  I change the 3rd ingredient position number to "2"
 
     Then "two" should be listed before "three" on the "Sequential" recipe page
 

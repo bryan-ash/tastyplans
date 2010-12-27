@@ -28,6 +28,9 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find(params[:id])
+    @recipe.ingredient_amounts.each_with_index do |ingredient_amount, index|
+      ingredient_amount.update_attributes(:position => index + 1)
+    end
   end
 
   def update

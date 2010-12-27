@@ -77,7 +77,7 @@ When /^I change the description to:$/ do |description|
   save_the_recipe
 end
 
-When /^I change the (\d)(st|nd|rd|th) ingredient number to "([^\"]+)"$/ do |ordinal, indicator, position|
+When /^I change the (\d)(st|nd|rd|th) ingredient position number to "([^\"]+)"$/ do |ordinal, indicator, position|
   fill_in "recipe[ingredient_amounts_attributes][#{ordinal.to_i - 1}][position]", :with => position
   save_the_recipe
 end

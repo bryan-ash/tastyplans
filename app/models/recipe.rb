@@ -1,6 +1,6 @@
 class Recipe < ActiveRecord::Base
 
-  has_many :ingredient_amounts, :dependent => :destroy
+  has_many :ingredient_amounts, :dependent => :destroy, :order => :position
   has_many :ingredients, :through => :ingredient_amounts
 
   accepts_nested_attributes_for :ingredient_amounts,
