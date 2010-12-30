@@ -15,6 +15,9 @@ module NavigationHelpers
     when /^the ingredients page/
       ingredients_path
 
+    when /^my meal plans page/
+      meal_plans_path
+      
     when /^the new meal plan page/
       new_meal_plan_path
 

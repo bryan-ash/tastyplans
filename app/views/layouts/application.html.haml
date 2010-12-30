@@ -35,17 +35,17 @@
 
     %menu
       %nav
-        %h2 Recipes
+        %h2 Meal Plans
         %ul
-          %li= link_to 'List all recipes', recipes_path
-          %li= link_to 'Find by ingredient', new_recipe_finder_path
-          %li= link_to 'Add a new recipe', new_recipe_path
+          %li= link_to 'List my plans', meal_plans_path
+          %li= link_to 'Start a new plan', new_meal_plan_path
+        = render "shared/recipes_nav"
         - unless actions.empty?
           %h2 Actions
           %ul
             - actions.each_pair do |label, path|
               %li= link_to label, path
- 
+
     %article
       = yield
 

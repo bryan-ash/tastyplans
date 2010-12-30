@@ -1,0 +1,12 @@
+= form_for @meal_plan do |form|
+  = render "shared/error_messages", :target => @meal_plan
+
+  = form.hidden_field :user_id, :value => current_user.id
+
+  %section
+    %h3= form.label :name, "Give this meal plan a name"
+    = form.text_field :name
+
+  %section
+    = form.submit submit_text
+
