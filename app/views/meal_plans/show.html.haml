@@ -1,13 +1,10 @@
 .meal_plan
   %h2= @meal_plan.name
 
-  - @meal_plan.planned_meals.group_by(&:day).each do |day, planned_meals|
-    .planned_day{ :id => "#{day}" }
-      %h3= day
-      %ul
-        - planned_meals.each do |planned_meal|
-          %li.recipe
-            - if planned_meal.recipe
-              = planned_meal.recipe.name
-            - else
-              Nothing planned for the day yet
+  - @meal_plan.planned_meals.each do |planned_meal|
+    %ul
+      %li.recipe
+        - if planned_meal.recipe
+          = planned_meal.recipe.name
+        - else
+          Nothing planned for the day yet

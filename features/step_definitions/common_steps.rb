@@ -7,5 +7,5 @@ Then /^"([^\"]+)" should be listed before "([^\"]+)" on (.+)$/ do |first, second
 end
 
 Then /^I should see "(.+)" once$/ do |text|
-  text.scan(text).length.should == 1
+  body.scan(text).length.should == 1
 end

@@ -3,7 +3,7 @@ Given /^the meal plan named "([^\"]*)" includes the following meals:$/ do |name,
   meal_plan.planned_meals.clear
   meal_table.hashes.each do |meal|
     recipe = Factory(:recipe, :name => meal[:recipe])
-    planned_meal = Factory(:planned_meal, :day => meal[:day])
+    planned_meal = PlannedMeal.new
     planned_meal.recipe = recipe
     meal_plan.planned_meals << planned_meal
   end
