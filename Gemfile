@@ -1,5 +1,6 @@
 source :gemcutter
 
+gem 'cancan'
 gem 'devise'
 gem 'haml'
 gem 'meta_where', :git => 'git://github.com/ernie/meta_where.git'

@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
     @recently_edited_recipes = Recipe.recently_edited
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:alert] = exception.message
+    redirect_to root_url
+  end
 end

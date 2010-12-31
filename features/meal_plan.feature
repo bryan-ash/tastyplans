@@ -10,7 +10,7 @@ Feature: Meal Plan
   Scenario: A logged out user cannot start a new plan
     Given I am signed out
     When  I follow "Start a new plan"
-    Then  I should be on the sign in page
+    Then  I should see "You don't have permission to do that"
 
   Scenario: Only my plans are listed
     Given "another" user has a meal plan
@@ -18,17 +18,22 @@ Feature: Meal Plan
     Then I should not see "another" user's plans
 
   Scenario: Plan name is editable
-    When I follow "Start a new plan"
-    When I fill in "Give this meal plan a name" with "Next Week"
-    And  I press "Save this meal plan"
-    And  I go to my meal plans page
+    Given I follow "Start a new plan"
+    And   I fill in "Give this meal plan a name" with "Next Week"
+    And   I press "Save this meal plan"
+    When I go to my meal plans page
     Then I should see "Next Week"
 
+  Scenario: I can only edit my plans
+    Given "another" user has a meal plan
+    When I edit "another" user's meal plan
+    Then I should see "You don't have permission to do that"
+
   Scenario: Show a meal plan
-    Given the meal plan named "Next Week" includes the following meals:
-      | recipe          |
-      | Bacon Butty     |
-      | Ice Cream       |
+    Given I have a meal plan named "Next Week" with the following meals:
+      | recipe      |
+      | Bacon Butty |
+      | Ice Cream   |
       
     When I show the "Next Week" meal plan
 
