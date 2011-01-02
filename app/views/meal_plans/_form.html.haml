@@ -13,9 +13,12 @@
 
   %section
     %h3 Planned meals
-    - @meal_plan.planned_meals.each do |planned_meal|
+    - if @meal_plan.planned_meals.empty?
+      %p You don't have any meals in this plan yet.  Find a recipe you like and add it.
+    - else
       %ul
-        %li= planned_meal.recipe.name
+        - @meal_plan.planned_meals.each do |planned_meal|
+          %li= planned_meal.recipe.name
 
   %section
     = form.submit submit_text
