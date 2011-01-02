@@ -1,4 +1,4 @@
-- define_actions 'Edit this recipe' => edit_recipe_path(@recipe)
+- define_actions 'Edit this recipe' => edit_recipe_path(@recipe), 'Add to Current Meal Plan' => current_meal_plan_add_recipe_path(@recipe)
 
 %section#recipe
   %h2= @recipe.name

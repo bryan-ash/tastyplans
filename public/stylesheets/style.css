@@ -240,9 +240,12 @@ hgroup h6 {
 }
 
 article ul li {
-    list-style-type: disc;
     color: #555;
     margin-left: 20px;
+}
+
+article ul li#current_meal_plan {
+    list-style-image: url('../images/arrow.gif');
 }
 
 .flash {

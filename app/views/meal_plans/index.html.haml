@@ -1,4 +1,10 @@
 %h2 My Meal Plans
-%ul
-  - @meal_plans.each do |meal_plan|
-    %li= link_to meal_plan.name, meal_plan_path(meal_plan)
+
+%section
+  %ul
+    - @meal_plans.each do |meal_plan|
+      %li{:id => current_meal_plan?(meal_plan) ? "current_meal_plan" : nil}= link_to meal_plan.name, edit_meal_plan_path(meal_plan)
+
+%section
+  = image_tag '/images/arrow.gif'
+  Indicates your current meal plan.  You are adding recipes to this plan.

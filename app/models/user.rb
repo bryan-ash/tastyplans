@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  belongs_to :current_meal_plan, :class_name => "MealPlan"
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 

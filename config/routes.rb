@@ -8,6 +8,8 @@ Mabel::Application.routes.draw do
     resources :planned_meals
   end
 
+  match "current_meal_plan/add_recipe/:id" => "current_meal_plan#add_recipe", :as => :current_meal_plan_add_recipe
+  
   resources :recipes do
     get :autocomplete_for_ingredient_name, :on => :collection
   end
@@ -16,6 +18,7 @@ Mabel::Application.routes.draw do
     resources :finder_ingredients
     get :autocomplete_for_ingredient_name, :on => :collection
   end
+
   
   root :to => "home#index"
 

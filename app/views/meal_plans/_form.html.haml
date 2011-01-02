@@ -8,5 +8,15 @@
     = form.text_field :name
 
   %section
+    = label_tag :current_meal_plan, 'Make this your current meal plan'
+    = check_box_tag :current_meal_plan, 'yes', current_meal_plan?(@meal_plan)
+
+  %section
+    %h3 Planned meals
+    - @meal_plan.planned_meals.each do |planned_meal|
+      %ul
+        %li= planned_meal.recipe.name
+
+  %section
     = form.submit submit_text
 

@@ -24,7 +24,7 @@ Feature: Meal Plan
     When I go to my meal plans page
     Then I should see "Next Week"
 
-  Scenario: I can only edit my plans
+  Scenario: I can only edit my own plans
     Given "another" user has a meal plan
     When I edit "another" user's meal plan
     Then I should see "You don't have permission to do that"
@@ -40,3 +40,13 @@ Feature: Meal Plan
     Then I should see "Next Week"
     And  I should see "Bacon Butty"
     And  I should see "Ice Cream"
+
+  Scenario: I can add recipes to my current meal plan
+    Given I have a current meal plan named "This Week"
+    And recipe "Bacon Butty" exists
+
+    When I show the "Bacon Butty" recipe
+    And I follow "Add to Current Meal Plan"
+    And I go to the meal plan "This Week"
+
+    Then I should see "Bacon Butty" within "article"
