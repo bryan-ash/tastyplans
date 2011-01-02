@@ -18,6 +18,9 @@ module NavigationHelpers
     when /^my meal plans page/
       meal_plans_path
       
+    when /^the start new meal plan page/
+      new_meal_plan_path
+
     when /^the new meal plan page/
       new_meal_plan_path
 

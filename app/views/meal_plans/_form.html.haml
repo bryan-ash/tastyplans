@@ -9,7 +9,7 @@
 
   %section
     = label_tag :current_meal_plan, 'Make this your current meal plan'
-    = check_box_tag :current_meal_plan, 'yes', current_meal_plan?(@meal_plan)
+    = check_box_tag :current_meal_plan, 'yes', current_meal_plan?(@meal_plan) || @meal_plan.new_record?
 
   %section
     %h3 Planned meals
