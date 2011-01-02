@@ -58,3 +58,8 @@ Feature: Meal Plan
     When I make "Next Week" my current meal plan
 
     Then the "Make this your current meal plan" checkbox should be checked
+
+  Scenario: I can get directly to my current meal plan
+    Given I have a current meal plan named "Big Plan"
+    When I follow "My current plan"
+    Then I should be on the edit meal plan "Big Plan" page

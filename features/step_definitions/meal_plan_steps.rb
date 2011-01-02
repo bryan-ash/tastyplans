@@ -21,7 +21,7 @@ Given /^I have a current meal plan named "([^\"]*)"$/ do |name|
 end
 
 When /^I make "([^\"]+)" my current meal plan$/ do |name|
-  When %{I go to edit meal plan "#{name}"}
+  When %{I go to the edit meal plan "#{name}" page}
   And  %{I check "Make this your current meal plan"}
   And  %{I press "Save this meal plan"}
 end

@@ -6,4 +6,8 @@ class CurrentMealPlanController < ApplicationController
     redirect_to :back
   end
 
+  def edit
+    redirect_to edit_meal_plan_path(current_user.current_meal_plan)
+  end
+
 end

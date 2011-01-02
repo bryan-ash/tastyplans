@@ -8,6 +8,7 @@ Mabel::Application.routes.draw do
     resources :planned_meals
   end
 
+  match "current_meal_plan/edit"           => "current_meal_plan#edit",       :as => :edit_current_meal_plan
   match "current_meal_plan/add_recipe/:id" => "current_meal_plan#add_recipe", :as => :current_meal_plan_add_recipe
   
   resources :recipes do
