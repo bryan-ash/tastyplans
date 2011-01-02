@@ -9,11 +9,21 @@ Given /^I have a meal plan named "([^\"]*)" with the following meals:$/ do |name
   end
 end
 
-Given /^I have a current meal plan named "([^\"]*)"$/ do |name|
+Given /^I have a meal plan named "([^\"]*)"$/ do |name|
   Given %{I follow "Start a new plan"}
   And   %{I fill in "Give this meal plan a name" with "#{name}"}
-  And   %{I check "Make this your current meal plan"}
   And   %{I press "Save this meal plan"}
+end
+
+Given /^I have a current meal plan named "([^\"]*)"$/ do |name|
+  Given %{I have a meal plan named "#{name}"}
+  And   %{I make "#{name}" my current meal plan}
+end
+
+When /^I make "([^\"]+)" my current meal plan$/ do |name|
+  When %{I go to edit meal plan "#{name}"}
+  And  %{I check "Make this your current meal plan"}
+  And  %{I press "Save this meal plan"}
 end
 
 Given /^\"another\" user has a meal plan$/ do

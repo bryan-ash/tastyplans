@@ -1,26 +1,10 @@
 class MealPlansController < ApplicationController
   load_and_authorize_resource
   
-  def index
-  end
-
-  def show
-  end
-
-  def new
-  end
-
-  def edit
-  end
-
   def create
     if @meal_plan.save
-      if params[:current_meal_plan] == 'yes'
-        current_user.current_meal_plan = @meal_plan
-        current_user.save
-      end
-
-      redirect_to @meal_plan, :notice => "Your meal plan is ready for some recipes"
+      set_current_meal_plan_if_selected(params)
+      redirect_to edit_meal_plan_path(@meal_plan), :notice => "Your meal plan is ready for some recipes"
     else
       flash.now[:alert] = "Sorry, we could not save your meal plan"
       render :action => "new"
@@ -29,10 +13,16 @@ class MealPlansController < ApplicationController
 
   def update
     if @meal_plan.update_attributes(params[:meal_plan])
+      set_current_meal_plan_if_selected(params)
       redirect_to edit_meal_plan_path(@meal_plan), :notice => "Your meal plan is ready for some recipes"
     else
+      flash.now[:alert] = "Sorry, we could not save your meal plan"
       render :action => "edit"
     end
+  end
+
+  def set_current_meal_plan_if_selected(params)
+    current_user.update_attribute('current_meal_plan', @meal_plan) if params[:current_meal_plan] == 'yes'
   end
 
 end

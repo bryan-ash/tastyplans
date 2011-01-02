@@ -50,3 +50,11 @@ Feature: Meal Plan
     And I go to the meal plan "This Week"
 
     Then I should see "Bacon Butty" within "article"
+
+  Scenario: I can choose a different meal plan as the current
+    Given I have a current meal plan named "This Week"
+    And I have a meal plan named "Next Week"
+
+    When I make "Next Week" my current meal plan
+
+    Then the "Make this your current meal plan" checkbox should be checked
