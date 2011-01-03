@@ -22,8 +22,8 @@ class MealPlansController < ApplicationController
   end
 
   def shopping_list
-    @ingredients = @meal_plan.planned_meals.inject([]) do |ingredients, planned_meal|
-      planned_meal.recipe.ingredients.inject(ingredients) { |ingredients, ingredient| ingredients << ingredient }
+    @ingredient_amounts = @meal_plan.planned_meals.inject([]) do |amounts, planned_meal|
+      planned_meal.recipe.ingredient_amounts.inject(amounts) { |amounts, ingredient| amounts << ingredient }
     end
   end
 

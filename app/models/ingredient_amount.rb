@@ -17,4 +17,8 @@ class IngredientAmount < ActiveRecord::Base
     self.ingredient ||= Ingredient.new
   end
 
+  def formatted
+    "#{self.amount} #{self.unit} #{self.ingredient.name}"
+  end
+
 end
