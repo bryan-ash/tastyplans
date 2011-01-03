@@ -4,7 +4,9 @@ module ApplicationHelper
     raw <<-EMBED_SCRIPT
       <script type="text/javascript">
         $(document).ready(function () {
-          $("input:visible:enabled:first").focus();
+          if (!("autofocus" in document.createElement("input"))) {
+            $(":text:visible:enabled:first").focus();
+          }
         });
       </script>
     EMBED_SCRIPT

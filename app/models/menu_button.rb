@@ -1,0 +1,2 @@
+class MenuButton < MenuLink
+end

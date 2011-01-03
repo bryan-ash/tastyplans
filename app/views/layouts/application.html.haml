@@ -35,13 +35,8 @@
 
     %menu
       %nav
-        = render "shared/meal_plans_nav"
-        = render "shared/recipes_nav"
-        - unless actions.empty?
-          %h2 Actions
-          %ul
-            - actions.each_pair do |label, path|
-              %li= link_to label, path
+        = render meal_plans_menu
+        = render recipes_menu
 
     %article
       = yield

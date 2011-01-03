@@ -41,7 +41,7 @@ a:hover {
     text-decoration: underline;
 }
 
-h1 {
+hgroup h1 {
     color: #FFF;
     background: inherit;
     font-weight: bold;
@@ -53,12 +53,12 @@ h1 {
     padding: 10px 0 10px 0;
 }
 
-h1 a {
+hgroup h1 a {
     color: #FFF;
     background: inherit;
 }
 
-h2 {
+nav h1, h2 {
     background-color: inherit;
     color: #FF8D00;
     font-size: 140%;
@@ -295,7 +295,7 @@ nav {
     padding: 15px 5px 5px 5px;
 }
 
-nav h2 {
+nav h1, nav h2 {
     color: #FF8D00;
     padding-left: 10px;
 }
@@ -308,19 +308,30 @@ nav ul {
     padding: 5px 0 0 0;
 }
 
-nav li {
+nav li, .button_to input {
     font-weight: bold;
     margin: 0 0 8px 0;
     padding: 0 0 0 5px;
     border-bottom: 1px solid #ccc;
 }
 
-nav li a {
+.button_to input {
+    margin: 0 0 0 -3px;
+    padding:0;
+    border:0;
+    background:0;
+    cursor:pointer;
+    font-family: serif;
+    font-size: 100%;
+}
+
+nav li a, .button_to input {
     color: #546078;
     text-decoration: none;
 }
 
-nav li a:hover {
+nav li a:hover, 
+.button_to input:hover {
     color: #F29900;
     text-decoration: none;
 }

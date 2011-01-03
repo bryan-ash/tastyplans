@@ -1,0 +1,6 @@
+- if menu.heading
+  %h1= menu.heading
+
+%ul
+  - menu.items.each do |item|
+    %li= render item
