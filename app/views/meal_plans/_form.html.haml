@@ -22,5 +22,5 @@
     %ul
       - @meal_plan.planned_meals.each do |planned_meal|
         %li
-          = planned_meal.recipe.name
+          =link_to planned_meal.recipe.name, recipe_path(planned_meal.recipe)
           %span=button_to 'remove', meal_plan_planned_meal_path(@meal_plan, planned_meal), :method => :delete, :title => 'remove'
