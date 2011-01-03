@@ -8,6 +8,6 @@ db/schema.rb
 doc
 log/*.log
 rerun.txt
-tmp/**/*
+tmp/*
 vendor/plugins/doc/**/*
 semantic.cache
