@@ -43,11 +43,8 @@ Feature: Meal Plan
 
   Scenario: I can add recipes to my current meal plan
     Given I have a current meal plan named "This Week"
-    And recipe "Bacon Butty" exists
-    When I show the "Bacon Butty" recipe
-    And I follow "Add to Current Meal Plan"
+    And I add recipe "Bacon Butty" to my current meal plan
     And I go to the meal plan "This Week"
-
     Then I should see "Bacon Butty" within "article"
 
   Scenario: I can choose a different meal plan as the current
@@ -64,3 +61,8 @@ Feature: Meal Plan
   Scenario: When I start a new meal plan it is marked Current by default
     When I go to the start new meal plan page
     Then the "Make this your current meal plan" checkbox should be checked
+
+  Scenario: Recipes can be removed from a meal plan
+    Given recipe "Removed Recipe" is in my current meal plan
+    When I remove "Removed Recipe" from my current meal plan
+    Then "Removed Recipe" should not be in my current meal plan
