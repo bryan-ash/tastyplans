@@ -11,3 +11,8 @@ Feature: Shopping List
     When I follow "My current plan"
     And I follow "Shopping list"
     Then I should see "only"
+
+  Scenario: Shopping list is only available when meal plan has recipes
+    Given I have a current meal plan named "Big Plan"
+    When I follow "My current plan"
+    Then I should not see "Shopping list"
