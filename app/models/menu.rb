@@ -17,7 +17,7 @@ class Menu
   end
 
   def view_name
-    ActiveModel::Naming.singular(self)
+    ActiveModel::Naming.singular(self).to_sym
   end
 
 end
