@@ -16,4 +16,8 @@ class Menu
     @items ||= []
   end
 
+  def view_name
+    ActiveModel::Naming.singular(self)
+  end
+
 end

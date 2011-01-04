@@ -1,5 +1,4 @@
-class MenuLink
-  extend ActiveModel::Naming
+class MenuLink < Menu
 
   attr_reader :name
   attr_reader :url
