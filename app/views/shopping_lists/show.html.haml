@@ -3,5 +3,5 @@
   = %{"#{@meal_plan.name}"}
 
 %ul
-  - @shopping_list.each do |amount|
+  - @shopping_list.ingredient_amounts.each do |amount|
     %li= amount.formatted

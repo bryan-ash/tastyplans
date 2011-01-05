@@ -18,15 +18,15 @@ Feature: Shopping List
     Then I should not see "Shopping list"
 
   Scenario: Ingredients that are included in multiple recipes are only shown once
-    Given recipe "Recipe 1" is in my current meal plan
-    Given recipe "Recipe 2" is in my current meal plan
-    And a "Recipe 1" recipe has ingredients:
-      | ingredient |
-      | popular    |
+    Given a "Recipe 1" recipe has ingredients:
+      | amount | ingredient |
+      |   1    | popular    |
     And a "Recipe 2" recipe has ingredients:
-      | ingredient |
-      | popular    |
+      | amount | ingredient |
+      |   2    | popular    |
+    And recipe "Recipe 1" is in my current meal plan
+    And I add recipe "Recipe 2" to my current meal plan
     When I follow "My current plan"
     And I follow "Shopping list"
-    Then I should see "only"
+    Then I should see "3 popular"
   

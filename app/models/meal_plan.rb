@@ -21,14 +21,9 @@ class MealPlan < ActiveRecord::Base
   end
 
   def populate_shopping_list
-    recipes.each do |recipe|
-      recipe.ingredient_amounts.each { |amount| shopping_list << amount }
+    recipes.inject(ShoppingList.new) do |shopping_list, recipe|
+      recipe.ingredient_amounts.inject(shopping_list) { |shopping_list, amount| shopping_list.add(amount) }
     end
-    shopping_list
-  end
-
-  def shopping_list
-    @shopping_list ||= []
   end
 
 end
