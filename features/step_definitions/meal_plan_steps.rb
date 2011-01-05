@@ -49,7 +49,7 @@ end
 When /^I add recipe "([^\"]+)" to my current meal plan$/ do |recipe|
   And  %{recipe "#{recipe}" exists}
   When %{I show the "#{recipe}" recipe}
-  And  %{I follow "Add to Meal Plan"}
+  And  %{I press "Add to Meal Plan"}
 end
 
 When /^I remove "([^\"]+)" from my current meal plan$/ do |recipe|
