@@ -21,12 +21,6 @@ class MealPlansController < ApplicationController
     end
   end
 
-  def shopping_list
-    @ingredient_amounts = @meal_plan.planned_meals.inject([]) do |amounts, planned_meal|
-      planned_meal.recipe.ingredient_amounts.inject(amounts) { |amounts, amount| amounts << amount }
-    end
-  end
-
   def set_current_meal_plan_if_selected(params)
     current_user.update_attribute('current_meal_plan', @meal_plan) if params[:current_meal_plan] == 'yes'
   end

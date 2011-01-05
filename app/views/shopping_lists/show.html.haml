@@ -1,0 +1,7 @@
+%h1 
+  Shopping list for meal plan
+  = %{"#{@meal_plan.name}"}
+
+%ul
+  - @shopping_list.each do |amount|
+    %li= amount.formatted

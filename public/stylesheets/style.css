@@ -41,24 +41,7 @@ a:hover {
     text-decoration: underline;
 }
 
-hgroup h1 {
-    color: #FFF;
-    background: inherit;
-    font-weight: bold;
-    font-size: 4em;
-    font-style: italic;
-    font-family: "Trebuchet MS", sans-serif;
-    letter-spacing: -1px;
-    margin: 0;
-    padding: 10px 0 10px 0;
-}
-
-hgroup h1 a {
-    color: #FFF;
-    background: inherit;
-}
-
-nav h1, h2 {
+h1, h2 {
     background-color: inherit;
     color: #FF8D00;
     font-size: 140%;
@@ -228,7 +211,14 @@ hgroup {
 }
 
 hgroup h1 {
-    margin-bottom: 15px;
+    color: #FFF;
+    background: inherit;
+    font-weight: bold;
+    font-size: 4em;
+    font-style: italic;
+    font-family: "Trebuchet MS", sans-serif;
+    letter-spacing: -1px;
+    margin: 0 0 15px 0;
     padding: 20px 0px 0px 25px;
 }
 
@@ -295,7 +285,7 @@ nav {
     padding: 15px 5px 5px 5px;
 }
 
-nav h1, nav h2 {
+nav h1 {
     color: #FF8D00;
     padding-left: 10px;
 }
