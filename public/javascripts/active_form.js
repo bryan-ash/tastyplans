@@ -8,3 +8,9 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g");
   $("tr:last").after(content.replace(regexp, new_id));
 }
+
+$(document).ready(function () {
+  if (!("autofocus" in document.createElement("input"))) {
+    $(":text:visible:enabled:first").focus();
+  }
+});
