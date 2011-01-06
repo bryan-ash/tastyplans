@@ -18,15 +18,26 @@ Feature: Shopping List
     Then I should not see "Shopping list"
 
   Scenario: Ingredients that are included in multiple recipes are only shown once
-    Given a "Recipe 1" recipe has ingredients:
-      | amount | ingredient |
-      |   1    | popular    |
-    And a "Recipe 2" recipe has ingredients:
-      | amount | ingredient |
-      |   2    | popular    |
-    And recipe "Recipe 1" is in my current meal plan
-    And I add recipe "Recipe 2" to my current meal plan
+    Given a "Recipe 1" recipe has 1 cup popular
+    And   a "Recipe 2" recipe has 2 cup popular
+
+    Given recipe "Recipe 1" is in my current meal plan
+    And   I add recipe "Recipe 2" to my current meal plan
+
     When I follow "My current plan"
     And I follow "Shopping list"
-    Then I should see "3 popular"
+
+    Then I should see "3 cup popular"
+  
+  Scenario: Fractional ingredient amounts are added correctly
+    Given a "Recipe 1" recipe has 1/2 cup popular
+    And   a "Recipe 2" recipe has 1/2 cup popular
+
+    Given recipe "Recipe 1" is in my current meal plan
+    And   I add recipe "Recipe 2" to my current meal plan
+
+    When I follow "My current plan"
+    And I follow "Shopping list"
+
+    Then I should see "1 cup popular"
   

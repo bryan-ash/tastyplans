@@ -19,13 +19,21 @@ Given /^a "(.*) Butty" recipe exists$/ do |filler|
                                    :ingredient => Ingredient.find_or_create_by_name(:name => filler))
 end
 
+Given /^a "([^\"]*)" recipe has ([^\"]+) ([^\"]+) ([^\"]+)$/ do |recipe_name, amount, unit, ingredient|
+  recipe = Recipe.find_or_create_by_name(:name => recipe_name, :directions => "whip it")
+  recipe.ingredient_amounts.build(:amount     => amount,
+                                  :unit       => unit,
+                                  :ingredient => Ingredient.find_or_create_by_name(:name => ingredient))
+  recipe.save
+end
+
 Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amounts|
   recipe = Recipe.find_or_create_by_name(:name => recipe_name, :directions => "whip it")
   ingredient_amounts.hashes.each do |ingredient_amount|
     recipe.ingredient_amounts.build(:position   => ingredient_amount['#'],
                                     :amount     => ingredient_amount['amount'],
                                     :unit       => ingredient_amount['unit'],
-                                    :ingredient => Ingredient.create!(:name => ingredient_amount['ingredient']))
+                                    :ingredient => Ingredient.find_or_create_by_name(:name => ingredient_amount['ingredient']))
   end
   recipe.save
 end

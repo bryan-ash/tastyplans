@@ -22,7 +22,9 @@ class MealPlan < ActiveRecord::Base
 
   def populate_shopping_list
     recipes.inject(ShoppingList.new) do |shopping_list, recipe|
-      recipe.ingredient_amounts.inject(shopping_list) { |shopping_list, amount| shopping_list.add(amount) }
+      recipe.ingredient_amounts.inject(shopping_list) do |shopping_list, ingredient_amount|
+        shopping_list.add(ingredient_amount)
+      end
     end
   end
 

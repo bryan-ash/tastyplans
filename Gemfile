@@ -2,6 +2,7 @@ source :gemcutter
 
 gem 'cancan'
 gem 'devise'
+gem 'fraction'
 gem 'haml'
 gem 'meta_where', :git => 'git://github.com/ernie/meta_where.git'
 gem 'pg'
@@ -17,6 +18,9 @@ group :development do
   gem 'hpricot'
   gem 'ruby_parser'
 
+  # this is in :development to provide generators
+  gem 'rspec-rails', '~> 2.4'
+
   gem 'mechanize'
 end
 
@@ -28,9 +32,10 @@ group :test do
   gem 'email_spec'
   gem 'factory_girl_rails'
 
-  gem 'rspec-rails', '>= 2.0.0.beta.1'
+  gem 'rspec-rails', '~> 2.4'
 
   gem 'spork'
   gem 'test-unit', '= 1.2.3'
   gem 'webrat'
+  gem 'ZenTest'
 end

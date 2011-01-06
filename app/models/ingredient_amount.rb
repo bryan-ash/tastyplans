@@ -17,8 +17,17 @@ class IngredientAmount < ActiveRecord::Base
     self.ingredient ||= Ingredient.new
   end
 
+  def decimal_amount
+    return 0.0 if self.amount.nil?
+    eval(self.amount.strip).to_f
+  end
+
+  def mixed_fraction_amount
+    decimal_amount.to_mixed_fraction_string
+  end
+
   def formatted
-    "#{self.amount} #{self.unit} #{self.ingredient.name}"
+    "#{mixed_fraction_amount} #{self.unit} #{self.ingredient.name}"
   end
 
 end

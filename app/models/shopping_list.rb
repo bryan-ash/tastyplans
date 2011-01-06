@@ -7,11 +7,14 @@ class ShoppingList
   def add(ingredient_amount)
     name = ingredient_amount.ingredient.name
     item = "#{ingredient_amount.unit}_#{name}"
+
     if @amounts.has_key? item
-      @amounts[item].amount = (@amounts[item].amount.to_i + ingredient_amount.amount.to_i).to_s
+      @amounts[item].amount = (@amounts[item].decimal_amount + ingredient_amount.decimal_amount).to_s
     else
-      @amounts[item] = ingredient_amount
+      @amounts[item] = ingredient_amount.dup
+#       @amounts[item].amount = @amounts[item].amount.decimal_amount if @amount[item].amount
     end
+    
     self
   end
 
