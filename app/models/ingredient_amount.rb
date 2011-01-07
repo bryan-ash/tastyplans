@@ -18,8 +18,8 @@ class IngredientAmount < ActiveRecord::Base
   end
 
   def decimal_amount
-    return 0.0 if self.amount.nil?
-    eval(self.amount.strip).to_f
+    return 0.0 unless self.amount
+    MixedFractionParser.new.parse(self.amount).to_f
   end
 
   def mixed_fraction_amount

@@ -9,6 +9,7 @@ gem 'pg'
 gem 'rails'
 gem 'rdiscount'
 gem 'simple_autocomplete'
+gem 'treetop'
 
 group :development do
   gem 'heroku_san'
@@ -28,6 +29,7 @@ group :test do
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'cucumber-rails'
   gem 'database_cleaner'
+  gem 'fuubar-cucumber'
 
   gem 'email_spec'
   gem 'factory_girl_rails'

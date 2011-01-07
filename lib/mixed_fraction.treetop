@@ -1,0 +1,40 @@
+grammar MixedFraction
+  rule mixed_fraction
+    whole_number:whole_number? fraction {
+      def to_f
+        return fraction.to_f if whole_number.text_value == ""
+        whole_number.to_f + fraction.to_f
+      end
+    }
+  end
+
+  rule whole_number
+    number (' ' / '-') {
+      def to_f
+        number.to_f
+      end
+    }
+  end
+
+  rule fraction
+    numerator:number fractional_part:('/' denominator:number)? {
+      def to_f
+        return numerator.to_f if fractional_part.text_value == ""
+        numerator.to_f / fractional_part.denominator.to_f
+      end
+    }
+  end
+
+  rule number
+    digits ('.' digits)? {
+      def to_f
+        text_value.to_f
+      end
+    }
+  end
+
+  rule digits
+    [\d]+
+  end
+end
+
