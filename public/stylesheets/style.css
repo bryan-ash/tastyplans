@@ -41,7 +41,7 @@ a:hover {
     text-decoration: underline;
 }
 
-h1, h2 {
+h1 {
     background-color: inherit;
     color: #FF8D00;
     font-size: 140%;
@@ -397,7 +397,7 @@ li.finder_ingredient {
   padding-bottom: 0;
 }
 
-#error_explanation h2 {
+#error_explanation h1 {
   background-color: #c00;
   color: #fff;
   text-align: left;
@@ -422,7 +422,7 @@ li.finder_ingredient {
     padding: 7px;
 }
 
-.error h2 {
+.error h1 {
     color: #990000;
     background: inherit;
 }

@@ -2,16 +2,16 @@
 - recipes_menu << MenuButton.new('Add to Meal Plan', current_meal_plan_add_recipe_path(@recipe))
 
 %section#recipe
-  %h2= @recipe.name
+  %h1= @recipe.name
   %p= @recipe.description
 
   %section#ingredients
-    %h3 Ingredients
+    %h2 Ingredients
     %ul
       - @recipe.ingredient_amounts.each do |ingredient_amount|
         %li= "#{ingredient_amount.amount} #{ingredient_amount.unit} #{ingredient_amount.ingredient.name}"
         
   %section#directions
-    %h3 Directions
+    %h2 Directions
     :markdown
       #{@recipe.directions}

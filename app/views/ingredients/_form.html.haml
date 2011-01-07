@@ -1,11 +1,7 @@
 = form_for @ingredient do |form|
+  = render "shared/error_messages", :target => @ingredient
+
   = form.label :name, 'Enter the name of the ingredient'
   = form.text_field :name, :id => :name
-  - if @ingredient.errors.any?
-    .errorExplanation
-      %h2 The following errors prohibited this form from being saved:
-      %ul
-        - @ingredient.errors.full_messages.each do |msg|
-          %li=msg
 
   = form.submit 'Submit'

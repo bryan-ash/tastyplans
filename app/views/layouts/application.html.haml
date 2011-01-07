@@ -43,13 +43,13 @@
 
     %footer
       %section
-        %h2 Newest Recipes
+        %h1 Newest Recipes
         - @recently_added_recipes.each do |recipe|
           %img{ :src => '../images/arrow.gif', :alt => '' }
           = link_to recipe.name, recipe_path(recipe)
           %br
       %section
-        %h2 Recently Edited Recipes
+        %h1 Recently Edited Recipes
         - @recently_edited_recipes.each do |recipe|
           %img{ :src => '../images/arrow.gif', :alt => '' }
           = link_to recipe.name, recipe_path(recipe)

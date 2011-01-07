@@ -4,7 +4,7 @@ Mabel::Application.routes.draw do
 
   resources :ingredients
 
-  resources :meal_plans do
+  resources :meal_plans, :except => :show do
     resources :planned_meals
     resource :shopping_list, :only => :show
   end

@@ -1,13 +1,13 @@
-%h2 What ingredients do you have?
+%h1 What ingredients do you have?
 = form_for @recipe_finder do |form|
   = form.text_field :ingredient, :class => 'autocomplete', 'data-autocomplete-url' => autocomplete_for_ingredient_name_recipe_finders_path
   = form.submit "Find recipes"
 
 - if @recipe_finder.ingredients.blank?
-  %h3 Without ingredients, there's not much you can make!
+  %h2 Without ingredients, there's not much you can make!
 
 - else
-  %h3 With these ingredients:
+  %h2 With these ingredients:
   %ul 
     - @recipe_finder.ingredients.each do |ingredient|
       %li.finder_ingredient
