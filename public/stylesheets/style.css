@@ -12,7 +12,7 @@ body {
     color: #505050;
     width: 70em;
     min-width: 750px;
-    margin: auto;
+    margin: 0;
     padding: 0;
 }
 
@@ -229,6 +229,9 @@ hgroup h6 {
     padding: 0px 0px 0px 30px;
 }
 
+article ul {
+}
+
 article ul li {
     color: #555;
     margin-left: 20px;
@@ -326,12 +329,6 @@ nav li a:hover,
     text-decoration: none;
 }
 
-#info {
-    background: #FFF url(../images/info.jpg) no-repeat;
-    color: #222;
-    height: 160px;
-}
-
 footer {
     clear: both;
     background: #546078;
@@ -364,10 +361,6 @@ footer > section:last-child {
 
 footer a {
     color: #eee;
-}
-
-li.finder_ingredient {
-    clear: both;
 }
 
 .number input {

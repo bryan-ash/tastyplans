@@ -42,10 +42,6 @@ When /^I edit \"another\" user\'s meal plan$/ do
   visit edit_meal_plan_path(plan)
 end
 
-When /^I show the "([^\"]*)" meal plan$/ do |meal_plan|
-  visit meal_plan_path(MealPlan.find_by_name(meal_plan))
-end
-
 When /^I add recipe "([^\"]+)" to my current meal plan$/ do |recipe|
   And  %{recipe "#{recipe}" exists}
   When %{I show the "#{recipe}" recipe}

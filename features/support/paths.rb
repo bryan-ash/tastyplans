@@ -24,9 +24,6 @@ module NavigationHelpers
     when /^the new meal plan page/
       new_meal_plan_path
 
-    when /^the meal plan "([^\"]+)"/
-      meal_plan_path(MealPlan.find_by_name($1))
-      
     when /^the edit meal plan "([^\"]+)" page/
       edit_meal_plan_path(MealPlan.find_by_name($1))
 

@@ -35,16 +35,15 @@ Feature: Meal Plan
       | Bacon Butty |
       | Ice Cream   |
       
-    When I show the "Next Week" meal plan
+    When I go to the edit meal plan "Next Week" page
 
-    Then I should see "Next Week"
-    And  I should see "Bacon Butty"
+    Then I should see "Bacon Butty"
     And  I should see "Ice Cream"
 
   Scenario: I can add recipes to my current meal plan
     Given I have a current meal plan named "This Week"
     And I add recipe "Bacon Butty" to my current meal plan
-    And I go to the meal plan "This Week"
+    And I go to the edit meal plan "This Week" page
     Then I should see "Bacon Butty" within "article"
 
   Scenario: I can choose a different meal plan as the current
