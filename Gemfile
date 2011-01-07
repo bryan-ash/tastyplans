@@ -27,7 +27,7 @@ end
 
 group :test do
   gem 'autotest'
-  gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
+  gem 'capybara'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'fuubar-cucumber'
