@@ -26,6 +26,7 @@ group :development do
 end
 
 group :test do
+  gem 'autotest'
   gem 'capybara', :git => 'git://github.com/jnicklas/capybara.git'
   gem 'cucumber-rails'
   gem 'database_cleaner'
@@ -39,5 +40,4 @@ group :test do
   gem 'spork'
   gem 'test-unit', '= 1.2.3'
   gem 'webrat'
-  gem 'ZenTest'
 end
