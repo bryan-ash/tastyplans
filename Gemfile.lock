@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/aslakhellesoy/cucumber-rails.git
+  revision: f3002faf12560dc7a7dc16cafb282ffbbf892029
+  specs:
+    cucumber-rails (0.4.0.beta.1)
+      cucumber (~> 0.10.0)
+      nokogiri (~> 1.4.4)
+      rack-test (~> 0.5.6)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -54,8 +63,6 @@ GEM
       gherkin (~> 2.3.2)
       json (~> 1.4.6)
       term-ansicolor (~> 1.0.5)
-    cucumber-rails (0.3.2)
-      cucumber (>= 0.8.0)
     culerity (0.2.14)
     database_cleaner (0.6.0)
     deadweight (0.1.3)
@@ -183,7 +190,7 @@ DEPENDENCIES
   autotest
   cancan
   capybara
-  cucumber-rails
+  cucumber-rails!
   database_cleaner
   deadweight
   devise

@@ -16,13 +16,12 @@ Mabel::Application.routes.draw do
     get :autocomplete_for_ingredient_name, :on => :collection
   end
 
-  resources :recipe_finders do
+  resources :recipe_finders, :only => [:new, :show, :update] do
     resources :finder_ingredients
     get :autocomplete_for_ingredient_name, :on => :collection
   end
 
-  
   root :to => "home#index"
 
-  match "*path" => redirect("/")
+  match "*path" => "home#error"
 end

@@ -45,6 +45,12 @@ module NavigationHelpers
       
       recipe = Recipe.find_by_name $1
       recipe_path(recipe)
+
+    when /^an invalid URL$/
+      'invalid'
+      
+    when /^an invalid resource$/
+      'recipes/invalid'
       
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
