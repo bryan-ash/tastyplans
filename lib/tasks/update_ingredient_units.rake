@@ -1,10 +1,14 @@
 
 desc "Update ingredient units."
 task :update_ingredient_units => :environment do
-  IngredientAmount.includes('ingredient').where("ingredients.name LIKE 'tablespoons %'").each do |ia|
-    ia.update_attributes(:unit => "tablespoon")
-  end
-  Ingredient.where("name LIKE 'tablespoons %'").each do |ingredient|
-    ingredient.update_attributes(:name => ingredient.name.sub(/^tablespoons /, ''))
+  IngredientAmount.all.map(&:update_unit_from_ingredient_name)
+end
+
+desc "save"
+task :save_amounts => :environment do
+  File.open("amounts", "w") do |file|
+    IngredientAmount.all.each do |amount|
+      file.puts "unit: #{amount.unit}\t\tname: #{amount.ingredient.name}"
+    end
   end
 end
