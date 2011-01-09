@@ -8,14 +8,15 @@ class Fraction
 
   def initialize(float)
     @float = float
+    @fraction = float.fraction(12)
   end
 
   def numerator
-    @float.fraction[0]
+    @fraction[0]
   end
 
   def denominator
-    @float.fraction[1]
+    @fraction[1]
   end
 
 end

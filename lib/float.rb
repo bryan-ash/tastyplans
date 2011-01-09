@@ -7,7 +7,7 @@ class Float
   end
 
   def fractional_part
-    (self - integer_part).round(1)
+    (self - integer_part)
   end
 
   def fraction_string
