@@ -22,6 +22,7 @@ group :development do
   # this is in :development to provide generators
   gem 'rspec-rails', '~> 2.4'
 
+  gem 'feedzirra'
   gem 'mechanize'
 end
 
