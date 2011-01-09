@@ -37,4 +37,20 @@ describe IngredientAmount do
       end
     end
   end
+
+  describe "preserving ingredients that don't include units" do
+    ['colly birds',
+     '3 pound bag'
+    ].each do |old_name|
+      it "leaves '#{old_name}' intact" do
+        ingredient = Ingredient.create(:name => old_name)
+        ingredient_amount = IngredientAmount.create(:ingredient => ingredient)
+
+        ingredient_amount.update_unit_from_ingredient_name
+
+        ingredient.name.should == old_name
+      end
+    end
+
+  end
 end

@@ -47,8 +47,10 @@ class IngredientAmount < ActiveRecord::Base
       unit = Unit[$1] || $1
       name = $2
 
-      self.update_attributes(:unit => unit)
-      self.ingredient.update_attributes(:name => name)
+      if unit
+        self.update_attributes(:unit => unit)
+        self.ingredient.update_attributes(:name => name)
+      end
     end
   end
 
