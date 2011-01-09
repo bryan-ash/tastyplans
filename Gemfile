@@ -39,6 +39,5 @@ group :test do
   gem 'rspec-rails', '~> 2.4'
 
   gem 'spork'
-  gem 'test-unit', '= 1.2.3'
   gem 'webrat'
 end

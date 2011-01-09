@@ -29,28 +29,11 @@ class IngredientAmount < ActiveRecord::Base
   def formatted
     "#{mixed_fraction_amount} #{self.unit} #{self.ingredient.name}"
   end
-
-  Unit = {
-    'tablspoon'  => 'tablespoon',
-    'tbs.'       => 'tablespoon',
-    'tbsp.'      => 'tablespoon',
-    'tsp.'       => 'teaspoon',
-    'lb.'        => 'pound',
-    'lbs.'       => 'pound',
-    'oz.'        => 'ounce',
-    'whole head' => 'head'
-  }
   
   def update_unit_from_ingredient_name
     IngredientAmount.transaction do
-      self.ingredient.name =~ /^(clove|cup|dash|drop|whole head|head|ounce|oz.|pint|lbs?.|pound|sprig|stalk|stick|table?spoon|tbsp?.|teaspoon|tsp.)s? +(.*)/
-      unit = Unit[$1] || $1
-      name = $2
-
-      if unit
-        self.update_attributes(:unit => unit)
-        self.ingredient.update_attributes(:name => name)
-      end
+      unit = ingredient.remove_unit_from_name
+      self.update_attributes(:unit => unit) if unit
     end
   end
 
