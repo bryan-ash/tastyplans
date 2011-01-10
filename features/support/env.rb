@@ -33,3 +33,6 @@ ActionController::Base.allow_rescue = false
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
 DatabaseCleaner.strategy = :transaction
 
+
+# This is a work around for test/unit/testcase reporting wrong number of arguments. See issue #88
+Test::Unit.run = true
