@@ -14,4 +14,20 @@ class User < ActiveRecord::Base
     where(["username ILIKE :value OR email ILIKE :value", { :value => value }]).first
   end
 
+  def self.demo
+    @demo_user ||= find_or_create_by_username('Demo User', :email => 'demo@user.com')
+  end
+
+  def demo?
+    self == User.demo
+  end
+
+  def signed_in_message
+    if demo?
+      "Demo mode active"
+    else
+      "Signed in as #{username}."
+    end
+  end
+  
 end
