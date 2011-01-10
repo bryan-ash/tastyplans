@@ -8,7 +8,7 @@ html {
 }
 
 body {
-    background: #FAFAFA;
+    background: #FFF;
     color: #505050;
     width: 70em;
     min-width: 750px;
@@ -16,6 +16,9 @@ body {
     padding: 0;
     -moz-border-radius: 15px;
     border-radius: 15px;
+    -moz-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
+    box-shadow: 10px 10px 10px rgba(0,0,0,0.5);
 }
 
 p {
