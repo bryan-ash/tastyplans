@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :no_save_in_demo_mode, :only => [:create, :update]
+  
   autocomplete_for :ingredient, :name
   
   def index
@@ -41,10 +42,19 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find(params[:id])
+    if demo_mode_active?
+      flash.now[:alert] = "Sign up if you'd like to create and edit recipes"
+      render :action => "edit" and return false
+    end
+
     if @recipe.update_attributes(params[:recipe])
       redirect_to recipe_path(@recipe), :notice => "Thank you for editing that recipe"
     else
       render :action => 'edit'
     end
   end
+
+  def no_save_in_demo_mode
+  end
+
 end
