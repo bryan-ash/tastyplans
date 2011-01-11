@@ -1,9 +1,5 @@
 module LayoutHelper
-
-  def demo_mode_active?
-    current_user.demo?
-  end
-
+  
   def meal_plans_menu
     @meal_plans_menu ||= Menu.new("Meal Plans") do |menu|
       menu << MenuLink.new('My current plan', edit_current_meal_plan_path) if current_meal_plan

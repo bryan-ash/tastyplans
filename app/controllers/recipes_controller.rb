@@ -14,6 +14,12 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(params[:recipe])
+
+    if demo_mode_active?
+      flash.now[:alert] = "Sign up if you'd like to create and edit recipes"
+      render :action => "new" and return false
+    end
+
     if @recipe.save
       redirect_to @recipe, :notice => "Thank you for adding that new recipe"
     else

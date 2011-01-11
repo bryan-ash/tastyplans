@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   
   rescue_from ActiveRecord::RecordNotFound, :with => :render_home_with_message
 
+  helper_method :demo_mode_active?
+  
   def render_home_with_message
     flash[:alert] = 'Sorry, the page you requested was not found.'
     render 'home/index', :status => :not_found
@@ -23,4 +25,9 @@ class ApplicationController < ActionController::Base
     @recently_added_recipes = Recipe.recently_added
     @recently_edited_recipes = Recipe.recently_edited
   end
+
+  def demo_mode_active?
+    current_user.demo?
+  end
+
 end

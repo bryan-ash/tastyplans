@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
     @demo_user ||= find_or_create_by_username('Demo User', :email => 'demo@user.com')
   end
 
+  def self.demo?
+    current_user.demo?
+  end
+
   def demo?
     self == User.demo
   end
