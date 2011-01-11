@@ -3,10 +3,10 @@ Given /^I am signed out$/ do
 end
 
 Given /^a user with Username "([^\"]*)", Email "([^\"]*)" and Password "([^\"]*)"$/ do |username, email, password|
-  User.new(:email                 => email,
-           :username              => username,
-           :password              => password,
-           :password_confirmation => password).save!
+  User.find_or_create_by_email(:email                 => email,
+                               :username              => username,
+                               :password              => password,
+                               :password_confirmation => password)
 end
 
 Given /^a user with Email "([^\"]*)"$/ do |email|
