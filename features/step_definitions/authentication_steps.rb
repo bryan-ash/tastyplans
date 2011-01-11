@@ -1,12 +1,17 @@
+Before do
+  @current_scenario_user = User.demo
+end
+
 Given /^I am signed out$/ do
   visit('/users/sign_out')
 end
 
 Given /^a user with Username "([^\"]*)", Email "([^\"]*)" and Password "([^\"]*)"$/ do |username, email, password|
-  User.find_or_create_by_email(:email                 => email,
-                               :username              => username,
-                               :password              => password,
-                               :password_confirmation => password)
+  @current_scenario_user =
+    User.find_or_create_by_email(:email                 => email,
+                                 :username              => username,
+                                 :password              => password,
+                                 :password_confirmation => password)
 end
 
 Given /^a user with Email "([^\"]*)"$/ do |email|

@@ -1,5 +1,5 @@
 Given /^I have a meal plan named "([^\"]*)" with the following meals:$/ do |name, meal_table|
-  meal_plan = Factory(:meal_plan, :name => name, :user => User.find_by_email("a@b.net"))
+  meal_plan = Factory(:meal_plan, :name => name, :user => @current_scenario_user)
   meal_plan.planned_meals.clear
   meal_table.hashes.each do |meal|
     recipe = Factory(:recipe, :name => meal[:recipe])
@@ -65,4 +65,3 @@ Then /^"([^\"]+)" should not be in my current meal plan$/ do |recipe|
   When %{I follow "My current plan"}
   Then %{I should not see "#{recipe}" within "article"}
 end
-

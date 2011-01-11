@@ -1,6 +1,5 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :no_save_in_demo_mode, :only => [:create, :update]
   
   autocomplete_for :ingredient, :name
   
@@ -52,9 +51,6 @@ class RecipesController < ApplicationController
     else
       render :action => 'edit'
     end
-  end
-
-  def no_save_in_demo_mode
   end
 
 end

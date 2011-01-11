@@ -7,11 +7,6 @@ Feature: Meal Plan
     When I follow "Start a new plan"
     Then the plan should be named with this week's date
 
-  Scenario: A logged out user cannot start a new plan
-    Given I am signed out
-    When  I follow "Start a new plan"
-    Then  I should see "You don't have permission to do that"
-
   Scenario: Only my plans are listed
     Given "another" user has a meal plan
     When I go to my meal plans page

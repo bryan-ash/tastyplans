@@ -9,4 +9,6 @@ Add the sceneario back into error_handling for browse to invalid resource.  Wait
 checkout has_scope gem for limiting lists
 Better error messages
 
+Demo user should not be able to add/remove recipes from a meal plan
+
 plantasm.com is available
