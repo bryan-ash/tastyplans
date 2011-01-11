@@ -1,5 +1,5 @@
 - recipes_menu << MenuLink.new('Edit this recipe', edit_recipe_path(@recipe))
-- recipes_menu << MenuButton.new('Add to Meal Plan', current_meal_plan_add_recipe_path(@recipe))
+- recipes_menu << MenuButton.new('Add to Meal Plan', current_meal_plan_add_recipe_path(@recipe)) if current_meal_plan
 
 %section#recipe
   %h1= @recipe.name
