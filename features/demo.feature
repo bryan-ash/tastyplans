@@ -30,3 +30,15 @@ Feature: Demo
     And  I press "Save this meal plan"
     Then I should see "Sign up if you'd like to create and edit meal plans"
 
+  Scenario: A demo user cannot add a recipe to meal plan
+    Given I am viewing the "Demo" recipe
+    When I press "Add to Meal Plan"
+    Then I should see "Sign up if you'd like to create and edit meal plans"
+  
+  Scenario: A demo user cannot remove a recipe from meal plan
+    Given I have a meal plan named "Demo Plan" with the following meals:
+      | recipe  |
+      | pudding |
+    When I go to the edit meal plan "Demo Plan" page
+    And I press "remove"
+    Then I should see "Sign up if you'd like to create and edit meal plans"

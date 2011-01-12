@@ -63,6 +63,11 @@ Given /^I am editing recipe "([^\"]+)"$/ do |name|
   And   %{I follow "Edit this recipe"}
 end
 
+Given /^I am viewing the "([^\"]+)" recipe$/ do |name|
+  Given %{recipe "#{name}" exists}
+  When  %{I go to the recipe page for "#{name}"}
+end
+
 When /^I show the "([^\"]*)" recipe$/ do |recipe|
   visit recipe_path(Recipe.find_by_name(recipe))
 end
