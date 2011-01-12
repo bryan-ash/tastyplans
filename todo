@@ -10,5 +10,10 @@ checkout has_scope gem for limiting lists
 Better error messages
 
 Demo user should not be able to add/remove recipes from a meal plan
+Shopping list could be editable:
+- change order
+- remove things I have
+- add other items
+- merge rows
 
 plantasm.com is available
