@@ -3,6 +3,9 @@
   %head
     %meta{ :charset => "utf-8" }
     %title OhMabel!
+    = google_jquery
+    /[if lt IE 9]
+      = javascript_include_tag "http://html5shim.googlecode.com/svn/trunk/html5.js"
     = stylesheet_link_tag 'style', 'wmd', 'jquery.autocomplete'
     = csrf_meta_tag
 
@@ -55,5 +58,4 @@
       %section
         Copyright &copy; 2011 Bryan Ash
 
-  = google_jquery
   = javascript_include_tag "active_form.js", "analytics.js", "jquery.autocomplete.js", "autocomplete-hook.js", "uservoice"
