@@ -7,11 +7,6 @@ Feature: Recipe
     When I follow "List all recipes"
     Then I should see "Recipes"
 
-  Scenario: Always available but requires sign in
-    Given I am signed out
-    When I follow "List all recipes"
-    Then I should be on the sign in page
-
   Scenario: List all recipes in alphanumeric order
     Given recipe "Recipe2" exists
     And   recipe "Recipe1" exists
