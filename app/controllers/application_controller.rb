@@ -27,7 +27,6 @@ class ApplicationController < ActionController::Base
   end
 
   def demo_mode_active?
-    current_user.demo?
+    current_user.try(:demo?)
   end
-
 end

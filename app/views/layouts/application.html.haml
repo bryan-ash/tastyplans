@@ -20,7 +20,7 @@
         - else
           = link_to "Sign out", destroy_user_session_path
       %section
-        %section= current_user.signed_in_message
+        %section= current_user.try(:signed_in_message)
         %nav
           = link_to 'Home', root_path
           | 
