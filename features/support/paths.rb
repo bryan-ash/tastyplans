@@ -11,6 +11,9 @@ module NavigationHelpers
       
     when /(sign in|login)/
       new_user_session_path
+
+    when /edit user/
+      edit_user_registration_path
       
     when /^the ingredients page/
       ingredients_path

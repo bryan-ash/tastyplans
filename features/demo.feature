@@ -1,7 +1,7 @@
 Feature: Demo
 
   Background:
-    Given I am signed out
+    Given demo mode is active
 
   Scenario: Demo mode is active when user is signed out
     Then I should see "Demo mode active"
@@ -42,3 +42,7 @@ Feature: Demo
     When I go to the edit meal plan "Demo Plan" page
     And I press "remove"
     Then I should see "Sign up if you'd like to create and edit meal plans"
+
+  Scenario: The demo user's account cannot be edited
+    When I go to the edit user page
+    Then I should be on the home page

@@ -1,9 +1,14 @@
 Before do
+  set_demo_as_current_user
+end
+
+def set_demo_as_current_user
   @current_scenario_user = User.demo
 end
 
 Given /^I am signed out$/ do
   visit('/users/sign_out')
+  set_demo_as_current_user
 end
 
 Given /^a user with Username "([^\"]*)", Email "([^\"]*)" and Password "([^\"]*)"$/ do |username, email, password|
