@@ -32,6 +32,11 @@ Given /^I am a new, authenticated user$/ do
   And   %{I sign in with "a@b.net"}
 end
 
+Given /^I am signed in with username "([^\"]+)"$/ do |username|
+  Given %{a user with Username "#{username}"}
+  And   %{I sign in with "#{username}"}
+end
+
 When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|
   Given %{I am on the sign up page}
   When  %{I fill in "#{attribute}" with "#{value}"}
@@ -43,6 +48,13 @@ When /^I sign in with "([^\"]+)"$/ do |login|
   fill_in "user_email", :with => login
   fill_in "user_password", :with => "password"
   click_button "Sign in"
+end
+
+When /^I change my username to "([^\"]+)"$/ do |username|
+  When %{I go to the edit user page}
+  And  %{I fill in "Please choose a user name" with "#{username}"}
+  And  %{I fill in "Enter your current password to confirm changes" with "password"}
+  And  %{I press "Save user account changes"}
 end
 
 When /^I request a password reset with Email "([^\"]+)"$/ do |email|
