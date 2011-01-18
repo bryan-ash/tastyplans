@@ -6,16 +6,16 @@
     %br
     = form.text_field :username
   %p
-    = form.label :email
+    = form.label :email, "Enter a new email address if you would like to change it"
     %br
     = form.text_field :email
   %p
-    = form.label :password
+    = form.label :password, "Enter a new password"
     %i (leave blank if you don't want to change it)
     %br
     = form.password_field :password
   %p
-    = form.label :password_confirmation
+    = form.label :password_confirmation, "Confirm your new password"
     %br
     = form.password_field :password_confirmation
   %p

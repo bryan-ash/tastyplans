@@ -32,8 +32,8 @@ Given /^I am a new, authenticated user$/ do
   And   %{I sign in with "a@b.net"}
 end
 
-Given /^I am signed in with username "([^\"]+)"$/ do |username|
-  Given %{a user with Username "#{username}"}
+Given /^I am signed in with ([^ ]+) "([^\"]+)"$/ do |field, username|
+  Given %{a user with #{field.capitalize} "#{username}"}
   And   %{I sign in with "#{username}"}
 end
 
@@ -53,6 +53,13 @@ end
 When /^I change my username to "([^\"]+)"$/ do |username|
   When %{I go to the edit user page}
   And  %{I fill in "Please choose a user name" with "#{username}"}
+  And  %{I fill in "Enter your current password to confirm changes" with "password"}
+  And  %{I press "Save user account changes"}
+end
+
+When /^I change my email to "([^\"]+)"$/ do |email|
+  When %{I go to the edit user page}
+  And  %{I fill in "Enter a new email address if you would like to change it" with "#{email}"}
   And  %{I fill in "Enter your current password to confirm changes" with "password"}
   And  %{I press "Save user account changes"}
 end
