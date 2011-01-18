@@ -19,8 +19,12 @@
             = link_to "Sign up", new_user_registration_path
         - else
           = link_to "Sign out", destroy_user_session_path
+          - if anybody_signed_in?
+            or
+            =link_to 'Edit account', edit_user_registration_path
       %section
-        %section= current_user.try(:signed_in_message)
+        %section
+          = current_user.try(:signed_in_message)
         %nav
           = link_to 'Home', root_path
           | 

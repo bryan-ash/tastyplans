@@ -19,3 +19,8 @@ Feature: User account
     Given I am signed in with username "John" and password "secret"
     When I update my account with a new password and confirmation that don't match, using password "secret"
     Then I should see "Password doesn't match confirmation"
+
+  Scenario: Editing is accessible
+    Given I am signed in with username "John"
+    When I follow "Edit account"
+    Then I should be on the edit user page
