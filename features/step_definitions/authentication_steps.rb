@@ -50,34 +50,35 @@ When /^I sign in with "([^\"]+)"(?: and password "([^\"]+)")?$/ do |login, passw
   click_button "Sign in"
 end
 
+When /^I commit my account changes with password "([^\"]+)"$/ do |password|
+  And  %{I fill in "Enter your current password to confirm changes" with "#{password}"}
+  And  %{I press "Save account changes"}
+end
+
 When /^I change my username to "([^\"]+)"$/ do |username|
   When %{I go to the edit user page}
   And  %{I fill in "Please choose a user name" with "#{username}"}
-  And  %{I fill in "Enter your current password to confirm changes" with "password"}
-  And  %{I press "Save user account changes"}
+  And  %{I commit my account changes with password "password"}
 end
 
 When /^I change my email to "([^\"]+)"$/ do |email|
   When %{I go to the edit user page}
   And  %{I fill in "Enter a new email address if you would like to change it" with "#{email}"}
-  And  %{I fill in "Enter your current password to confirm changes" with "password"}
-  And  %{I press "Save user account changes"}
+  And  %{I commit my account changes with password "password"}
 end
 
 When /^I change my password from "([^\"]+)" to "([^\"]+)"$/ do |old_password, new_password|
   When %{I go to the edit user page}
   And  %{I fill in "Enter a new password" with "#{new_password}"}
   And  %{I fill in "Confirm your new password" with "#{new_password}"}
-  And  %{I fill in "Enter your current password to confirm changes" with "#{old_password}"}
-  And  %{I press "Save user account changes"}
+  And  %{I commit my account changes with password "#{old_password}"}
 end
 
 When /^I update my account with a new password and confirmation that don\'t match, using password "([^\"]+)"$/ do |old_password|
   When %{I go to the edit user page}
   And  %{I fill in "Enter a new password" with "something"}
   And  %{I fill in "Confirm your new password" with "different"}
-  And  %{I fill in "Enter your current password to confirm changes" with "#{old_password}"}
-  And  %{I press "Save user account changes"}
+  And  %{I commit my account changes with password "#{old_password}"}
 end
 
 When /^I request a password reset with Email "([^\"]+)"$/ do |email|

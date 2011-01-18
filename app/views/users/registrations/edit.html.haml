@@ -23,8 +23,4 @@
     %br
     = form.password_field :current_password
   
-  %p= form.submit "Save user account changes"
-
-%h3 Cancel my account
-%p
-  Unhappy? #{link_to "Cancel my account", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}.
+  %p= form.submit "Save account changes"
