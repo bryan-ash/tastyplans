@@ -11,7 +11,11 @@ Given /^I am signed out$/ do
   set_demo_as_current_user
 end
 
-Given /^a user with Username "([^\"]*)", Email "([^\"]*)" and Password "([^\"]*)"$/ do |username, email, password|
+Given /^a user with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?$/ do |username, email, password|
+  password ||= "password"
+  username ||= "user"
+  email ||= "#{username}@home.com"
+
   @current_scenario_user =
     User.find_or_create_by_email(:email                 => email,
                                  :username              => username,
@@ -19,22 +23,17 @@ Given /^a user with Username "([^\"]*)", Email "([^\"]*)" and Password "([^\"]*)
                                  :password_confirmation => password)
 end
 
-Given /^a user with Email "([^\"]*)"$/ do |email|
-  Given %{a user with Username "user", Email "#{email}" and Password "password"}
-end
-
-Given /^a user with Username "([^\"]*)"$/ do |username|
-  Given %{a user with Username "#{username}", Email "#{username}@home.com" and Password "password"}
-end
-
 Given /^I am a new, authenticated user$/ do
   Given %{a user with Email "a@b.net"}
   And   %{I sign in with "a@b.net"}
 end
 
-Given /^I am signed in with ([^ ]+) "([^\"]+)"$/ do |field, username|
-  Given %{a user with #{field.capitalize} "#{username}"}
-  And   %{I sign in with "#{username}"}
+Given /^I am signed in with ([^ ]+) "([^\"]+)"(?: and password "([^\"]+)")?$/ do |field, value, password|
+  password ||= "password"
+  username = (field == "username") ? value : "user"
+  email = (field == "email") ? value : "#{username}@home.com"
+  Given %{a user with Username "#{username}", Email "#{email}" and Password "#{password}"}
+  And   %{I sign in with "#{value}" and password "#{password}"}
 end
 
 When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|
@@ -43,10 +42,11 @@ When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|
   And   %{I press "Sign up"}
 end
 
-When /^I sign in with "([^\"]+)"$/ do |login|
+When /^I sign in with "([^\"]+)"(?: and password "([^\"]+)")?$/ do |login, password|
+  password ||= "password"
   visit "users/sign_in"
   fill_in "user_email", :with => login
-  fill_in "user_password", :with => "password"
+  fill_in "user_password", :with => password
   click_button "Sign in"
 end
 
@@ -61,6 +61,22 @@ When /^I change my email to "([^\"]+)"$/ do |email|
   When %{I go to the edit user page}
   And  %{I fill in "Enter a new email address if you would like to change it" with "#{email}"}
   And  %{I fill in "Enter your current password to confirm changes" with "password"}
+  And  %{I press "Save user account changes"}
+end
+
+When /^I change my password from "([^\"]+)" to "([^\"]+)"$/ do |old_password, new_password|
+  When %{I go to the edit user page}
+  And  %{I fill in "Enter a new password" with "#{new_password}"}
+  And  %{I fill in "Confirm your new password" with "#{new_password}"}
+  And  %{I fill in "Enter your current password to confirm changes" with "#{old_password}"}
+  And  %{I press "Save user account changes"}
+end
+
+When /^I update my account with a new password and confirmation that don\'t match, using password "([^\"]+)"$/ do |old_password|
+  When %{I go to the edit user page}
+  And  %{I fill in "Enter a new password" with "something"}
+  And  %{I fill in "Confirm your new password" with "different"}
+  And  %{I fill in "Enter your current password to confirm changes" with "#{old_password}"}
   And  %{I press "Save user account changes"}
 end
 
