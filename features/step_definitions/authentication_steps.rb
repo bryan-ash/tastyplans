@@ -7,7 +7,7 @@ def set_demo_as_current_user
 end
 
 Given /^I am signed out$/ do
-  visit('/users/sign_out')
+  visit destroy_user_session_path
   set_demo_as_current_user
 end
 
@@ -44,7 +44,7 @@ end
 
 When /^I sign in with "([^\"]+)"(?: and password "([^\"]+)")?$/ do |login, password|
   password ||= "password"
-  visit "users/sign_in"
+  visit new_user_session_path
   fill_in "user_email", :with => login
   fill_in "user_password", :with => password
   click_button "Sign in"
@@ -82,7 +82,7 @@ When /^I update my account with a new password and confirmation that don\'t matc
 end
 
 When /^I request a password reset with Email "([^\"]+)"$/ do |email|
-  visit "users/sign_in"
+  visit new_user_session_path
   click_link "Forgot your password?"
   fill_in "user_email", :with => email
   click_button "Send me reset password instructions"
