@@ -2,9 +2,10 @@ class RecipesController < ApplicationController
   before_filter :authenticate_user!
   
   autocomplete_for :ingredient, :name
+  autocomplete_for :recipe, :name
   
   def index
-    @recipes = Recipe.order('name ASC')
+    @recipes = Recipe.named_like(params[:name]).order('name ASC')
   end
 
   def new

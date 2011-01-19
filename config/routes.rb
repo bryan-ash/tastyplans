@@ -18,6 +18,7 @@ Mabel::Application.routes.draw do
   
   resources :recipes do
     get :autocomplete_for_ingredient_name, :on => :collection
+    get :autocomplete_for_recipe_name,     :on => :collection
   end
 
   resources :recipe_finders, :only => [:new, :show, :update] do

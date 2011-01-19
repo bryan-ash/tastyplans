@@ -12,6 +12,17 @@ Feature: Recipe
     And   recipe "Recipe1" exists
     Then  "Recipe1" should be listed before "Recipe2" on the Recipe Book page
 
+  Scenario: 
+    Given recipe "one" exists
+    And   recipe "two" exists
+    And   recipe "three" exists
+    When I am on the recipes page
+    And I fill in "To search, enter part of a recipe name" with "o"
+    And I press "Search for recipes"
+    Then I should see "one" within "article" 
+    And  I should see "two" within "article" 
+    But  I should not see "three" within "article"
+
   Scenario: Show a recipe
     Given a "Bacon Butty" recipe has ingredients:
       | amount | unit  | ingredient |

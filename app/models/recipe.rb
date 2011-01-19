@@ -8,6 +8,8 @@ class Recipe < ActiveRecord::Base
   :allow_destroy => true
 
   validates_presence_of :name, :directions
+
+  scope :named_like, lambda { |name| where({:name.matches => "%#{name}%"}) }
   
   scope :recently_added,  order('recipes.created_at DESC').limit(5)
   scope :recently_edited, order('recipes.updated_at DESC').limit(5)
