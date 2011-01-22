@@ -1,6 +1,10 @@
 class Admin::UsersController < ApplicationController
   load_and_authorize_resource
 
+  def index
+    @users = User.all_but_demo
+  end
+
   def create
     admin = params[:user].delete :admin
 
