@@ -19,6 +19,7 @@ module LayoutHelper
   def admin_menu
     @admin_menu ||= Menu.new("Admin") do |menu|
       menu << MenuLink.new('List users', admin_users_path)
+      menu << MenuLink.new('Add a new user', new_admin_user_path)
     end
   end
 
