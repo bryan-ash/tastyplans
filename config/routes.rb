@@ -6,6 +6,10 @@ Mabel::Application.routes.draw do
     :registrations => "users/registrations"
   }
 
+  namespace :admin do 
+    resources :users, :only => [:index]
+  end
+  
   resources :ingredients
 
   resources :meal_plans, :except => :show do

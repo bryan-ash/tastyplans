@@ -26,6 +26,10 @@ class User < ActiveRecord::Base
     self == User.demo
   end
 
+  def is_admin?
+    self.admin
+  end
+
   def signed_in_message
     if demo?
       "Demo mode active"

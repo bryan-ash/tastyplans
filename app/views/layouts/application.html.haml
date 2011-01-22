@@ -42,6 +42,7 @@
       %nav
         = render_menu meal_plans_menu
         = render_menu recipes_menu
+        = render_menu admin_menu if current_user.try(:is_admin?)
 
     %article
       = yield

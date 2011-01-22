@@ -11,16 +11,18 @@ Given /^I am signed out$/ do
   set_demo_as_current_user
 end
 
-Given /^a user with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?$/ do |username, email, password|
+Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?$/ do |role, username, email, password|
   password ||= "password"
   username ||= "user"
   email ||= "#{username}@home.com"
+  admin = (role == "admin")
 
   @current_scenario_user =
     User.find_or_create_by_email(:email                 => email,
                                  :username              => username,
                                  :password              => password,
                                  :password_confirmation => password)
+  @current_scenario_user.update_attribute(:admin, admin)
 end
 
 Given /^I am a new, authenticated user$/ do
@@ -34,6 +36,9 @@ Given /^I am signed in with ([^ ]+) "([^\"]+)"(?: and password "([^\"]+)")?$/ do
   email = (field == "email") ? value : "#{username}@home.com"
   Given %{a user with Username "#{username}", Email "#{email}" and Password "#{password}"}
   And   %{I sign in with "#{value}" and password "#{password}"}
+end
+
+Given /^I am signed in as an admin$/ do 
 end
 
 When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|
