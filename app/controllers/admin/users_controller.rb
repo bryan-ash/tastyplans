@@ -1,12 +1,5 @@
 class Admin::UsersController < ApplicationController
-
-  def index
-    @users = User.order("username ASC")
-  end
-
-  def new
-    @user = User.new
-  end
+  load_and_authorize_resource
 
   def create
     admin = params[:user].delete :admin

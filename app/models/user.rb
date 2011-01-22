@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false, :message => "Username is already taken, please choose another"
 
+  default_scope where("username != 'Demo User'").order("username ASC")
+  
   def self.find_for_database_authentication(conditions)
     value = conditions[authentication_keys.first]
     where(["username ILIKE :value OR email ILIKE :value", { :value => value }]).first

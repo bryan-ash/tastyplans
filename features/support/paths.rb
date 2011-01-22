@@ -55,6 +55,9 @@ module NavigationHelpers
       
     when /^an invalid resource$/
       'recipes/invalid'
+
+    when /^the list users page$/
+      admin_users_path
       
     else
       raise "Can't find mapping from \"#{page_name}\" to a path.\n" +
