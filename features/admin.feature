@@ -24,6 +24,14 @@ Feature: Admin
     And I press "Create user"
     Then I should see "Annie"
 
+  Scenario: Admin can remove users
+    Given a user with Username "Jennifer"
+    When I go to the list users page
+    Then "Jennifer" should be the 2nd user listed
+
+    When I remove the 2nd user
+    Then I should not see "Jennifer" within "article"
+
   Scenario: Only admins can view the user list
     Given I am a new, authenticated user
     Then I should not see "List users"

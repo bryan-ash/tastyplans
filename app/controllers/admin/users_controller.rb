@@ -14,4 +14,12 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+    
+    redirect_to admin_users_path, :notice => "Removed user '#{@user.username}'"
+  rescue ActiveRecord::RecordNotFound
+    redirect_to :back, :alert => "User '#{@user.username}' not found!"
+  end
+
 end

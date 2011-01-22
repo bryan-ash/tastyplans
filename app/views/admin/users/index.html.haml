@@ -7,6 +7,7 @@
       %th Email
       %th Current Date
       %th Count
+      %th
   %tbody
     - @users.each do |user|
       %tr
@@ -14,3 +15,5 @@
         %td= user.email
         %td= user.current_sign_in_at
         %td= user.sign_in_count
+        %td
+          %span=button_to 'remove', admin_user_path(user), :method => :delete, :title => 'remove'
