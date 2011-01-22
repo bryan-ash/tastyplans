@@ -39,6 +39,8 @@ Given /^I am signed in with ([^ ]+) "([^\"]+)"(?: and password "([^\"]+)")?$/ do
 end
 
 Given /^I am signed in as an admin$/ do 
+  Given %{an admin with Username "Admin"}
+  When  %{I sign in with "Admin"}
 end
 
 When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|

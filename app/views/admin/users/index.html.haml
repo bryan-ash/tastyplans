@@ -1,1 +1,16 @@
 %h1 User List
+
+%table
+  %thead
+    %tr
+      %th Username
+      %th Email
+      %th Current Date
+      %th Count
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= user.username 
+        %td= user.email
+        %td= user.current_sign_in_at
+        %td= user.sign_in_count
