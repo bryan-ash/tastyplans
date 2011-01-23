@@ -16,4 +16,4 @@
         %td= l user.current_sign_in_at.getlocal if user.current_sign_in_at
         %td= user.sign_in_count
         %td
-          %span=button_to 'remove', admin_user_path(user), :method => :delete, :title => 'remove'
+          %span=button_to 'remove', admin_user_path(user), :method => :delete, :title => 'remove', :confirm => "Remove #{user.username}?"
