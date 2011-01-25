@@ -16,7 +16,7 @@ var uservoiceOptions = {
   alignment: 'right',
   background_color:'#06c',
   text_color: 'white',
-  hover_color: '#f00',
+  hover_color: '#090',
   lang: 'en'
 };
 
