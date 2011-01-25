@@ -8,15 +8,15 @@ $(document).ready(function () {
   });
 });
 var uservoiceOptions = {
-  key: 'ohmabel',
+  Key: 'ohmabel',
   host: 'ohmabel.uservoice.com', 
   forum: '81175',
   lang: 'en',
   showTab: true,
   alignment: 'right',
-  background_color:'#f00',
+  background_color:'#06c',
   text_color: 'white',
-  hover_color: '#06C',
+  hover_color: '#f00',
   lang: 'en'
 };
 
