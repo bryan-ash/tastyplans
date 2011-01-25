@@ -8,10 +8,9 @@ html {
 }
 
 body {
-    background: #FFF;
+    background: #FAFAFA;
     color: #505050;
-    width: 70em;
-    min-width: 750px;
+    min-width: 900px;
     margin: 0;
     padding: 0;
     -moz-border-radius: 15px;
@@ -295,7 +294,6 @@ menu {
 }
 
 nav {
-    background: #FAFAFA;
     padding: 15px 5px 5px 5px;
 }
 
@@ -358,7 +356,7 @@ footer section {
     -o-text-overflow: ellipsis;    /* Opera 9-10 */
     text-overflow:    ellipsis;    /* IE, WebKit (Safari, Chrome), Opera 11 */
     white-space: nowrap;
-    width: 270px;
+    min-width: 200px;
     padding: 10px 30px 10px 20px;
 }
 
@@ -369,7 +367,8 @@ footer > section:first-child {
 footer > section:last-child {
     float: right;
     text-align: right;
-    padding: 155px 10px 10px 10px;
+    width: 100%;
+    padding: 10px 15px 0px 0px;
 }
 
 footer a {
@@ -397,7 +396,7 @@ footer a {
 #error_explanation {
   background-color: #F0F0F0;
   border: 2px solid red;
-  width: 400px;
+  width: 80%;
   margin-bottom: 20px;
   padding: 7px;
   padding-bottom: 0;
