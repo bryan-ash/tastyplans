@@ -9,7 +9,7 @@ $(document).ready(function () {
 });
 var uservoiceOptions = {
   Key: 'ohmabel',
-  host: 'ohmabel.uservoice.com', 
+  host: 'mabelmeals.uservoice.com', 
   forum: '81175',
   lang: 'en',
   showTab: true,
