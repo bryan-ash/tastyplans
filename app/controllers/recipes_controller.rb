@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
   before_filter :authenticate_user!
   
+  autocomplete_for :ingredient_amount, :unit
   autocomplete_for :ingredient, :name
   autocomplete_for :recipe, :name
   

@@ -1,15 +1,13 @@
 Put Sign In and Sign Up on the same page
 acts_as_recommendable for suggesting recipes
-Show My Account link in top right
 Add to shopping list (item not in a recipe)(shopping list is something separate from meal plan)(maybe separate app?)
 charging (paypal, credit card)
 HTML5?: set focus to first field
 
-Add the sceneario back into error_handling for browse to invalid resource.  Waiting on Cucumber issue #31
+Add the scenario back into error_handling for browse to invalid resource.  Waiting on Cucumber issue #31
 checkout has_scope gem for limiting lists
 Better error messages
 
-Demo user should not be able to add/remove recipes from a meal plan
 Shopping list could be editable:
 - change order
 - remove things I have
@@ -17,3 +15,6 @@ Shopping list could be editable:
 - merge rows
 
 plantasm.com is available
+
+
+Print business cards with QR Code on http://chart.apis.google.com/chart?chs=200x200&cht=qr&chl=http://mabelmeals.com

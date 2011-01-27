@@ -11,7 +11,7 @@ Mabel::Application.routes.draw do
   end
   
   resources :ingredients
-
+  
   resources :meal_plans, :except => :show do
     resources :planned_meals
     resource :shopping_list, :only => :show
@@ -21,8 +21,9 @@ Mabel::Application.routes.draw do
   match "current_meal_plan/edit"           => "current_meal_plan#edit",       :as => :edit_current_meal_plan
   
   resources :recipes do
-    get :autocomplete_for_ingredient_name, :on => :collection
-    get :autocomplete_for_recipe_name,     :on => :collection
+    get :autocomplete_for_ingredient_amount_unit, :on => :collection
+    get :autocomplete_for_ingredient_name,        :on => :collection
+    get :autocomplete_for_recipe_name,            :on => :collection
   end
 
   resources :recipe_finders, :only => [:new, :show, :update] do

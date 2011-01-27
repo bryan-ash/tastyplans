@@ -4,7 +4,7 @@
   %td.amount
     = builder.text_field :amount
   %td.unit
-    = builder.text_field :unit
+    = builder.text_field :unit, :class => 'autocomplete', 'data-autocomplete-url' => autocomplete_for_ingredient_amount_unit_recipes_path
   %td.name
     = builder.fields_for :ingredient do |ingredient_form|
       = ingredient_form.text_field :name, :class => 'autocomplete', 'data-autocomplete-url' => autocomplete_for_ingredient_name_recipes_path
