@@ -12,7 +12,7 @@ Feature: Recipe
     And   recipe "Recipe1" exists
     Then  "Recipe1" should be listed before "Recipe2" on the Recipe Book page
 
-  Scenario: 
+  Scenario: Searching for a named recipe
     Given recipe "one" exists
     And   recipe "two" exists
     And   recipe "three" exists
@@ -43,6 +43,17 @@ Feature: Recipe
     And   I should see "1/8 stick butter"
     And   I should see "4 slice bacon"
     And   I should see "Fry the bacon"
+
+  Scenario: Browsing
+    Given recipe "chocolate" exists
+    And   recipe "bacon" exists
+    And   recipe "ale" exists
+    When I show the "bacon" recipe
+    And I follow "Next"
+    Then I should be on the "chocolate" recipe page
+    When I show the "bacon" recipe
+    And I follow "Previous"
+    Then I should be on the "ale" recipe page
 
   Scenario: Creating a simple recipe
     When I create a new recipe with 3 ingredients
@@ -126,4 +137,3 @@ Feature: Recipe
     And  I change the 3rd ingredient position number to "2"
 
     Then "two" should be listed before "three" on the "Sequential" recipe page
-

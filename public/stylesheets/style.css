@@ -286,6 +286,10 @@ article a {
     color: #3A4354;
 }
 
+article nav {
+    float: right;
+}
+
 menu {
     float: left;
     width: 180px;

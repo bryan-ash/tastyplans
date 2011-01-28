@@ -9,15 +9,23 @@ class Recipe < ActiveRecord::Base
 
   validates_presence_of :name, :directions
 
-  scope :named_like, lambda { |name| where({:name.matches => "%#{name}%"}) }
+  scope :named_like, lambda { |name| where(:name.matches => "%#{name}%") }
+
+  scope :recently_added,  order('created_at DESC').limit(5)
+  scope :recently_edited, order('updated_at DESC').limit(5)
   
-  scope :recently_added,  order('recipes.created_at DESC').limit(5)
-  scope :recently_edited, order('recipes.updated_at DESC').limit(5)
-  
-  scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where({:ingredients => {:name.matches => "%#{ingredient}%"}}) }
+  scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where(:ingredients => {:name.matches => "%#{ingredient}%"}) }
 
   before_save :sequence_ingredient_amounts
-  
+
+  def next
+    Recipe.where('name > ?', name).order('name ASC').limit(1).first
+  end
+
+  def previous
+    Recipe.where('name < ?', name).order('name DESC').limit(1).first
+  end
+
   def self.with_ingredients(ingredients)
     recipe_collections = ingredients.map { |ingredient| self.with_ingredient(ingredient).all }
     recipe_collections.inject { |recipes, next_set| recipes & next_set }.uniq
