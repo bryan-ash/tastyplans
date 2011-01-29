@@ -210,14 +210,8 @@ header section section {
     padding: 2px 5px 8px 5px;
 }
 
-.padding {
-    padding: 20px 0px 0px 25px;
-    color: #FFF;
-}
-
 hgroup {
-    float: left;
-    margin-left: 15px;
+    margin: 13px 0 0 29px;
 }
 
 hgroup h1 {
@@ -227,16 +221,17 @@ hgroup h1 {
     font-size: 4em;
     font-style: italic;
     font-family: "Trebuchet MS", sans-serif;
+    line-height: 0.8em;
     letter-spacing: -1px;
-    margin: 0 0 15px 0;
-    padding: 20px 0px 0px 25px;
+    margin: 0;
 }
 
 hgroup h6 {
     color: #FFF;
-    font-size: 100%;
+    font-size: 1em;
+    line-height: 1em;
     margin: 0;
-    padding: 0px 0px 0px 30px;
+    padding: 0 0 0 5px;
 }
 
 article ul {
