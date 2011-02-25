@@ -33,7 +33,7 @@ Mabel::Application.configure do
   config.active_support.deprecation = :log
 
   config.action_mailer.default_url_options = {
-    :host     => 'mabelmeals.com',
+    :host     => 'ohmabel-staging.heroku.com',
     :protocol => 'http'
   }
 
