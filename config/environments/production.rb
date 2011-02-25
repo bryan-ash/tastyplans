@@ -33,7 +33,7 @@ Mabel::Application.configure do
   config.active_support.deprecation = :log
 
   config.action_mailer.default_url_options = {
-    :host     => 'ohmabel.heroku.com',
+    :host     => 'mabelmeals.com',
     :protocol => 'http'
   }
 
@@ -41,7 +41,7 @@ Mabel::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'ohmabel.heroku.com',
+    :domain               => 'mabelmeals.com',
     :user_name            => 'ohmabel@gmail.com',
     :password             => 'ablemabel',
     :authentication       => 'plain',

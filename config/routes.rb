@@ -2,8 +2,9 @@ Mabel::Application.routes.draw do
 
   devise_for :users,
   :controllers => {
-    :sessions      => "users/sessions",
-    :registrations => "users/registrations"
+    :passwords     => "users/passwords",
+    :registrations => "users/registrations",
+    :sessions      => "users/sessions"
   }
 
   namespace :admin do 
