@@ -5,4 +5,9 @@ class Users::PasswordsController < Devise::PasswordsController
     sign_out :user
     super
   end
+
+  def edit
+    sign_out :user
+    super
+  end
 end
