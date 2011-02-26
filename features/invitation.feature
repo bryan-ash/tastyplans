@@ -9,3 +9,5 @@ Feature: Invitations
     When I click the first link in the email
 
   Scenario: Invitations can only be sent when signed in
+    Given I am signed out
+    Then I should not see "Invite a friend"
