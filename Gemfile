@@ -2,6 +2,7 @@ source :gemcutter
 
 gem 'cancan'
 gem 'devise'
+gem "devise_invitable", :git => "git://github.com/rymai/devise_invitable.git"
 gem 'fraction'
 gem 'haml'
 gem 'jquery-rails'

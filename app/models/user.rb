@@ -2,10 +2,10 @@ class User < ActiveRecord::Base
 
   belongs_to :current_meal_plan, :class_name => "MealPlan"
   
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :username, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :invitation_token, :invitation_sent_at, :password, :password_confirmation, :remember_me, :username
 
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false, :message => "Username is already taken, please choose another"
