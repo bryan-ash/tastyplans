@@ -211,7 +211,7 @@ header section section {
 }
 
 hgroup {
-    margin: 13px 0 0 29px;
+    margin: 10px 0 0 29px;
 }
 
 hgroup h1 {
@@ -231,7 +231,7 @@ hgroup h6 {
     font-size: 1em;
     line-height: 1em;
     margin: 0;
-    padding: 0 0 0 5px;
+    padding: 10px 0 0 5px;
 }
 
 article ul {

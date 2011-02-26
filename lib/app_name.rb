@@ -1,1 +1,1 @@
-APP_NAME = "MabelMeals"
+APP_NAME = "TastyPlans"

@@ -33,7 +33,7 @@ Mabel::Application.configure do
   config.active_support.deprecation = :log
 
   config.action_mailer.default_url_options = {
-    :host     => 'mabelmeals.com',
+    :host     => 'tastyplans.com',
     :protocol => 'http'
   }
 
@@ -41,9 +41,9 @@ Mabel::Application.configure do
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",
     :port                 => 587,
-    :domain               => 'mabelmeals.com',
-    :user_name            => 'ohmabel@gmail.com',
-    :password             => 'ablemabel',
+    :domain               => 'tastyplans.com',
+    :user_name            => 'tastyplans@gmail.com',
+    :password             => 'tastyhasty',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }

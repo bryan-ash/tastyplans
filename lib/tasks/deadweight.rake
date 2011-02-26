@@ -3,7 +3,7 @@ begin
 rescue LoadError
 end
 
-namespace :ohmabel do
+namespace :tastyplans do
   desc "run Deadweight CSS check (requires server)."
   task :deadweight => :environment do
     dw = Deadweight.new

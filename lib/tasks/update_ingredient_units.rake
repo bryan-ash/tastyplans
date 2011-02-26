@@ -1,5 +1,5 @@
 
-namespace :ohmabel do
+namespace :tastyplans do
   desc "Update ingredient units."
   task :update_ingredient_units => :environment do
     IngredientAmount.all.map(&:update_unit_from_ingredient_name)

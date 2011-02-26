@@ -3,7 +3,7 @@ begin
 rescue LoadError
 end
 
-namespace :ohmabel do
+namespace :tastyplans do
   desc 'Fetch RSS feed with recipes'
   task :fetch_feeds => :environment do
     [ 'http://recipe.com/home/rss/recipecom/rec1013.xml',

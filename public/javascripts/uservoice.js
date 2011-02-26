@@ -8,8 +8,8 @@ $(document).ready(function () {
   });
 });
 var uservoiceOptions = {
-  Key: 'ohmabel',
-  host: 'mabelmeals.uservoice.com', 
+  Key: 'taskyplans',
+  host: 'tastyplans.uservoice.com', 
   forum: '81175',
   lang: 'en',
   showTab: true,

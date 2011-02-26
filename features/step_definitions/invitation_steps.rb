@@ -5,7 +5,7 @@ When /^I invite "john@doe.com"$/ do
 end
 
 Then /^"john@doe.com" should receive an invitation email$/ do
-  And  %{"john@doe.com" should receive an email with subject "Invitation to join MabelMeals"}
+  And  %{"john@doe.com" should receive an email with subject "Invitation to join TastyPlans"}
   When %{I open the email}
-  Then %{I should see "Someone has invited you to MabelMeals" in the email body}
+  Then %{I should see "Someone has invited you to TastyPlans" in the email body}
 end
