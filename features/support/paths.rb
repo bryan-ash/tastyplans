@@ -18,6 +18,9 @@ module NavigationHelpers
     when /^the ingredients page/
       ingredients_path
 
+    when /^the new invitation page/
+      new_user_invitation_path
+      
     when /^my meal plans page/
       meal_plans_path
       

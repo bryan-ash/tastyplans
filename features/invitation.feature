@@ -11,3 +11,6 @@ Feature: Invitations
   Scenario: Invitations can only be sent when signed in
     Given I am signed out
     Then I should not see "Invite a friend"
+
+    When I go to the new invitation page
+    Then I should see "Please sign in. We don't want just anyone sending invitations!"
