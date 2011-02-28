@@ -11,17 +11,19 @@ Given /^I am signed out$/ do
   set_demo_as_current_user
 end
 
-Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?$/ do |role, username, email, password|
+Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?(?: and (\d) invitations?)?$/ do |role, username, email, password, invitations|
   password ||= "password"
   username ||= "user"
   email ||= "#{username}@home.com"
   admin = (role == "admin")
+  invitations ||= 1
 
   @current_scenario_user =
     User.find_or_create_by_email(:email                 => email,
                                  :username              => username,
                                  :password              => password,
-                                 :password_confirmation => password)
+                                 :password_confirmation => password,
+                                 :invitations           => invitations)
   @current_scenario_user.update_attribute(:admin, admin)
 end
 

@@ -14,3 +14,8 @@ Feature: Invitations
 
     When I go to the new invitation page
     Then I should see "Please sign in. We don't want just anyone sending invitations!"
+
+  Scenario: The number of invitations a user can make is limited
+    Given I am a new, authenticated user with 1 invitation available
+    When I invite "jane@doe.com"
+    Then I should not see "Invite a friend"

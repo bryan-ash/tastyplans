@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :invitable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :invitation_token, :invitation_sent_at, :password, :password_confirmation, :remember_me, :username
+  attr_accessible :email, :invitation_token, :invitation_sent_at, :invitations, :password, :password_confirmation, :remember_me, :username
 
   validates_presence_of :username
   validates_uniqueness_of :username, :case_sensitive => false, :message => "Username is already taken, please choose another"
@@ -23,6 +23,22 @@ class User < ActiveRecord::Base
 
   def self.demo?
     current_user.demo?
+  end
+
+  def can_invite?
+    not demo? and invitations_available?
+  end
+
+  def invitations
+    self[:invitations] ||= 0
+  end
+
+  def invitations_available?
+    self.invitations > 0
+  end
+
+  def sent_an_inviation
+    update_attribute(:invitations, self.invitations - 1)
   end
 
   def demo?
