@@ -5,6 +5,7 @@ charging (paypal, credit card)
 HTML5?: set focus to first field
 
 Refactor DemoUser class
+It would be interesting to know which users are sending the most invitations (so I could send a thankyou note)
 Add the scenario back into error_handling for browse to invalid resource.  Waiting on Cucumber issue #31
 checkout has_scope gem for limiting lists
 Better error messages
