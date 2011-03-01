@@ -90,6 +90,15 @@ When /^I update my account with a new password and confirmation that don\'t matc
   And  %{I commit my account changes with password "#{old_password}"}
 end
 
+When /^I update "([^\"]+)" with Username "([^\"]+)", Email "([^\"]+)" and (\d+) invitations$/ do |old_name, new_name, email, invitations|
+  When %{I go to the list users page}
+  And  %{I follow "#{old_name}"}
+  And  %{I fill in "Username" with "#{new_name}"}
+  And  %{I fill in "Email" with "#{email}"}
+  And  %{I fill in "Invitations remaining" with "#{invitations}"}
+  And  %{I press "Update this user"}
+end
+
 When /^I request a password reset with Email "([^\"]+)"$/ do |email|
   visit new_user_session_path
   click_link "Forgot your password?"

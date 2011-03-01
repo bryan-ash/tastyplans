@@ -1,0 +1,28 @@
+%h1 Edit user
+= form_for [:admin, @user] do |form|
+  = render "shared/error_messages", :target => @user
+  %p
+    = form.label :username
+    %br/
+    = form.text_field :username
+  %p
+    = form.label :email
+    %br/
+    = form.text_field :email
+  %p
+    = form.label :password
+    %br/
+    = form.password_field :password
+  %p
+    = form.label :password_confirmation
+    %br/
+    = form.password_field :password_confirmation
+  %p
+    = form.label :invitations, "Invitations remaining"
+    %br/
+    = form.text_field :invitations
+  %p
+    = form.check_box :admin
+    = form.label :admin, "Admin?"
+
+  %p= form.submit "Update this user"

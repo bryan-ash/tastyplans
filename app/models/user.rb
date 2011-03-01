@@ -56,5 +56,9 @@ class User < ActiveRecord::Base
       "Signed in as #{username}."
     end
   end
-  
+
+  def clear_password
+    self[:password] = ""
+  end
+
 end

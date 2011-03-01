@@ -18,6 +18,24 @@ class Admin::UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    admin = params[:user].delete :admin
+
+    if params[:user][:password].blank?
+      [:password,:password_confirmation,:current_password].each { |param| params[:user].delete(param) }
+    end
+ 
+    if @user.update_attributes(params[:user])
+      @user.update_attribute(:admin, admin)
+      redirect_to admin_users_path, :notice => "Successfully updated user #{@user.username}"
+    else
+      render :edit, :alert => "Failed to update user"
+    end
+  end
+
   def destroy
     @user.destroy
     

@@ -39,3 +39,11 @@ Feature: Admin
 
     When I go to the list users page
     Then I should be on the home page
+
+  Scenario: Admin can edit users
+    Given a user with Username "Sara", Email "sara@work.com" and 0 invitations
+    When I update "Sara" with Username "Sarah", Email "sarah@home.com" and 7 invitations
+
+    Then I should see "Sarah"
+    And  I should see "sarah@home.com"
+    And  I should see "7"

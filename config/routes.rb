@@ -9,7 +9,7 @@ Mabel::Application.routes.draw do
   }
 
   namespace :admin do 
-    resources :users, :only => [:index, :new, :create, :destroy]
+    resources :users, :only => [:index, :new, :create, :edit, :update, :destroy]
   end
   
   resources :ingredients
