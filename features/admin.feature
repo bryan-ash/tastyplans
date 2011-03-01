@@ -22,7 +22,7 @@ Feature: Admin
     And I fill in "Email" with "annie.oakley@gmail.com"
     And I fill in "Password" with "gottagun"
     And I fill in "Password confirmation" with "gottagun"
-    And I press "Create user"
+    And I press "Create User"
     Then I should see "Annie"
 
   Scenario: Admin can remove users

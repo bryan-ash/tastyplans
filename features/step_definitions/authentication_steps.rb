@@ -96,7 +96,7 @@ When /^I update "([^\"]+)" with Username "([^\"]+)", Email "([^\"]+)" and (\d+) 
   And  %{I fill in "Username" with "#{new_name}"}
   And  %{I fill in "Email" with "#{email}"}
   And  %{I fill in "Invitations remaining" with "#{invitations}"}
-  And  %{I press "Update this user"}
+  And  %{I press "Update User"}
 end
 
 When /^I request a password reset with Email "([^\"]+)"$/ do |email|
