@@ -57,8 +57,4 @@ class User < ActiveRecord::Base
     end
   end
 
-  def clear_password
-    self[:password] = ""
-  end
-
 end
