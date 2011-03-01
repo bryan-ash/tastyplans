@@ -27,11 +27,12 @@
           = current_user.try(:signed_in_message)
         %nav
           = link_to 'Home', root_path
-          | 
+          \- 
           = link_to 'Contact us', 'http://tastyplans.uservoice.com/forums/81175', :class => 'contact_us'
           - if can_invite?
-            |
+            \-
             = link_to 'Invite a friend', new_user_invitation_path
+            = "(#{current_user.invitations} invitations left)"
 
       %hgroup
         %h1= link_to APP_NAME, root_path
