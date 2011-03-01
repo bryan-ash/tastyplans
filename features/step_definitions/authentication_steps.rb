@@ -11,7 +11,7 @@ Given /^I am signed out$/ do
   set_demo_as_current_user
 end
 
-Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?(?: and (\d) invitations?)?$/ do |role, username, email, password, invitations|
+Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?: and Password "([^\"]+)")?(?: and (\d+) invitations?)?$/ do |role, username, email, password, invitations|
   password ||= "password"
   username ||= "user"
   email ||= "#{username}@home.com"

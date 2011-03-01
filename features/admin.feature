@@ -4,10 +4,11 @@ Feature: Admin
     Given I am signed in as an admin
   
   Scenario: Admin can view a list of users
-    Given a user with Username "Jane", Email "Jane@Home.com"
+    Given a user with Username "Jane", Email "Jane@Home.com" and 42 invitations
     When I follow "List users"
     Then I should see "Jane"
     And  I should see "Jane@Home.com"
+    And  I should see "42"
 
   Scenario: The demo user is not shown in the list
     Given I am signed out
