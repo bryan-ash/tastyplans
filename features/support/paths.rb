@@ -23,6 +23,9 @@ module NavigationHelpers
       
     when /^my meal plans page/
       meal_plans_path
+
+    when /^my recipes page/
+      recipes_path(:user => :me)
       
     when /^the start new meal plan page/
       new_meal_plan_path

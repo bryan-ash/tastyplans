@@ -6,7 +6,12 @@ class RecipesController < ApplicationController
   autocomplete_for :recipe, :name
   
   def index
-    @recipes = Recipe.named_like(params[:name]).order('name ASC')
+    if params[:user] == "me"
+      @recipes = current_user.recipes
+    else
+      @recipes = Recipe.order('name ASC')
+    end
+    @recipes = @recipes.named_like(params[:name])
   end
 
   def new
@@ -16,6 +21,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(params[:recipe])
+    @recipe.user = current_user
 
     if demo_mode_active?
       flash.now[:alert] = "Sign up if you'd like to create and edit recipes"

@@ -1,16 +1,27 @@
 %h1 Recipes
 
-%section
-  = form_tag recipes_path, :method => :get do
-    %fieldset#search_form
-      %p
-        = label_tag :name, "To search, enter part of a recipe name below"
-        %i (leave blank to list all recipes)
-        %br
-        = text_field_tag :name, params[:name], :class => 'autocomplete', 'data-autocomplete-url' => autocomplete_for_recipe_name_recipes_path
-        = submit_tag 'Search for recipes', :name => nil
+- if @recipes.empty?
+  %p You haven't created any recipes yet.  
 
-%section
-  %ul
-    - @recipes.each do |recipe|
-      %li= link_to recipe.name, recipe_path(recipe)
+  %p
+    Please use the 
+    %strong 'Add a new recipe' 
+    link on the 
+    %strong Recipes
+    menu to the left of the page.
+
+- else
+  %section
+    = form_tag recipes_path, :method => :get do
+      %fieldset#search_form
+        %p
+          = label_tag :name, "To search, enter part of a recipe name below"
+          %i (leave blank to list all recipes)
+          %br
+          = text_field_tag :name, params[:name], :class => 'autocomplete', 'data-autocomplete-url' => autocomplete_for_recipe_name_recipes_path
+          = submit_tag 'Search for recipes', :name => nil
+   
+  %section
+    %ul
+      - @recipes.each do |recipe|
+        %li= link_to recipe.name, recipe_path(recipe)

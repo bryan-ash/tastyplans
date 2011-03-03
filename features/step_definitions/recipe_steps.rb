@@ -117,6 +117,14 @@ When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
   And  %{I change the recipe name to "#{new_name}"}
 end
 
+Given /^I have created a recipe named "My Recipe"$/ do
+  Given %{I am on the home page}
+  When  %{I follow "Add a new recipe"}
+  When %{I fill in "recipe_name" with "My Recipe"}
+  And  %{I fill in "recipe[directions]" with "Nothing to do here."}
+  And  %{I press "Save new recipe"}
+end
+
 When /^I create a new recipe with (\d) ingredients$/ do |count|
   Given %{I am on the home page}
   When  %{I follow "Add a new recipe"}
