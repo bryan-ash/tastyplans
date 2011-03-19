@@ -1,8 +1,12 @@
 %h2 Accept invitation
-%p To accept this invitation, please set a password. You can also change your email.
+%p To accept this invitation, please set a username and password. You can also change your email.
 = form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => { :method => :put } do |f|
   = devise_error_messages!
   = f.hidden_field :invitation_token
+  %p
+    = f.label :username
+    %br/
+    = f.text_field :username
   %p
     = f.label :email
     %br/
@@ -15,4 +19,4 @@
     = f.label :password_confirmation
     %br/
     = f.password_field :password_confirmation
-  %p= f.submit "Set my password"
+  %p= f.submit "Set my username and password"

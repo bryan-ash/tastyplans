@@ -1,7 +1,7 @@
 %p
   Hello #{@resource.email}!
 %p
-  Someone has invited you to #{APP_NAME}, you can accept it through the link below.
+  You are invited to join #{APP_NAME}, you can accept this invitation through the link below.
 %p= link_to 'Accept invitation', accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)
 %p
   If you don't want to accept the invitation, please ignore this email.

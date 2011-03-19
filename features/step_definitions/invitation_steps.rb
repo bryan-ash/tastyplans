@@ -9,8 +9,8 @@ When /^I invite "([^\"]+)"$/ do |email|
   And  %{I press "Send invitation to your friend"}
 end
 
-Then /^"john@doe.com" should receive an invitation email$/ do
-  And  %{"john@doe.com" should receive an email with subject "Invitation to join TastyPlans"}
+Then /^"([^\"]+)" should receive an invitation email$/ do |email|
+  And  %{"#{email}" should receive an email with subject "Invitation to join TastyPlans"}
   When %{I open the email}
-  Then %{I should see "Someone has invited you to TastyPlans" in the email body}
+  Then %{I should see "You are invited to join TastyPlans" in the email body}
 end

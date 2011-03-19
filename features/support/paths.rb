@@ -12,6 +12,9 @@ module NavigationHelpers
     when /(sign in|login)/
       new_user_session_path
 
+    when /^the beta request page/
+      '/users/beta_requests/new'
+
     when /edit user/
       edit_user_registration_path
       
@@ -20,6 +23,9 @@ module NavigationHelpers
 
     when /^the new invitation page/
       new_user_invitation_path
+      
+    when /^the accept user invitation page/
+      accept_user_invitation_path
       
     when /^my meal plans page/
       meal_plans_path

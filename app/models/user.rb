@@ -8,9 +8,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :invitation_token, :invitation_sent_at, :invitations, :password, :password_confirmation, :remember_me, :username
-
+  
   validates_presence_of :username
-  validates_uniqueness_of :username, :case_sensitive => false, :message => "Username is already taken, please choose another"
+  validates_uniqueness_of :username, :case_sensitive => false, :message => "is already taken, please choose another"
 
   scope :all_but_demo, where("username != 'Demo User'").order("username ASC")
   

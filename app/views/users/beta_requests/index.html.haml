@@ -1,0 +1,6 @@
+%h1 Beta invitation requests
+
+%table
+  - @beta_requests.each do |beta_request|
+    %td= beta_request.email
+    %td= button_to 'invite', invite_users_beta_request_path(beta_request), :method => :put, :title => 'invite'

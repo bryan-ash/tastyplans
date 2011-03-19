@@ -14,6 +14,8 @@
       %nav
         - if demo_mode_active?
           = link_to "Sign in", new_user_session_path
+          or
+          = link_to "Request Beta", new_users_beta_request_path
           / 
             or
             = link_to "Sign up", new_user_registration_path

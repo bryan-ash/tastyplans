@@ -31,6 +31,7 @@ module MenuHelper
     @admin_menu ||= Menu.new("Admin") do |menu|
       menu << MenuLink.new('List users', admin_users_path)
       menu << MenuLink.new('Add a new user', new_admin_user_path)
+      menu << MenuLink.new('Beta requests', users_beta_requests_path)
     end
   end
 

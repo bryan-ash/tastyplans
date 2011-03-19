@@ -1,0 +1,28 @@
+class Users::BetaRequestsController < ApplicationController
+
+  def index
+    @beta_requests = BetaRequest.all
+  end
+
+  def new
+    @beta_request = BetaRequest.new
+  end
+
+  def create
+    @beta_request = BetaRequest.new(params[:beta_request])
+    
+    if @beta_request.save
+      redirect_to root_url, :notice => "Thank you for your request, we should have a new batch ready soon"
+    else
+      flash[:alert] = "There was a problem with your request, please try again"
+      render :new
+    end
+  end
+
+  def invite
+    beta_request = BetaRequest.find(params[:id])
+    User.new(:email => beta_request.email).invite
+    redirect_to users_beta_requests_url, :notice => "Invitation was sent"
+  end
+
+end

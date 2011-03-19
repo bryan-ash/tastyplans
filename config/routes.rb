@@ -8,10 +8,16 @@ Mabel::Application.routes.draw do
     :sessions      => "users/sessions"
   }
 
+  namespace :users do
+    resources :beta_requests, :only => [:index, :new, :create] do
+      put :invite, :on => :member
+    end
+  end
+
   namespace :admin do 
     resources :users
   end
-  
+
   resources :ingredients
   
   resources :meal_plans, :except => :show do

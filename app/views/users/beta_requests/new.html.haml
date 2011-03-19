@@ -1,0 +1,13 @@
+%h1 Request a free Beta invitation 
+%p When we whip up a new batch of invitations, we'll email you
+
+= form_for @beta_request, :url => users_beta_requests_path do |form|
+  %section
+    = render "shared/error_messages", :target => @beta_request
+
+  %section
+    %h2= form.label :email, "Enter your email address"
+    = form.text_field :email
+
+  %section
+    = form.submit "Request Beta invitation"
