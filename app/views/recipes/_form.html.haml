@@ -1,6 +1,6 @@
 = javascript_include_tag "wmd/showdown.js"
 
-= form_for @recipe do |form|
+= form_for @recipe, :builder => DemoFormBuilder do |form|
   = render "shared/error_messages", :target => @recipe
 
   %section
