@@ -1,4 +1,6 @@
 en:
+  beta:
+    request: "Request invitation"
   time:
     formats:
       default: "%Y-%m-%d, %H:%M:%S"

@@ -12,7 +12,7 @@ class Users::BetaRequestsController < ApplicationController
     @beta_request = BetaRequest.new(params[:beta_request])
     
     if @beta_request.save
-      redirect_to root_url, :notice => "Thank you for your request, we should have a new batch ready soon"
+      redirect_to root_url, :notice => "Thank you for your request, we'll email you when we have a new batch ready"
     else
       flash[:alert] = "There was a problem with your request, please try again"
       render :new
