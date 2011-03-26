@@ -115,7 +115,7 @@ Feature: Recipe
     When I show the "dangerous" recipe
     Then I should see "<script>"
 
-  Scenario: Ingredient are shown in the order specified
+  Scenario: Ingredients are shown in the order specified
     Given a "Sequential" recipe has ingredients:
       | # | ingredient |
       | 1 | one        |
