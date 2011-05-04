@@ -1,6 +1,6 @@
 en:
   beta:
-    request: "Request invitation"
+    request: "Sign up"
   time:
     formats:
       default: "%Y-%m-%d, %H:%M:%S"

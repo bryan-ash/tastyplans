@@ -2,7 +2,7 @@ Feature: Beta registration request
 
   Scenario: A visitor can request a beta registration
     Given I am signed out
-    When I follow "Request invitation"
+    When I follow "Sign up"
     Then I should be on the beta request page
 
     When I fill in "Enter your email address" with "me@home.com"
