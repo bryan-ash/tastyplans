@@ -1,3 +1,3 @@
-require 'lib/app_name'
-require 'lib/float'
-require 'lib/mixed_fraction'
+require "#{Rails.root}/lib/app_name"
+require "#{Rails.root}/lib/float"
+require "#{Rails.root}/lib/mixed_fraction"
