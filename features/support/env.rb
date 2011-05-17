@@ -29,10 +29,11 @@ Capybara.default_selector = :css
 #
 ActionController::Base.allow_rescue = false
 
-# Remove this line if your app doesn't have a database.
+# Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.
-DatabaseCleaner.strategy = :transaction
+begin
+  DatabaseCleaner.strategy = :transaction
+rescue NameError
+  raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
+end
 
-
-# This is a work around for test/unit/testcase reporting wrong number of arguments. See issue #88
-Test::Unit.run = true

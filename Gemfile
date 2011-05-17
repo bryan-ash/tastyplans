@@ -31,7 +31,7 @@ end
 group :test do
   gem 'autotest'
   gem 'capybara'
-  gem 'cucumber-rails', :git => 'git://github.com/aslakhellesoy/cucumber-rails.git'
+  gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'fuubar-cucumber'
 
@@ -40,6 +40,5 @@ group :test do
 
   gem 'rspec-rails', '~> 2.4'
 
-  gem 'spork'
   gem 'webrat'
 end
