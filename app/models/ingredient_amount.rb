@@ -30,11 +30,4 @@ class IngredientAmount < ActiveRecord::Base
     "#{mixed_fraction_amount} #{self.unit} #{self.ingredient.name}"
   end
   
-  def update_unit_from_ingredient_name
-    IngredientAmount.transaction do
-      unit = ingredient.remove_unit_from_name
-      self.update_attributes(:unit => unit) if unit
-    end
-  end
-
 end
