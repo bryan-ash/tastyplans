@@ -26,6 +26,8 @@ group :development do
 
   gem 'feedzirra'
   gem 'mechanize'
+
+  gem 'test-unit', '= 1.2.3'
 end
 
 group :test do
