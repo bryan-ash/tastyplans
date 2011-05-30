@@ -1,3 +1,5 @@
+convert Cucumber features into specs for speed
+
 Put Sign In and Sign Up on the same page
 acts_as_recommendable for suggesting recipes
 Add to shopping list (item not in a recipe)(shopping list is something separate from meal plan)(maybe separate app?)
@@ -9,6 +11,7 @@ It would be interesting to know which users are sending the most invitations (so
 Add the scenario back into error_handling for browse to invalid resource.  Waiting on Cucumber issue #31
 checkout has_scope gem for limiting lists
 Better error messages
+pjax - for speedy page loads
 
 Shopping list could be editable:
 - change order
