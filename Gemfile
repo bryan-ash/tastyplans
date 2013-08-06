@@ -1,8 +1,8 @@
-source :gemcutter
+source 'https://rubygems.org'
 
 gem 'cancan'
 gem 'devise'
-gem "devise_invitable", :git => "git://github.com/rymai/devise_invitable.git"
+gem "devise_invitable"
 gem 'fraction'
 gem 'haml'
 gem 'jquery-rails'
@@ -31,7 +31,6 @@ group :development do
 end
 
 group :test do
-  gem 'autotest'
   gem 'capybara'
   gem 'cucumber-rails'
   gem 'database_cleaner'
