@@ -1,9 +1,9 @@
 Given /^(\d) recipes? exists?$/ do |count|
-  count.to_i.times { recipe = Factory.create(:recipe) }
+  count.to_i.times { recipe = FactoryGirl.create(:recipe) }
 end
 
 Given /^recipe "(.+)" exists$/ do |name|
-  Factory.create(:recipe, :name => name)
+  FactoryGirl.create(:recipe, :name => name)
 end
 
 Given /^a "(.*) Butty" recipe exists$/ do |filler|
@@ -58,14 +58,14 @@ Given /^I am creating a recipe with ingredients:$/ do |ingredient_amounts|
 end
 
 Given /^I am editing recipe "([^\"]+)"$/ do |name|
-  Given %{recipe "#{name}" exists}
-  When  %{I go to the recipe page for "#{name}"}
-  And   %{I follow "Edit this recipe"}
+  step %{recipe "#{name}" exists}
+  step %{I go to the recipe page for "#{name}"}
+  step %{I follow "Edit this recipe"}
 end
 
 Given /^I am viewing the "([^\"]+)" recipe$/ do |name|
-  Given %{recipe "#{name}" exists}
-  When  %{I go to the recipe page for "#{name}"}
+  step %{recipe "#{name}" exists}
+  step %{I go to the recipe page for "#{name}"}
 end
 
 When /^I show the "([^\"]*)" recipe$/ do |recipe|
@@ -112,17 +112,17 @@ When /^I change the directions to:$/ do |directions|
 end
 
 When /^I rename recipe "([^\"]+)" to "([^\"]+)"$/ do |old_name, new_name|
-  When %{I go to the recipe page for "#{old_name}"}
-  And  %{I follow "Edit this recipe"}
-  And  %{I change the recipe name to "#{new_name}"}
+  step %{I go to the recipe page for "#{old_name}"}
+  step %{I follow "Edit this recipe"}
+  step %{I change the recipe name to "#{new_name}"}
 end
 
 Given /^I have created a recipe named "My Recipe"$/ do
-  Given %{I am on the home page}
-  When  %{I follow "Add a new recipe"}
-  When %{I fill in "recipe_name" with "My Recipe"}
-  And  %{I fill in "recipe[directions]" with "Nothing to do here."}
-  And  %{I press "Save new recipe"}
+  step %{I am on the home page}
+  step %{I follow "Add a new recipe"}
+  step %{I fill in "recipe_name" with "My Recipe"}
+  step %{I fill in "recipe[directions]" with "Nothing to do here."}
+  step %{I press "Save new recipe"}
 end
 
 When /^I create a new recipe with (\d) ingredients$/ do |count|
@@ -139,11 +139,11 @@ When /^I create a new recipe with (\d) ingredients$/ do |count|
 end
 
 Then /^the (\d) ingredient recipe should be shown$/ do |count|
-  Then %{I should be on the recipe page for "Black magic"}
-  And  %{I should see "Black magic"}
+  step %{I should be on the recipe page for "Black magic"}
+  step %{I should see "Black magic"}
   (0...count.to_i).each do |n|
-    And  %{I should see "ingredient#{n}"}
+    step %{I should see "ingredient#{n}"}
   end
-  And  %{I should see "Nothing to do here"}
-  And  %{I should see "Thank you for adding that new recipe"}
+  step %{I should see "Nothing to do here"}
+  step %{I should see "Thank you for adding that new recipe"}
 end

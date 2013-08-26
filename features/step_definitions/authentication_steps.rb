@@ -34,21 +34,21 @@ end
 
 Given /^I am signed in with ([^ ]+) "([^\"]+)"(?: and password "([^\"]+)")?$/ do |field, value, password|
   password ||= "password"
-  username = (field == "username") ? value : "user"
+  username = (field == "username") ? value : "Mr. User"
   email = (field == "email") ? value : "#{username}@home.com"
-  Given %{a user with Username "#{username}", Email "#{email}" and Password "#{password}"}
-  And   %{I sign in with "#{value}" and password "#{password}"}
+  step %{a user with Username "#{username}", Email "#{email}" and Password "#{password}"}
+  step %{I sign in with "#{value}" and password "#{password}"}
 end
 
 Given /^I am signed in as an admin$/ do 
-  Given %{an admin with Username "Admin"}
-  When  %{I sign in with "Admin"}
+  step %{an admin with Username "Admin"}
+  step %{I sign in with "Admin"}
 end
 
 When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|
-  Given %{I am on the sign up page}
-  When  %{I fill in "#{attribute}" with "#{value}"}
-  And   %{I press "Sign up"}
+  step %{I am on the sign up page}
+  step %{I fill in "#{attribute}" with "#{value}"}
+  step %{I press "Sign up"}
 end
 
 When /^I sign in with "([^\"]+)"(?: and password "([^\"]+)")?$/ do |login, password|
@@ -60,34 +60,34 @@ When /^I sign in with "([^\"]+)"(?: and password "([^\"]+)")?$/ do |login, passw
 end
 
 When /^I commit my account changes with password "([^\"]+)"$/ do |password|
-  And  %{I fill in "Enter your current password to confirm changes" with "#{password}"}
-  And  %{I press "Save account changes"}
+  step %{I fill in "Enter your current password to confirm changes" with "#{password}"}
+  step %{I press "Save account changes"}
 end
 
 When /^I change my username to "([^\"]+)"$/ do |username|
-  When %{I go to the edit user page}
-  And  %{I fill in "Please choose a user name" with "#{username}"}
-  And  %{I commit my account changes with password "password"}
+  step %{I go to the edit user page}
+  step %{I fill in "Please choose a user name" with "#{username}"}
+  step %{I commit my account changes with password "password"}
 end
 
 When /^I change my email to "([^\"]+)"$/ do |email|
-  When %{I go to the edit user page}
-  And  %{I fill in "Enter a new email address if you would like to change it" with "#{email}"}
-  And  %{I commit my account changes with password "password"}
+  step %{I go to the edit user page}
+  step %{I fill in "Enter a new email address if you would like to change it" with "#{email}"}
+  step %{I commit my account changes with password "password"}
 end
 
 When /^I change my password from "([^\"]+)" to "([^\"]+)"$/ do |old_password, new_password|
-  When %{I go to the edit user page}
-  And  %{I fill in "Enter a new password" with "#{new_password}"}
-  And  %{I fill in "Confirm your new password" with "#{new_password}"}
-  And  %{I commit my account changes with password "#{old_password}"}
+  step %{I go to the edit user page}
+  step %{I fill in "Enter a new password" with "#{new_password}"}
+  step %{I fill in "Confirm your new password" with "#{new_password}"}
+  step %{I commit my account changes with password "#{old_password}"}
 end
 
 When /^I update my account with a new password and confirmation that don\'t match, using password "([^\"]+)"$/ do |old_password|
-  When %{I go to the edit user page}
-  And  %{I fill in "Enter a new password" with "something"}
-  And  %{I fill in "Confirm your new password" with "different"}
-  And  %{I commit my account changes with password "#{old_password}"}
+  step %{I go to the edit user page}
+  step %{I fill in "Enter a new password" with "something"}
+  step %{I fill in "Confirm your new password" with "different"}
+  step %{I commit my account changes with password "#{old_password}"}
 end
 
 When /^I update "([^\"]+)" with Username "([^\"]+)", Email "([^\"]+)" and (\d+) invitations$/ do |old_name, new_name, email, invitations|
