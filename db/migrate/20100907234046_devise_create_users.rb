@@ -1,15 +1,24 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def self.up
     create_table(:users) do |t|
-      t.database_authenticatable :null => false
-      t.recoverable
-      t.rememberable
-      t.trackable
+      # t.database_authenticatable :null => false, became:
+      t.string   "email",                              :default => "",    :null => false
+      t.string   "encrypted_password",                 :default => ""
+      t.string   "password_salt",                      :default => ""
 
-      # t.confirmable
-      # t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :both
-      # t.token_authenticatable
+      # t.recoverable became:
+      t.string   "reset_password_token"
 
+      # t.rememberable became:
+      t.string   "remember_token"
+      t.datetime "remember_created_at"
+
+      #t.trackable became:
+      t.integer  "sign_in_count",                      :default => 0
+      t.datetime "current_sign_in_at"
+      t.datetime "last_sign_in_at"
+      t.string   "current_sign_in_ip"
+      t.string   "last_sign_in_ip"
 
       t.timestamps
     end
