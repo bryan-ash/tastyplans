@@ -1,48 +1,52 @@
 source 'https://rubygems.org'
-ruby '1.9.3'
+ruby '2.0.0'
 
-gem 'cancan', '~> 1.6.10'
-gem 'devise', '~> 1.1.9'
-gem "devise_invitable", '~> 0.3.7'
+gem 'rake'
+gem 'rails', '~> 4.0'
+gem 'pg'
+
+# Rails 4 workarounds
+gem 'protected_attributes'
+
+gem 'cancan'
+gem 'devise', '~> 3.0.0'
+gem 'devise_invitable', :github => 'scambra/devise_invitable'
+
+gem 'haml'
+gem 'simple_autocomplete'
+
+gem 'squeel'
+
 gem 'fraction', '~> 0.3.2'
-gem 'haml', '~> 4.0.3'
-gem 'jquery-rails', '~> 3.0.4'
-gem 'meta_where'
-gem 'pg', '~> 0.16.0'
-gem 'rails', '~> 0.9.5'
-gem 'rdiscount', '~> 2.1.6'
-gem 'simple_autocomplete', '~> 0.3.8'
-gem 'treetop', '~> 1.4.14'
+gem 'treetop'
 
-gem 'rake', '~>0.8.7'
-
-group :development do
-  gem 'heroku_san', '~> 4.3.0'
-  gem 'deadweight', '~> 0.2.2'
+# gem 'rdiscount', '~> 2.1.6'
  
-  # These are needed for devise generators:
-  gem 'hpricot', '~> 0.8.6'
-  gem 'ruby_parser', '~> 3.2.2'
+# group :development do
+#   gem 'heroku_san', '~> 4.3.0'
+#   gem 'deadweight', '~> 0.2.2'
  
-  # this is in :development to provide generators
-  gem 'rspec-rails', '~> 2.4'
+#   # These are needed for devise generators:
+#   gem 'hpricot', '~> 0.8.6'
+#   gem 'ruby_parser', '~> 3.2.2'
  
-  gem 'feedzirra'
-  gem 'mechanize', '~> 2.7.1'
+#   # this is in :development to provide generators
+#   gem 'rspec-rails', '~> 2.4'
  
-  gem 'test-unit', '= 1.2.3'
-end
+#   gem 'feedzirra'
+#   gem 'mechanize', '~> 2.7.1'
+# end
  
 group :test do
-  gem 'capybara', '= 2.0.3'
-  gem 'cucumber-rails', '~> 0.5.2'
-  gem 'database_cleaner', '~> 1.1.1'
-  gem 'fuubar-cucumber', '~> 0.0.20'
+  gem 'capybara'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  # gem 'fuubar-cucumber'
  
-  gem 'email_spec', '~> 1.5.0'
-  gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'email_spec'
+  gem 'factory_girl_rails'
  
-  gem 'rspec-rails', '~> 2.4'
+  gem 'rspec-rails'
  
-  gem 'webrat', '~> 0.7.3'
+  # gem 'webrat'
 end
