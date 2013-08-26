@@ -1,13 +1,13 @@
 class RenameUserNameToUsername < ActiveRecord::Migration
   def self.up
-    rename_column :users, :name, :username
     remove_index  :users, :name
+    rename_column :users, :name, :username
     add_index     :users, :username
   end
 
   def self.down
-    rename_column :users, :username, :name
     remove_index  :users, :username
+    rename_column :users, :username, :name
     add_index     :users, :name
   end
 end
