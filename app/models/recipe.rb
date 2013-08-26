@@ -2,7 +2,7 @@ class Recipe < ActiveRecord::Base
 
   belongs_to :user
   
-  has_many :ingredient_amounts, :dependent => :destroy, :order => :position
+  has_many :ingredient_amounts, -> { order :position }, :dependent => :destroy
   has_many :ingredients, :through => :ingredient_amounts
 
   accepts_nested_attributes_for :ingredient_amounts,
