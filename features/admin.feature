@@ -7,7 +7,7 @@ Feature: Admin
     Given a user with Username "Jane", Email "Jane@Home.com" and 42 invitations
     When I follow "List users"
     Then I should see "Jane"
-    And  I should see "Jane@Home.com"
+    And  I should see "jane@home.com"
     And  I should see "42"
 
   Scenario: The demo user is not shown in the list

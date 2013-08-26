@@ -4,7 +4,7 @@ class MealPlan < ActiveRecord::Base
   has_many :recipes, :through => :planned_meals
   belongs_to :user
   
-  default_scope order('created_at DESC')
+  default_scope -> { order 'created_at DESC' }
 
   after_initialize :set_defaults
 
