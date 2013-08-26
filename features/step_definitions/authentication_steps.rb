@@ -28,8 +28,8 @@ Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?
 end
 
 Given /^I am a new, authenticated user$/ do
-  Given %{a user with Email "a@b.net"}
-  And   %{I sign in with "a@b.net"}
+  step %{a user with Email "a@b.net"}
+  step %{I sign in with "a@b.net"}
 end
 
 Given /^I am signed in with ([^ ]+) "([^\"]+)"(?: and password "([^\"]+)")?$/ do |field, value, password|
@@ -91,12 +91,12 @@ When /^I update my account with a new password and confirmation that don\'t matc
 end
 
 When /^I update "([^\"]+)" with Username "([^\"]+)", Email "([^\"]+)" and (\d+) invitations$/ do |old_name, new_name, email, invitations|
-  When %{I go to the list users page}
-  And  %{I follow "#{old_name}"}
-  And  %{I fill in "Username" with "#{new_name}"}
-  And  %{I fill in "Email" with "#{email}"}
-  And  %{I fill in "Invitations remaining" with "#{invitations}"}
-  And  %{I press "Update User"}
+  step %{I go to the list users page}
+  step %{I follow "#{old_name}"}
+  step %{I fill in "Username" with "#{new_name}"}
+  step %{I fill in "Email" with "#{email}"}
+  step %{I fill in "Invitations remaining" with "#{invitations}"}
+  step %{I press "Update User"}
 end
 
 When /^I request a password reset with Email "([^\"]+)"$/ do |email|

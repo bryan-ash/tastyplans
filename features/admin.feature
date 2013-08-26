@@ -11,8 +11,6 @@ Feature: Admin
     And  I should see "42"
 
   Scenario: The demo user is not shown in the list
-    Given I am signed out
-    Given I am signed in as an admin
     When I follow "List users"
     And  I should not see "Demo User"
 
