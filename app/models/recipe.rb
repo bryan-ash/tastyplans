@@ -11,12 +11,17 @@ class Recipe < ActiveRecord::Base
 
   validates_presence_of :name, :directions
 
-  scope :named_like, lambda { |name| where(:name.matches => "%#{name}%") }
+  scope :named_like, lambda { |name| where {name =~ "%#{name}%" }}
 
-  scope :recently_added,  order('created_at DESC').limit(5)
-  scope :recently_edited, order('updated_at DESC').limit(5)
+  def self.recently_added
+    order('created_at DESC').limit(5)
+  end
+
+  def self.recently_edited
+    order('updated_at DESC').limit(5)
+  end
   
-  scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where(:ingredients => {:name.matches => "%#{ingredient}%"}) }
+  scope :with_ingredient, lambda { |ingredient| joins(:ingredients).where { |i| i.name =~ "%#{ingredient}%" } }
 
   before_save :sequence_ingredient_amounts
 
