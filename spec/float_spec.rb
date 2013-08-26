@@ -1,5 +1,4 @@
 require 'float'
-require 'active_support/core_ext/float/rounding'
 
 describe "Float#to_mixed_fraction_string" do
 
