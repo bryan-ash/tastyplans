@@ -19,11 +19,11 @@ Given /^an? (admin|user) with(?: Username "([^\"]*)")?,?(?: Email "([^\"]+)")?(?
   invitations ||= 1
 
   @current_scenario_user =
-    User.find_or_create_by_email(:email                 => email,
-                                 :username              => username,
-                                 :password              => password,
-                                 :password_confirmation => password,
-                                 :invitations           => invitations)
+    User.create_with(:username              => username,
+                     :password              => password,
+                     :password_confirmation => password,
+                     :invitations           => invitations).
+    find_or_create_by(:email => email)
   @current_scenario_user.update_attribute(:admin, admin)
 end
 

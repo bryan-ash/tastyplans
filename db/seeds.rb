@@ -5,11 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
-demo_user = User.find_by_username("Demo User")
+demo_user = User.where(username:"Demo User").first_or_create
+demo_user_id = demo_user.id
 
-MealPlan.find_or_create_by_name(:name => "Empty Plan", :user => demo_user)
+MealPlan.where(name:"Empty Plan", user_id: demo_user_id).first_or_create
 
-meal_plan = MealPlan.find_or_create_by_name(:name => "Birthday Week", :user => demo_user)
+meal_plan = MealPlan.find_or_create_by(name:"Birthday Week", user_id: demo_user_id)
 demo_user.current_meal_plan = meal_plan
 demo_user.save
 

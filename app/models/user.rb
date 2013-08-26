@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def self.demo
-    @demo_user ||= find_or_create_by_username('Demo User', :email => 'demo@user.com')
+    @demo_user ||= find_or_create_by(username:'Demo User', email:'demo@user.com')
   end
 
   def self.demo?
