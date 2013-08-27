@@ -42,7 +42,7 @@ group :test do
   gem 'capybara'
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  # gem 'fuubar-cucumber'
+  gem 'fuubar-cucumber'
  
   gem 'email_spec'
   gem 'factory_girl_rails'
