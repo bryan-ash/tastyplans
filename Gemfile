@@ -20,7 +20,7 @@ gem 'squeel'
 gem 'fraction', '~> 0.3.2'
 gem 'treetop'
 
-# gem 'rdiscount', '~> 2.1.6'
+gem 'rdiscount'
  
 # group :development do
 #   gem 'heroku_san', '~> 4.3.0'
