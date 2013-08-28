@@ -10,13 +10,13 @@ Given /^a "(.*) Butty" recipe exists$/ do |filler|
   recipe = Recipe.find_or_create_by_name(:name => "#{filler} Butty", :directions => "whip it")
   recipe.ingredient_amounts.create(:amount     => '2',
                                    :unit       => 'slice',
-                                   :ingredient => Ingredient.find_or_create_by_name(:name => 'bread'))
+                                   :ingredient => Ingredient.find_or_create_by(name: 'bread'))
   recipe.ingredient_amounts.create(:amount     => '1/8',
                                    :unit       => 'stick',
-                                   :ingredient => Ingredient.find_or_create_by_name(:name => 'butter'))
+                                   :ingredient => Ingredient.find_or_create_by(name: 'butter'))
   recipe.ingredient_amounts.create(:amount     => '4',
                                    :unit       => 'slice',
-                                   :ingredient => Ingredient.find_or_create_by_name(:name => filler))
+                                   :ingredient => Ingredient.find_or_create_by(name: filler))
 end
 
 Given /^a "([^\"]*)" recipe has ([^\"]+) ([^\"]+) ([^\"]+)$/ do |recipe_name, amount, unit, ingredient|
