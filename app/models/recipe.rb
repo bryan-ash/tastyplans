@@ -36,7 +36,7 @@ class Recipe < ActiveRecord::Base
   end
 
   def self.with_ingredients(ingredients)
-    recipe_collections = ingredients.map { |ingredient| self.with_ingredient(ingredient).all }
+    recipe_collections = ingredients.map { |ingredient| self.with_ingredient(ingredient).load }
     recipe_collections.inject { |recipes, next_set| recipes & next_set }.uniq
   end
 
