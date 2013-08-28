@@ -5,7 +5,7 @@ class IngredientAmount < ActiveRecord::Base
 
   acts_as_list :scope => :recipe
   
-  default_scope order('position ASC')
+  default_scope -> { order 'position ASC' }
   
   accepts_nested_attributes_for :ingredient,
   :reject_if => lambda { |a| a[:name].blank? },

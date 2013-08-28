@@ -37,7 +37,6 @@ Feature: Recipe
       """
 
     When  I show the "Bacon Butty" recipe
-
     Then  I should see "Bacon Butty"
     And   I should see "2 slice bread"
     And   I should see "1/8 stick butter"

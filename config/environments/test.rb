@@ -32,5 +32,4 @@ Mabel::Application.configure do
   # config.active_record.schema_format = :sql
 
   config.active_support.deprecation = :stderr
-  
 end

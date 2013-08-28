@@ -27,5 +27,9 @@ module Mabel
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters << :password
+    
+    # TODO: remove this
+    config.active_record.whitelist_attributes = false
+
   end
 end

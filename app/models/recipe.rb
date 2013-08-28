@@ -11,7 +11,9 @@ class Recipe < ActiveRecord::Base
 
   validates_presence_of :name, :directions
 
-  scope :named_like, lambda { |name| where {name =~ "%#{name}%" }}
+  def self.named_like(name)
+    where { |i| i.name.like "%#{name}%" }
+  end
 
   def self.recently_added
     order('created_at DESC').limit(5)
