@@ -15,7 +15,7 @@ Feature: Recipe Finder
     And   I should see "Bacon Butty"
     And   I should not see "Chip Butty" within "article"
 
-    When  I follow "Bacon Butty"
+    When  I follow "Bacon Butty" within "article"
     Then  I should see "bread"
     
   Scenario: Finding using part of the ingredeint name
