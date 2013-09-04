@@ -107,17 +107,17 @@ When /^I request a password reset with Email "([^\"]+)"$/ do |email|
 end
 
 When /^I provide a new password$/ do
-  When 'I fill in "Password" with "Secret"'
-  And  'I fill in "Password confirmation" with "Secret"'
-  And  'I press "Update my password and sign me in"'
+  step 'I fill in "Password" with "Secret"'
+  step 'I fill in "Password confirmation" with "Secret"'
+  step 'I press "Update my password and sign me in"'
 end
 
 Then /^I should receive a password reset email at "([^\"]+)"$/ do |email|
-  Given %{"#{email}" should have 1 email}
-  When  %{I open the email}
-  Then  %{I should see "Reset password instructions" in the email subject}
+  step %{"#{email}" should have 1 email}
+  step %{I open the email}
+  step %{I should see "Reset password instructions" in the email subject}
 end
 
 Then /^I should know that I\'m logged in$/ do
-  Then 'I should see "Sign out"'
+  step 'I should see "Sign out"'
 end
