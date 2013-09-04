@@ -51,6 +51,14 @@ When /^I sign up with ([^ ]+) "([^\"]+)"$/ do |attribute, value|
   step %{I press "Sign up"}
 end
 
+When /^I sign up with a short password and no confirmation$/ do
+  step %{I am on the sign up page}
+  step %{I fill in "Username" with "JD"}
+  step %{I fill in "Email" with "john@doe.com"}
+  step %{I fill in "Password" with "123"}
+  step %{I press "Sign up"}
+end
+
 When /^I sign in with "([^\"]+)"(?: and password "([^\"]+)")?$/ do |login, password|
   password ||= "password"
   visit new_user_session_path

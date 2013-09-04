@@ -30,6 +30,6 @@ Feature: Authentication
     Then  I should see "Email has already been taken"
 
   Scenario: Password is validated
-    When  I sign up with Password "123"
-    Then  I should see "doesn't match confirmation"
+    When  I sign up with a short password and no confirmation
+    Then  I should see "Password confirmation doesn't match"
     And   I should see "too short"
