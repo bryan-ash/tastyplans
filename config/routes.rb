@@ -25,7 +25,7 @@ Mabel::Application.routes.draw do
     resource :shopping_list, :only => :show
   end
 
-  get "current_meal_plan/add_recipe/:id" => "current_meal_plan#add_recipe", :as => :current_meal_plan_add_recipe
+  post "/current_meal_plan/add_recipe/:id", to: "current_meal_plan#add_recipe", :as => :current_meal_plan_add_recipe
   get "current_meal_plan/edit"           => "current_meal_plan#edit",       :as => :edit_current_meal_plan
   
   resources :recipes do
