@@ -18,7 +18,7 @@ Feature: User account
   Scenario: New password and confirmation must match
     Given I am signed in with username "John" and password "secret"
     When I update my account with a new password and confirmation that don't match, using password "secret"
-    Then I should see "Password doesn't match confirmation"
+    Then I should see "Password confirmation doesn't match"
 
   Scenario: Editing is accessible
     Given I am signed in with username "John"
