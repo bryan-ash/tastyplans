@@ -63,7 +63,7 @@ module NavigationHelpers
       recipe_path(recipe)
 
     when /^an invalid URL$/
-      'invalid'
+      '/invalid'
       
     when /^an invalid resource$/
       'recipes/invalid'
