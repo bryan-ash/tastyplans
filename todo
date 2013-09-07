@@ -1,3 +1,4 @@
+Remove all Given/When/Then steps after all scenarios pass
 convert Cucumber features into specs for speed
 
 Put Sign In and Sign Up on the same page

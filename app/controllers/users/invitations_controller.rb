@@ -1,4 +1,5 @@
 class Users::InvitationsController < Devise::InvitationsController
+  prepend_before_filter :ensure_user_is_available
   skip_before_filter :require_no_authentication, :only => [:edit, :update]
 
   def new
@@ -12,5 +13,4 @@ class Users::InvitationsController < Devise::InvitationsController
     current_user.sent_an_inviation
     super
   end
-
 end
