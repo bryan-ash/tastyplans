@@ -2,12 +2,11 @@ Feature: Beta registration request
 
   Scenario: A visitor can request a beta registration
     Given I am signed out
-    When I follow "Sign up"
-    Then I should be on the beta request page
+    Then I should be able to request a beta
 
     When I fill in "Enter your email address" with "me@home.com"
     And I press "Request invitation"
-    Then I should see "Thank you for your request, we'll email you when we have a new batch ready"
+    Then I should see "Thank you for your request, we'll email you when we have a fresh batch ready"
 
     Given I am signed in as an admin
     When I follow "Beta requests"
@@ -16,6 +15,7 @@ Feature: Beta registration request
     When I press "invite"
     Then "me@home.com" should receive an invitation email
 
+    Given I am signed out
     When I click the first link in the email
     Then I should be on the accept user invitation page
 

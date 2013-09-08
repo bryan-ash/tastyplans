@@ -7,7 +7,7 @@ def set_demo_as_current_user
 end
 
 Given /^I am signed out$/ do
-  visit destroy_user_session_path
+  page.driver.submit :delete, destroy_user_session_path, {}
   set_demo_as_current_user
 end
 

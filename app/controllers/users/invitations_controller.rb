@@ -13,4 +13,8 @@ class Users::InvitationsController < Devise::InvitationsController
     current_user.sent_an_inviation
     super
   end
+
+  def update_resource_params
+    params.require(:user).permit(:email, :username, :password, :password_confirmation, :invitation_token)
+  end
 end
