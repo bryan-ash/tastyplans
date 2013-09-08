@@ -7,7 +7,7 @@ Given /^recipe "(.+)" exists$/ do |name|
 end
 
 Given /^a "(.*) Butty" recipe exists$/ do |filler|
-  recipe = Recipe.find_or_create_by(name: "#{filler} Butty", :directions => "whip it")
+  recipe = Recipe.find_or_create_by(name: "#{filler} Butty", directions: "whip it")
   recipe.ingredient_amounts.create(:amount     => '2',
                                    :unit       => 'slice',
                                    :ingredient => Ingredient.find_or_create_by(name: 'bread'))
@@ -20,10 +20,10 @@ Given /^a "(.*) Butty" recipe exists$/ do |filler|
 end
 
 Given /^a "([^\"]*)" recipe has ([^\"]+) ([^\"]+) ([^\"]+)$/ do |recipe_name, amount, unit, ingredient|
-  recipe = Recipe.find_or_create_by_name(:name => recipe_name, :directions => "whip it")
+  recipe = Recipe.find_or_create_by(name: recipe_name, directions: "whip it")
   recipe.ingredient_amounts.build(:amount     => amount,
                                   :unit       => unit,
-                                  :ingredient => Ingredient.find_or_create_by_name(:name => ingredient))
+                                  :ingredient => Ingredient.find_or_create_by(name: ingredient))
   recipe.save
 end
 
@@ -39,7 +39,7 @@ Given /^a "([^\"]*)" recipe has ingredients:$/ do |recipe_name, ingredient_amoun
 end
 
 Given /^a "([^\"]*)" recipe has description:$/ do |recipe_name, description|
-  recipe = Recipe.find_or_create_by_name :name => recipe_name
+  recipe = Recipe.find_or_create_by name: recipe_name
   recipe.update_attributes! :description => description
 end
 
