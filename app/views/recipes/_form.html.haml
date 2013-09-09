@@ -14,14 +14,15 @@
   %section
     %h2 Ingredients
     %table
-      %tr
-        %th #
-        %th Amount
-        %th Unit
-        %th Name
+      %thead
+        %tr
+          %th #
+          %th Amount
+          %th Unit
+          %th Name
       = form.fields_for :ingredient_amounts, @recipe.ingredient_amounts do |ingredient_amount_form|
         = render "ingredient_amount_fields", :builder => ingredient_amount_form
-    = link_to_add_fields "Add an ingredient", form, :ingredient_amounts
+    = link_to "Add an ingredient", "/#", id: "add-ingredient"
 
   %section
     %h2= form.label :directions, "Enter the directions"
