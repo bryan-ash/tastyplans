@@ -179,7 +179,7 @@ DEPENDENCIES
   pg
   protected_attributes
   rails (~> 4.0)
-  rake
+  rake (~> 10.1.0)
   rdiscount
   rspec-rails
   simple_autocomplete
