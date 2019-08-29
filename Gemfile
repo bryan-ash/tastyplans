@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.0.0'
 
 gem 'rake', '~> 10.1.0'
-gem 'rails', '~> 4.0'
+gem 'rails', '~> 4.2'
 gem 'pg'
 
 # Rails 4 workarounds
