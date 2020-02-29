@@ -149,7 +149,7 @@ GEM
       activesupport (= 4.2.11.1)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (10.1.1)
+    rake (13.0.1)
     rdiscount (2.1.6)
     regexp_parser (1.6.0)
     rspec-core (2.14.5)
@@ -207,7 +207,7 @@ DEPENDENCIES
   pg
   protected_attributes
   rails (~> 4.2)
-  rake (~> 10.1.0)
+  rake (~> 13.0.1)
   rdiscount
   rspec-rails
   simple_autocomplete
